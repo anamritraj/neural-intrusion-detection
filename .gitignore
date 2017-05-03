@@ -3,4 +3,8 @@
 /model/kddcup.data.corrected
 /sniffer/maccdc2012_00000.pcap
 /sniffer/tcp-reduce-1.0/
-
+sniffer/__pycache__
+/sniffer/networking/__pycache__/*.*
+sniffer/capture.pcap
+sniffer/create-features.txt
+test.py
