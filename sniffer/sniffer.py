@@ -38,6 +38,80 @@ def get_count(count_packets, address):
     count_packets = count_packets[i-count:]
     return count_packets, count
 
+
+def two_sec_analysis(timed_packets, dest_mac, src_mac, proto, src_port, dest_port, sequence, acknowledgment, flag_urg):
+    
+
+    # Feature: LAND (1 if connection is from/to the same host/port; 0 otherwise )
+
+    if(dest_mac == src_mac or src_port == dest_port):
+        land = 1
+    else:
+        land = 0
+
+    # Feature: Flag (1 if connection is urgent; 0 otherwise )
+
+    if(flag_urg):
+        urg_flag = 1
+    else:
+        urg_flag = 0
+
+    current_time = time.time()
+    # Append the packts to a list which holds only the packets from last two seconds.
+    print("In the function")
+    count = 0
+
+    # Timed host is the main list which contains packets.
+    timed_packets.append({
+        'time': current_time, 
+        'dest_mac': dest_mac,
+        'src_port': src_port,
+        'urg_flag': urg_flag
+    })
+
+
+    # Index counter
+    i =0 
+    for x in timed_packets:
+        # If the life of packet more than two seconds.
+        if current_time - x['time'] <= 2:
+            count = count + 1;
+            pass
+        i = i + 1
+    timed_packets = timed_packets[i-count:]
+
+
+
+    same_host_count = 0
+    same_service_count = 0
+    urg_flag_count = 0
+
+    for x in timed_packets:
+        # Same Host count
+        if x['dest_mac'] == dest_mac:
+            same_host_count = same_host_count + 1
+
+        # Same service count
+        if x['src_port'] == src_port:
+            same_service_count = same_service_count + 1
+
+        # Urgent packets count
+        if x['urg_flag'] == 1:
+            urg_flag_count = urg_flag_count + 1
+        
+
+    print("same host: ", same_host_count)
+    print("same service: ", same_service_count)
+    print("Urgent count: ", urg_flag_count)
+    
+    same_srv_rate = same_service_count / same_host_count * 100
+    diff_srv_rate = 100 - same_srv_rate
+
+    print("percentage of same host to same service: ", same_srv_rate, "%")
+    print("percentage of same host to differnt service: ", diff_srv_rate, "%")
+
+
+
 def main():
     timed_packets = []
     pcap = Pcap('capture.pcap')
@@ -52,8 +126,11 @@ def main():
         # print(TAB_1 + 'Destination: {}, Source: {}, Protocol: {}'.format(eth.dest_mac, eth.src_mac, eth.proto))
 
         # Get count feature
-        timed_packets, count = get_count(timed_packets, eth.dest_mac)
 
+        # timed_packets, count = get_count(timed_packets, eth.dest_mac)
+        
+        # Analyze the packets for last two seconds.
+        
         # IPv4
         if eth.proto == 8:
             ipv4 = IPv4(eth.data)
@@ -78,6 +155,11 @@ def main():
                 # print(TAB_2 + 'Flags:')
                 # print(TAB_3 + 'URG: {}, ACK: {}, PSH: {}'.format(tcp.flag_urg, tcp.flag_ack, tcp.flag_psh))
                 # print(TAB_3 + 'RST: {}, SYN: {}, FIN:{}'.format(tcp.flag_rst, tcp.flag_syn, tcp.flag_fin))
+
+                
+                # TODO: Design different functions for different datasets. 
+
+                two_sec_analysis(timed_packets, eth.dest_mac, eth.src_mac, eth.proto, tcp.src_port, tcp.dest_port, tcp.sequence, tcp.acknowledgment, tcp.flag_urg)
 
                 if tcp.flag_urg == 0 and tcp.flag_ack == 0 and tcp.flag_psh == 0 and  tcp.flag_rst == 0 and tcp.flag_syn == 1 and tcp.flag_fin == 0:
                     print("SYN Request Sent!")    
