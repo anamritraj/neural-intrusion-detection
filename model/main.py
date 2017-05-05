@@ -8,50 +8,75 @@ dataframe = pd.read_csv('kddcup.10')
 # Data Selection
 dataframe = dataframe[0:494021]
 
-predict_x = dataframe.loc[397000:397100,['src_bytes',
-                          'dst_bytes',
-                          'count',
-                          'srv_count',
-                          'dst_host_srv_count',
-                          'dst_host_same_src_port_rate',
-                          'dst_host_srv_diff_host_rate',
-                          'dst_host_serror_rate',
-                          'dst_host_srv_serror_rate',
-                          'dst_host_rerror_rate',
-                          'dst_host_srv_rerror_rate']].as_matrix()
+predict_x = dataframe.loc[397000:397100,[
+						  'protocol_type',
+						  'service',
+						  'land',
+						  'count',
+						  'srv_count',
+						  'urgent',
+						  'same_srv_rate',
+						  'diff_srv_rate',
+						  'srv_count',
+						  'srv_diff_host_rate']].as_matrix()
 
-inputX =  dataframe.loc[:,['src_bytes',
-                          'dst_bytes',
-                          'count',
-                          'srv_count',
-                          'dst_host_srv_count',
-                          'dst_host_same_src_port_rate',
-                          'dst_host_srv_diff_host_rate',
-                          'dst_host_serror_rate',
-                          'dst_host_srv_serror_rate',
-                          'dst_host_rerror_rate',
-                          'dst_host_srv_rerror_rate']].as_matrix()
+inputX =  dataframe.loc[:,[
+						  'protocol_type',
+						  'service',
+						  'land',
+						  'count',
+						  'srv_count',
+						  'urgent',
+						  'same_srv_rate',
+						  'diff_srv_rate',
+						  'srv_count',
+						  'srv_diff_host_rate']].as_matrix()
 
-attacks = ['back',
-			'buffer_overflow',
-			'ftp_write',
-			'guess_passwd',
-			'imap',
-			'ipsweep',
-			'land',
-			'loadmodule',
-			'multihop',
-			'neptune',
-			'nmap',
-			'normal',
-			'perl',
-			'phf',
-			'pod',
-			'portsweep',
-			'rootkit',
-			'satan',
-			'smurf'
-		]
+
+print(inputX)
+
+
+
+def convert_service_to_data_point(s_name):
+	
+	services = ['http', 'smtp', 'finger', 'domain_u', 'auth', 'telnet', 'ftp', 'eco_i', 'ntp_u', 'ecr_i', 'other', 'private', 'pop_3', 'ftp_data', 'rje', 'time', 'mtp', 'link', 'remote_job', 'gopher', 'ssh', 'name', 'whois', 'domain', 'login', 'imap4', 'daytime', 'ctf', 'nntp', 'shell', 'IRC', 'nnsp', 'http_443', 'exec', 'printer', 'efs', 'courier', 'uucp', 'klogin', 'kshell', 'echo', 'discard', 'systat', 'supdup', 'iso_tsap', 'hostnames', 'csnet_ns', 'pop_2', 'sunrpc', 'uucp_path', 'netbios_ns', 'netbios_ssn', 'netbios_dgm', 'sql_net', 'vmnet', 'bgp', 'Z39_50', 'ldap', 'netstat', 'urh_i', 'X11', 'urp_i', 'pm_dump', 'tftp_u', 'tim_i', 'red_i']
+
+	if s_name in services:
+		# Assumed port number for 'other'
+		return services.index(s_name)
+	else:
+		return services.index('other')
+
+	
+			
+service = []
+for x in inputX:
+	x[1] = convert_service_to_datapoint(x[1])
+
+print(inputX)
+exit(0)
+
+attacks = [
+	'back',
+	'buffer_overflow',
+	'ftp_write',
+	'guess_passwd',
+	'imap',
+	'ipsweep',
+	'land',
+	'loadmodule',
+	'multihop',
+	'neptune',
+	'nmap',
+	'normal',
+	'perl',
+	'phf',
+	'pod',
+	'portsweep',
+	'rootkit',
+	'satan',
+	'smurf'
+]
 attack_ids = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
 attack_dict = dict(zip(attacks, attack_ids))
 
@@ -78,11 +103,11 @@ inputY = np.array(inputY)
 # Hyperparameters Setup
 
 parameters = {
-'learning_rate': 0.0001,
-'training_epochs': 70,
-'display_steps': 1,
-'n_features': inputX[0].size,
-'n_classes': inputY[0].size
+	'learning_rate': 0.0001,
+	'training_epochs': 70,
+	'display_steps': 1,
+	'n_features': inputX[0].size,
+	'n_classes': inputY[0].size
 }
 
 # =======================================================
@@ -120,12 +145,12 @@ def train_and_save_model(inputX, inputY, parameters):
 	tf.global_variables_initializer().run()
 
 	for i in range(parameters['training_epochs']):
-	    sess.run(train_step, feed_dict={x:inputX, y_:inputY})
-	    cc = sess.run(cost, feed_dict={x:inputX, y_:inputY})
-	    if i % parameters['display_steps'] == 0:
-		    correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
-		    accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-		    print("Training Step: ", "%04d" % (i), 'cost=', "{:.9f}".format(cc), "Accuracy: ", sess.run(accuracy, feed_dict={x: inputX, y_: inputY}))
+		sess.run(train_step, feed_dict={x:inputX, y_:inputY})
+		cc = sess.run(cost, feed_dict={x:inputX, y_:inputY})
+		if i % parameters['display_steps'] == 0:
+			correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
+			accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+			print("Training Step: ", "%04d" % (i), 'cost=', "{:.9f}".format(cc), "Accuracy: ", sess.run(accuracy, feed_dict={x: inputX, y_: inputY}))
 
 	print("Optimization Finished!")
 	# training_cost = sess.run(cost, feed_dict={x:inputX, y_:inputY})
@@ -151,7 +176,9 @@ def predict_class(input_x, save_path):
 		print(attacks[c.index(max(c))])
 
 def main():
-	# save_path = train_and_save_model(inputX, inputY, parameters)
+	save_path = train_and_save_model(inputX, inputY, parameters)
+	# print(predict_x)
+
 	predict_class(predict_x, './tmp/model.ckpt')
 
 main()
