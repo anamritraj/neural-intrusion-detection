@@ -36,7 +36,7 @@ inputX =  dataframe.loc[:,[
 print(inputX)
 
 
-
+# Converts a given service name to a data point numerical value which is consistent throughout the model.
 def convert_service_to_data_point(s_name):
 	
 	services = ['http', 'smtp', 'finger', 'domain_u', 'auth', 'telnet', 'ftp', 'eco_i', 'ntp_u', 'ecr_i', 'other', 'private', 'pop_3', 'ftp_data', 'rje', 'time', 'mtp', 'link', 'remote_job', 'gopher', 'ssh', 'name', 'whois', 'domain', 'login', 'imap4', 'daytime', 'ctf', 'nntp', 'shell', 'IRC', 'nnsp', 'http_443', 'exec', 'printer', 'efs', 'courier', 'uucp', 'klogin', 'kshell', 'echo', 'discard', 'systat', 'supdup', 'iso_tsap', 'hostnames', 'csnet_ns', 'pop_2', 'sunrpc', 'uucp_path', 'netbios_ns', 'netbios_ssn', 'netbios_dgm', 'sql_net', 'vmnet', 'bgp', 'Z39_50', 'ldap', 'netstat', 'urh_i', 'X11', 'urp_i', 'pm_dump', 'tftp_u', 'tim_i', 'red_i']
@@ -47,11 +47,19 @@ def convert_service_to_data_point(s_name):
 	else:
 		return services.index('other')
 
-	
-			
-service = []
+
+# Convert a protocol to data point 
+def convert_protocol_to_data_point(proto):
+	if proto == 'tcp':
+		return 6
+	elif proto == 'udp':
+		return 17
+	elif proto == 'icmp':
+		return 1
+
 for x in inputX:
-	x[1] = convert_service_to_datapoint(x[1])
+	x[1] = convert_service_to_data_point(x[1])
+	x[0] = convert_protocol_to_data_point(x[0])
 
 print(inputX)
 exit(0)
