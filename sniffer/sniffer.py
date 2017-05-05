@@ -21,35 +21,16 @@ DATA_TAB_3 = '\t\t\t   '
 DATA_TAB_4 = '\t\t\t\t   '
 
 
-def get_count(count_packets, address):
-    current_time = time.time()
-    count_packets.append({'time': current_time, 'source': address})
-    
-    count = 0;
-
-    # Index
-    i = 0
-
-    for x in count_packets:
-        if current_time - x['time'] <= 2 and x['source'] == address:
-            count = count + 1;
-            pass
-        i = i + 1
-    count_packets = count_packets[i-count:]
-    return count_packets, count
 
 
-def two_sec_analysis(timed_packets, dest_mac, src_mac, proto, src_port, dest_port, sequence, acknowledgment, flag_urg):
-    
+
+def two_sec_analysis_tcp(timed_packets, dest_mac, src_mac, proto, src_port, dest_port, sequence, acknowledgment, flag_urg):
 
     # Feature: LAND (1 if connection is from/to the same host/port; 0 otherwise )
-
     if(dest_mac == src_mac or src_port == dest_port):
         land = 1
     else:
         land = 0
-
-    # Feature: Flag (1 if connection is urgent; 0 otherwise )
 
     if(flag_urg):
         urg_flag = 1
@@ -57,8 +38,8 @@ def two_sec_analysis(timed_packets, dest_mac, src_mac, proto, src_port, dest_por
         urg_flag = 0
 
     current_time = time.time()
+    
     # Append the packts to a list which holds only the packets from last two seconds.
-    print("In the function")
     count = 0
 
     # Timed host is the main list which contains packets.
@@ -71,7 +52,8 @@ def two_sec_analysis(timed_packets, dest_mac, src_mac, proto, src_port, dest_por
 
 
     # Index counter
-    i =0 
+    i =0
+
     for x in timed_packets:
         # If the life of packet more than two seconds.
         if current_time - x['time'] <= 2:
@@ -87,29 +69,26 @@ def two_sec_analysis(timed_packets, dest_mac, src_mac, proto, src_port, dest_por
     urg_flag_count = 0
 
     for x in timed_packets:
+        # Feature: count (number of connections to the same host as the current connection in the past two seconds )
         # Same Host count
         if x['dest_mac'] == dest_mac:
             same_host_count = same_host_count + 1
 
-        # Same service count
+        # Feature: srv_count (number of connections to the same service as the current connection in the past two seconds)
         if x['src_port'] == src_port:
             same_service_count = same_service_count + 1
 
-        # Urgent packets count
+        # Feature: urgent (number of urgent packets)
         if x['urg_flag'] == 1:
             urg_flag_count = urg_flag_count + 1
-        
 
-    print("same host: ", same_host_count)
-    print("same service: ", same_service_count)
-    print("Urgent count: ", urg_flag_count)
-    
+    # Feature: same_srv_rate (% of connections to the same service )    
     same_srv_rate = same_service_count / same_host_count * 100
+
+    # Feature: same_srv_rate (% of connections to the different service )    
     diff_srv_rate = 100 - same_srv_rate
-
-    print("percentage of same host to same service: ", same_srv_rate, "%")
-    print("percentage of same host to differnt service: ", diff_srv_rate, "%")
-
+    
+    return timed_packets, same_host_count, same_service_count, same_srv_rate, diff_srv_rate, land
 
 
 def main():
@@ -141,6 +120,8 @@ def main():
             # ICMP
             if ipv4.proto == 1:
                 icmp = ICMP(ipv4.data)
+                proto = 'icmp'
+
                 # print(TAB_1 + 'ICMP Packet:')
                 # print(TAB_2 + 'Type: {}, Code: {}, Checksum: {},'.format(icmp.type, icmp.code, icmp.checksum))
                 # print(TAB_2 + 'ICMP Data:')
@@ -157,12 +138,21 @@ def main():
                 # print(TAB_3 + 'RST: {}, SYN: {}, FIN:{}'.format(tcp.flag_rst, tcp.flag_syn, tcp.flag_fin))
 
                 
-                # TODO: Design different functions for different datasets. 
+                proto = 'tcp'
+                try:
+                    service = get_service_from_port(tcp.dest_port)
+                except:
+                    try:
+                        service = get_service_from_port(tcp.src_port)
+                    except:
+                        service = "private"
 
-                two_sec_analysis(timed_packets, eth.dest_mac, eth.src_mac, eth.proto, tcp.src_port, tcp.dest_port, tcp.sequence, tcp.acknowledgment, tcp.flag_urg)
+                timed_packets, same_host_count, same_service_count, same_srv_rate, diff_srv_rate, land = two_sec_analysis_tcp(timed_packets, eth.dest_mac, eth.src_mac, eth.proto, tcp.src_port, tcp.dest_port, tcp.sequence, tcp.acknowledgment, tcp.flag_urg)
+
 
                 if tcp.flag_urg == 0 and tcp.flag_ack == 0 and tcp.flag_psh == 0 and  tcp.flag_rst == 0 and tcp.flag_syn == 1 and tcp.flag_fin == 0:
-                    print("SYN Request Sent!")    
+                    print("SYN Request Sent!")
+                    print("connection started")
                     pass
                 elif tcp.flag_urg == 0 and tcp.flag_ack == 1 and tcp.flag_psh == 0 and  tcp.flag_rst == 0 and tcp.flag_syn == 1 and tcp.flag_fin == 0:
                     print("SYN-ACK Request Sent!")    
@@ -203,6 +193,7 @@ def main():
             # UDP
             elif ipv4.proto == 17:
                 udp = UDP(ipv4.data)
+                proto = 'udp'
                 # print(TAB_1 + 'UDP Segment:')
                 # print(TAB_2 + 'Source Port: {}, Destination Port: {}, Length: {}'.format(udp.src_port, udp.dest_port, udp.size))
 
