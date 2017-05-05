@@ -1,7 +1,16 @@
 import pandas as pd
 import numpy as np
+
+import matplotlib
+matplotlib.use("TkAgg")
+
 import matplotlib.pyplot as plt
 import tensorflow as tf
+
+# For Live graphs
+import matplotlib.animation as animation
+from matplotlib import style
+
 
 dataframe = pd.read_csv('kddcup.10')
 
@@ -118,7 +127,7 @@ inputY = np.array(inputY)
 
 parameters = {
 	'learning_rate': 0.0001,
-	'training_epochs': 150,
+	'training_epochs': 250,
 	'display_steps': 1,
 	'n_features': inputX[0].size,
 	'n_classes': inputY[0].size
@@ -142,7 +151,8 @@ y = tf.nn.softmax(tf.matmul(x, W) + b)
 
 y_ = tf.placeholder(tf.float32, [None, parameters['n_classes']])
 
-
+xpoints = []
+ypoints = []
 
 def train_and_save_model(inputX, inputY, parameters):
 	# cost = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1]))
@@ -164,15 +174,30 @@ def train_and_save_model(inputX, inputY, parameters):
 		if i % parameters['display_steps'] == 0:
 			correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
 			accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-			print("Training Step: ", "%04d" % (i), 'cost=', "{:.9f}".format(cc), "Accuracy: ", sess.run(accuracy, feed_dict={x: inputX, y_: inputY}))
+			accuracy_percentage = sess.run(accuracy, feed_dict={x: inputX, y_: inputY})
+			print("Training Step: ", "%04d" % (i), 'cost=', "{:.9f}".format(cc), "Accuracy: ",accuracy_percentage )
+			xpoints.append(i)
+			ypoints.append(accuracy_percentage * 100)
+
+
+
 
 	print("Optimization Finished!")
+	print(xpoints, ypoints)
+	plt.plot(xpoints, ypoints)
+
+	plt.xlabel('Epochs')
+	plt.ylabel('Accuracy Percentage')
+	plt.title("Model Accuracy vs No of Epochs")
+	plt.legend()
+	plt.show()
 	# training_cost = sess.run(cost, feed_dict={x:inputX, y_:inputY})
 	# print("Training cost= ", training_cost, " W=", sess.run(W), " b=", sess.run(b))
 
 	save_path = saver.save(sess, model_path)
 	print("Model saved in file: %s" % save_path)
 	return save_path
+
 
 
 def predict_class(input_x, save_path):
@@ -188,6 +213,7 @@ def predict_class(input_x, save_path):
 	for c in classification:
 		c = list(c)
 		print(attacks[c.index(max(c))])
+
 
 def main():
 	save_path = train_and_save_model(inputX, inputY, parameters)
