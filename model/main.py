@@ -33,9 +33,6 @@ inputX =  dataframe.loc[:,[
 						  'srv_diff_host_rate']].as_matrix()
 
 
-print(inputX)
-
-
 # Converts a given service name to a data point numerical value which is consistent throughout the model.
 def convert_service_to_data_point(s_name):
 	
@@ -57,12 +54,19 @@ def convert_protocol_to_data_point(proto):
 	elif proto == 'icmp':
 		return 1
 
+# ============================
+# Data Preprocessing - InputX
+# ============================
 for x in inputX:
+	#  Convert service names for each packet into data points
 	x[1] = convert_service_to_data_point(x[1])
+	# Convert protocol for each packet into data points
 	x[0] = convert_protocol_to_data_point(x[0])
 
-print(inputX)
-exit(0)
+
+# ============================
+# Data Preprocessing - InputY
+# ============================
 
 attacks = [
 	'back',
@@ -108,19 +112,21 @@ for inY in tempInputY:
 # Convert one hot list to one hot array of labels
 inputY = np.array(inputY)
 
+# ======================
 # Hyperparameters Setup
+# ======================
 
 parameters = {
 	'learning_rate': 0.0001,
-	'training_epochs': 70,
+	'training_epochs': 150,
 	'display_steps': 1,
 	'n_features': inputX[0].size,
 	'n_classes': inputY[0].size
 }
 
-# =======================================================
+# ========================
 # CREATE COMPUTATION MODEL
-# =======================================================
+# ========================
 
 
 x = tf.placeholder(tf.float32, [None, parameters['n_features']])
@@ -187,6 +193,6 @@ def main():
 	save_path = train_and_save_model(inputX, inputY, parameters)
 	# print(predict_x)
 
-	predict_class(predict_x, './tmp/model.ckpt')
+	# predict_class(predict_x, './tmp/model.ckpt')
 
 main()
