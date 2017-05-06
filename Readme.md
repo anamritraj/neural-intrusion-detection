@@ -2,8 +2,7 @@
 
 ## Synopsis
 
-
-## Motivation
+Intrusion detection systems are an important part of a computer network. The proposed model aims to solve the problem of classifying packets based on the network traffic captured using a softmax regression model trained on Tensorflow.
 
 ## Installation
 
@@ -17,6 +16,7 @@
 ### Clone this repository
 
 **Assuming you have `git` already installed.**
+
 `git clone http://github.com/anamritraj/neural-network-intrusion-detection.git`
 
 ### Dependencies
