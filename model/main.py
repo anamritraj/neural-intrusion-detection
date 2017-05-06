@@ -17,17 +17,6 @@ dataframe = pd.read_csv('kddcup.10')
 # Data Selection
 dataframe = dataframe[0:494021]
 
-predict_x = dataframe.loc[397000:397100,[
-						  'protocol_type',
-						  'service',
-						  'land',
-						  'count',
-						  'srv_count',
-						  'urgent',
-						  'same_srv_rate',
-						  'diff_srv_rate',
-						  'srv_count',
-						  'srv_diff_host_rate']].as_matrix()
 
 inputX =  dataframe.loc[:,[
 						  'protocol_type',
@@ -38,7 +27,6 @@ inputX =  dataframe.loc[:,[
 						  'urgent',
 						  'same_srv_rate',
 						  'diff_srv_rate',
-						  'srv_count',
 						  'srv_diff_host_rate']].as_matrix()
 
 
@@ -63,8 +51,18 @@ def convert_protocol_to_data_point(proto):
 	elif proto == 'icmp':
 		return 1
 
+
+def preprocess_input(input_x):
+	for x in input_x:
+		#  Convert service names for each packet into data points
+		x[1] = convert_service_to_data_point(x[1])
+		# Convert protocol for each packet into data points
+		x[0] = convert_protocol_to_data_point(x[0])
+	return input_x
+		
+
 # ============================
-# Data Preprocessing - InputX
+# Data Preprocessing - inputX
 # ============================
 for x in inputX:
 	#  Convert service names for each packet into data points
@@ -199,7 +197,6 @@ def train_and_save_model(inputX, inputY, parameters):
 	return save_path
 
 
-
 def predict_class(input_x, save_path):
 	sess = tf.InteractiveSession()
 	saver = tf.train.Saver()
@@ -215,10 +212,23 @@ def predict_class(input_x, save_path):
 		print(attacks[c.index(max(c))])
 
 
+
 def main():
 	save_path = train_and_save_model(inputX, inputY, parameters)
 	# print(predict_x)
 
+	# predict_x = dataframe.loc[397000:397100,[
+	# 					  'protocol_type',
+	# 					  'service',
+	# 					  'land',
+	# 					  'count',
+	# 					  'srv_count',
+	# 					  'urgent',
+	# 					  'same_srv_rate',
+	# 					  'diff_srv_rate',
+	# 					  'srv_diff_host_rate']].as_matrix()
+	# predict_x = preprocess_input(predict_x)
 	# predict_class(predict_x, './tmp/model.ckpt')
 
-main()
+if __name__ == '__main__':
+	main()
