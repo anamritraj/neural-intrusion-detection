@@ -4,6 +4,14 @@
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{lipsum}
+% For theorems
+\usepackage{amsthm}
+
+% For Code
+\usepackage{listings} 
+
+% For Acronyms
+\usepackage{acronym}
 
 % Bibliography preamble
 \usepackage[numbers,sort&compress]{natbib}
@@ -13,6 +21,19 @@
 
 % Macro for inserting quotes
 \newcommand{\quotes}[1]{``#1''}
+
+% Code Settings
+\lstset{
+	basicstyle=\ttfamily\small,
+	basewidth=0.55em,
+	showstringspaces=false,
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=2.5pt,
+	keywordstyle=\bfseries\ttfamily,
+	breaklines=true
+}
+\lstnewenvironment{logs}{\lstset{frame=lines,basicstyle=\footnotesize\ttfamily,numbers=none}}{}
 
 %Header / Footer
 
@@ -25,8 +46,11 @@
 \renewcommand{\footrulewidth}{0pt}
 
 \usepackage[margin=1in,left=1.5in,includefoot]{geometry}
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
 
 \begin{document}
+
 	% TITLE PAGE
 	\begin{titlepage}
 		\vspace*{\fill}
@@ -154,10 +178,10 @@
 	
 	\vspace{10pt}
 	
-	\flushleft
+	\begin{flushleft}
 	Anand Amrit Raj\\
 	B. Tech Computer Science and Engineering
-	
+	\end{flushleft}
 	\cleardoublepage
 	%ACKNOWLEDGEMENT ENDS
 	
@@ -186,13 +210,185 @@
 	% Introduction
 	\cleardoublepage
 	\section{Introduction}\label{sec:intro}
-	
-	
-		\subsection{Security Threats}
-		\lipsum[1-3]
-			\subsubsection{Role of Intrusion Detection}
-			\lipsum[1-2]
 		
+		Network connected devices such as personal computers, smart phones, or gaming consoles are nowadays enjoying immense popularity. In parallel, the Web and the humongous amount of services it offers have certainly became the most ubiquitous tools of all the times. Facebook counts more than 1.28 billion daily active users as of 31st March 2017. Approximately 70\% of the traffic generated on Facebook is through mobile devices. Every second 44,000 GBs worth of data is flowing through the internet. Google has estimated that the number of \textit{Unique Uniform Resource Locators}(URLs) is 50 trillion. Not only the Web 2.0 has became predominant; in fact, thinking that on December 1990 the Internet was made of \textit{one} site and today it counts more than 100 billion websites is just astonishing.
+		
+		The Internet and the Web are huge~\cite{torpig}. The relevant fact, however, is that they both became the most advanced workplace. Almost every industry connected its own network to the Internet and relies on these infrastructures for a vast majority of transactions; most of the time monetary transactions. As an example,every year \textsf{Google} looses approximately 110 millions of USDollars in ignored ads because of the \emph{``I'm feeling lucky''} button. The scary part is that, during their daily work activities, people typically pay poor or no attention at all to the risks that derive from exchanging any kind of information over such a complex, interconnected infrastructure. This is demonstrated by the effectiveness of social engineering~\cite{deception} scams carried over the Internet or the phone~\cite{social-engineering-fundamentals}. Recall that 76\% of the phishing is related to finance. Now, compare this landscape to what the most famous security quote states.
+		 
+		 \begin{quotation}
+		 	``The only truly secure computer is one buried in concrete, with the power turned off and the network cable cut''.
+		 	---\emph{Anonymous}
+		 \end{quotation}
+		
+		In fact, the Internet is all but a safe place~\cite{whid}, with more than 1,250 \emph{known} data breaches between 2005 and 2009 \cite{breach-data} and an estimate of 7,094,922,061 records stolen by intruders since 2013. Only 4\% of these breaches where secure breaches where encryption was used and stolen data was rendered useless \cite{breach-data}. One may wonder why the advance of research in computer security and the increased awareness of governments and public institutions are still not capable of avoiding such incidents. Besides the fact that the aforementioned numbers would be order of magnitude higher in absence of countermeasures, todays' security issues are, basically, caused by the combination of two phenomena: the high amount of software vulnerabilities and the effectiveness of todays' exploitation strategy.
+		
+		
+		\begin{description}
+			\item[software flaws] --- (un)surprisingly, software is affected byvulnerabilities. Incidentally, tools that have to do with the Web,
+			namely, browsers and 3\textsuperscript{rd}-party extensions, and web
+			applications, are the most vulnerable ones. Everyday browsers and websites are put through extreme testing to make sure the end user is secure. Testing becomes even more difficult due to presence of various Operating Systems (OS) and a plethora of web-browsers.
+			
+			\item[massification of attacks] --- in parallel to the explosion of the Web 2.0, attackers and the underground economy have quickly learned that a sweep of exploits run against \emph{every} reachable host have more chances to find a vulnerable target and, thus, is much more profitable compared to a single effort to break into a high-value, well-protected machine.
+		\end{description}
+		
+		These circumstances have initiated a vicious circle that provides the attackers with a very large pool of vulnerable targets. Vulnerable client hosts are compromised to ensure virtually unlimited bandwidth and computational resources to attackers, while server side applications are violated to host malicious code used to infect client visitors. And so forth. An old fashioned attacker would have violated a single site using all the resources available, stolen data and sold it to the underground market. Instead, a modern attacker adopts a vampire'' approach and exploit client-side software vulnerabilities to take (remote) control of million hosts. In the past the diffusion of malicious code such as viruses was sustained by sharing of infected, cracked software through floppy or compact disks; nowadays, the Web offers unlimited, public storage to attackers that deploy their exploit on compromised websites.
+ 		 Thus, not only the type of vulnerabilities has changed, posing virtually every interconnected device at risk. The exploitation strategy created new types of threats that take advantage of classic malicious code patterns but in a new, extensive, and tremendously effective way.
+		
+		
+		
+		\subsection{Security Threats}\label{intro:threats}
+		Every year, new threats are discovered and attacker take advantage of them until effective countermeasures are found. Then, new threats are discovered, and so forth. \textsf{Symantec} quantifies the amount of new malicious code threats to be 357M as of 2017 \cite{symantec_threat_report_2017}. Thus, countermeasures must advance at least with the same grow rate.\\
+		
+		Todays' underground economy run a very proficient market: everyone can buy credit card information for as low as \$0.06--\$30, full identities for just \$0.70--\$60 or rent a scam hosting solution for \$3--\$40 per week plus \$2-\$20 for the design~\cite{symantec_threat_report_2017}.\\ 	 
+
+		The main underlying technology actually employs a classic type of software called \emph{bot} (jargon for \emph{robot}), which is not malicious \emph{per s\'e}, but is used to remotely control a network of compromised hosts, called \emph{botnet}~\cite{holz}. Remote commands can be of any type and typically include launching an attack, starting a phishing or spam campaign, or even updating to the latest version of the bot software by downloading the binary code from a host controlled by the attackers (usually called \emph{bot master})~\cite{torpig}. The exchange good has now become the botnet infrastructure itself rather than the data that can be stolen or the spam that can be sent. These are mere outputs of todays' most popular service offered for rent by the underground economy.
+		
+			\subsubsection{Role of Intrusion Detection}
+			
+			The aforementioned, dramatic big picture may lead to think that the malicious software will eventually proliferate at every host of the Internet and no effective re-mediation exists. However, a more careful analysis reveals that, despite the complexity of this scenario, the problems that must be solved by a security infrastructure can be decomposed into relatively simple tasks that, surprisingly, may already have a solution. Let us look at an example.
+			
+			\begin{example}
+				This is how a sample exploitation can be structured
+				\begin{description}
+					\item [injection] --- a malicious request is sent to the vulnerable
+					web application with the goal of corrupting all the responses sent
+					to legitimate clients from that moment on. For instance, more than
+					one releases of the popular \textsf{WordPress} blog application are
+					vulnerable to injection
+					attacks\footnote{http://secunia.com/advisories/23595} that allow an
+					attacker to permanently include arbitrary content to the
+					pages. Typically, such an arbitrary content is malicious code (e.g.,
+					JavaScript, VBSCrip, ActionScript, ActiveX) that, every time a
+					legitimate user requests the infected page, executes on the client
+					host.
+					\item [infection] --- Assuming that the compromised site is
+					frequently accessed --- this might be the realistic case of the
+					\textsf{WordPress}-powered \textsf{ZDNet} news
+					blog\footnote{http://wordpress.org/showcase/zdnet/} --- a
+					significant amount of clients visit it. Due to the high popularity
+					of vulnerable browsers and plug-ins, the client may run
+					\textsf{Internet Explorer} --- that is the most popular --- or an
+					outdated release of \textsf{Firefox} on \textsf{Windows}. This
+					create the perfect circumstances for the malicious page to
+					successfully execute. In the best case, it may download a virus or a
+					generic malware from a website under control of the attacker, so
+					infecting the machine. In the worst case, this code may also exploit
+					specific browser vulnerabilities and execute in privileged mode.
+					\item [control \& use] --- The malicious code just download installs
+					and hides itself onto the victim's computer, which has just joined a
+					botnet. As part of it, the client host can be remotely controlled by
+					the attackers who can, for instance, rent it, use its bandwidth and
+					computational power along with other computers to run a distributed
+					(DoS) attack. Also, the host can be used to automatically perform
+					the same attacks described above against other vulnerable web
+					applications. And so forth.
+				\end{description}
+			\end{example}
+		
+		This simple yet quite realistic example shows the various kinds of
+		malicious activity that are generated during a typical drive-by
+		exploitation. It also shows its requirements and assumptions that must
+		hold to guarantee success. More precisely, we can recognize:
+		
+		\begin{description}
+			\item[network activity] --- clearly, the whole interaction relies on a
+			network connection over the Internet: the \ac{HTTP} connections
+			used, for instance, to download the malicious code as well as to
+			launch the injection attack used to compromise the web server.
+			\item[host activity] --- similarly to every other type of attack
+			against an application, when the client-side code executes, the
+			browser (or one of its extension plug-ins) is forced to behave
+			improperly. If the malicious code executes till completion the
+			attack succeeds and the host is infected. This happens only if the
+			platform, operating system, and browser all match the requirements
+			assumed by the exploit designer. For instance, the attack may
+			succeed on \textsf{Windows} and not on \textsf{Mac OS X}, although
+			the vulnerable version of, say, \textsf{Firefox} is the same on both
+			the hosts.
+			\item[HTTP traffic] --- in order to exploit the vulnerability of the
+			web application, the attacking client must generate malicious
+			HTTP requests. For instance, in the case of an SQL
+			injection --- that is the second most common vulnerability in a web
+			application --- instead of a regular
+			
+			\begin{logs}
+GET /index.php?username=myuser 
+			\end{logs}
+			
+			\noindent the web server might be forced to process a
+			
+			\begin{logs}
+GET /index.php?username=' OR 'x'='x'--\&content=<script
+src="evil.com/code.js">
+			\end{logs}
+			
+			\noindent that causes the \texttt{index.php} page to behave
+			improperly.
+		\end{description}
+		
+		It is now clear that protection mechanisms that analyze the network
+		traffic, the activity of the client's operating system, the web
+		server's HTTP logs, or any combination of the three, have chances
+		of recognizing that something malicious is happening in the
+		network. For instance, if the ISP network adopt \textsf{Snort}, a
+		lightweight IDS that analyzes the network traffic for known
+		attack patterns, could block all the packets marked as
+		suspicious. This would prevent, for instance, the SQL injection
+		to reach the web application. A similar protection level can be
+		achieved by using other tools such as \textsf{ModSecurity}
+		. One of the problems that may arise with
+		these classic, widely adopted solutions is if a zero day\index{0-day}
+		attack is used. A zero day attack or threat exploits a vulnerability
+		that is unknown to the public, undisclosed to the software vendor, or
+		a fix is not available; thus, protection mechanisms that merely
+		blacklist known malicious activity immediately become ineffective. In
+		a similar vein, if the client is protected by an anti-virus, the
+		infection phase can be blocked. However, this countermeasure is once
+		again successful only if the anti-virus is capable of recognizing the
+		malicious code, which assumes that the code is known to be malicious.
+		
+		Ideally, an effective and comprehensive countermeasure can be achieved
+		if all the protection tools involved (e.g., client-side,
+		server-side, network-side) can collaborate together. For
+		instance, if a website is publicly reported to be malicious, a
+		client-side protection tool should block all the content
+		downloaded from that particular website. This is only a simple
+		example.
+		
+		Thus, countermeasures against todays' threats already exist but are
+		subject to at least two drawbacks:
+		
+		\begin{itemize}
+			\item they offer protection only against known threats. To be
+			effective we must assume that all the hostile traffic can be
+			enumerated, which is clearly an impossible task.
+			
+			\begin{quotation}
+				Why is ``Enumerating Badness'' a dumb idea? It's a dumb idea
+				because sometime around 1992 the amount of Badness in the Internet
+				began to vastly outweigh the amount of Goodness. For every
+				harmless, legitimate, application, there are dozens or hundreds of
+				pieces of malware, worm tests, exploits, or viral code. Examine a
+				typical antivirus package and you'll see it knows about 75,000+
+				viruses that might infect your machine. Compare that to the
+				legitimate 30 or so apps that I've installed on my machine, and
+				you can see it's rather dumb to try to track 75,000 pieces of
+				Badness when even a simpleton could track 30 pieces of
+				Goodness~\citep{ranum-myths}.
+			\end{quotation}
+			
+			\item they lack of cooperation, which is crucial to detect global and
+			slow attacks.
+		\end{itemize}
+		
+		This said, we conclude that classic approaches such as dynamic and
+		static code analysis and IDS already offer good protection but
+		industry and research should move toward methods that require little
+		or no knowledge. In this work, we indeed focus on the so called
+		anomaly-based approaches, i.e., those that attempt to recognize the
+		threats by detecting any variation from a system's normal operation,
+		rather than looking for signs of known-to-be-malicious
+		activity.
 		\subsection{Background}
 			\lipsum[1-2]
 			\subsubsection{Feature Extraction}

@@ -39,4 +39,32 @@ A.~AlEroud and I.~Alsmadi, ``{Identifying cyber-attacks on software defined
   \url{http://linkinghub.elsevier.com/retrieve/pii/S1084804516303447}
 \BIBentrySTDinterwordspacing
 
+\bibitem{torpig}
+B.~Stone-Gross, M.~Cova, L.~Cavallaro, B.~G. t, M.~tin Szydlowski~andRichard
+  Kemmerer, and C.~K. andGiovanni Vigna, ``Your botnet is my botnet: Analysis
+  of a botnet takeover,'' in \emph{CCS 2009}.\hskip 1em plus 0.5em minus
+  0.4em\relax Chicago: ACM, November 2009.
+
+\bibitem{whid}
+{Ofer Shezaf and Jeremiah Grossman and Robert Auger}, ``{Web Hacking Incidents
+  Database},'' \url{http://www.xiom.com/whid-about}, January 2009.
+
+\bibitem{breach-data}
+\BIBentryALTinterwordspacing
+B.~L. Index. (2017) \BIBforeignlanguage{en-gb}{Data breach statistics by year,
+  industry, more - breach level index}. Gemalto Inc. [Online]. Available:
+  \url{http://breachlevelindex.com}
+\BIBentrySTDinterwordspacing
+
+\bibitem{symantec_threat_report_2017}
+D.~Turner, M.~Fossi, E.~Johnson, T.~Mark, J.~Blackbird, S.~Entwise, M.~K. Low,
+  D.~McKinney, and C.~Wueest, ``{Symantec Global Internet Security Threat
+  Report -- Trends for 2017},''
+  \url{https://www.symantec.com/content/dam/symantec/docs/reports/istr-22-2017-en.pdf},
+  Symantec Corporation, Tech. Rep.~24, April 2017.
+
+\bibitem{holz}
+T.~Holz, ``A short visit to the bot zoo,'' \emph{IEEE Security \& Privacy},
+  vol.~3, no.~3, pp. 76--79, 2005.
+
 \end{thebibliography}

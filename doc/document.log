@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.7)  7 MAY 2017 19:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.7)  8 MAY 2017 00:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -70,12 +70,65 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count88
 )
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2015/03/04 v2.20.2
+\thm@style=\toks15
+\thm@bodyfont=\toks16
+\thm@headfont=\toks17
+\thm@notefont=\toks18
+\thm@headpunct=\toks19
+\thm@preskip=\skip52
+\thm@postskip=\skip53
+\thm@headsep=\skip54
+\dth@everypar=\toks20
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count89
+\lst@gtempboxa=\box26
+\lst@token=\toks21
+\lst@length=\count90
+\lst@currlwidth=\dimen105
+\lst@column=\count91
+\lst@pos=\count92
+\lst@lostspace=\dimen106
+\lst@width=\dimen107
+\lst@newlines=\count93
+\lst@lineno=\count94
+\lst@maxwidth=\dimen108
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count95
+\lst@skipnumbers=\count96
+\lst@framebox=\box27
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/acronym/acronym.sty
+Package: acronym 2015/03/21 v1.41 Support for acronyms (Tobias Oetiker)
+
+(/usr/share/texlive/texmf-dist/tex/latex/bigfoot/suffix.sty
+Package: suffix 2006/07/15 1.5a Variant command support
+)
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
+\@xs@message=\write3
+\integerpart=\count97
+\decimalpart=\count98
+)
+Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
+)
+\AC@clearlist=\toks22
+)
 (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip52
-\bibsep=\skip53
+\bibhang=\skip55
+\bibsep=\skip56
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count89
+\c@NAT@ctr=\count99
 )
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
@@ -91,47 +144,49 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count90
-\Gm@cntv=\count91
-\c@Gm@tempcnt=\count92
-\Gm@bindingoffset=\dimen105
-\Gm@wd@mp=\dimen106
-\Gm@odd@mp=\dimen107
-\Gm@even@mp=\dimen108
-\Gm@layoutwidth=\dimen109
-\Gm@layoutheight=\dimen110
-\Gm@layouthoffset=\dimen111
-\Gm@layoutvoffset=\dimen112
-\Gm@dimlist=\toks15
+\Gm@cnth=\count100
+\Gm@cntv=\count101
+\c@Gm@tempcnt=\count102
+\Gm@bindingoffset=\dimen109
+\Gm@wd@mp=\dimen110
+\Gm@odd@mp=\dimen111
+\Gm@even@mp=\dimen112
+\Gm@layoutwidth=\dimen113
+\Gm@layoutheight=\dimen114
+\Gm@layouthoffset=\dimen115
+\Gm@layoutvoffset=\dimen116
+\Gm@dimlist=\toks23
 )
+\c@example=\count103
+
 (./document.aux)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
  (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count93
-\scratchdimen=\dimen113
-\scratchbox=\box26
-\nofMPsegments=\count94
-\nofMParguments=\count95
-\everyMPshowfont=\toks16
-\MPscratchCnt=\count96
-\MPscratchDim=\dimen114
-\MPnumerator=\count97
-\makeMPintoPDFobject=\count98
-\everyMPtoPDFconversion=\toks17
+\scratchcounter=\count104
+\scratchdimen=\dimen117
+\scratchbox=\box28
+\nofMPsegments=\count105
+\nofMParguments=\count106
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count107
+\MPscratchDim=\dimen118
+\MPnumerator=\count108
+\makeMPintoPDFobject=\count109
+\everyMPtoPDFconversion=\toks25
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -176,6 +231,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+\c@lstlisting=\count110
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -214,7 +271,7 @@ e
 File: pictures/nitrr-logo.jpg Graphic file (type jpg)
 
 <use pictures/nitrr-logo.jpg>
-Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 45.
+Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 69.
 (pdftex.def)             Requested size: 100.0pt x 111.93108pt.
  [1
 
@@ -222,21 +279,21 @@ Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 45.
 ]
 File: pictures/nitrr-logo.jpg Graphic file (type jpg)
  <use pictures/nitrr-logo.jpg>
-Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 82.
+Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 106.
 (pdftex.def)             Requested size: 100.0pt x 111.93108pt.
  [1]
 File: pictures/nitrr-logo.jpg Graphic file (type jpg)
 
 <use pictures/nitrr-logo.jpg>
-Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 105.
+Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 129.
 (pdftex.def)             Requested size: 86.72267pt x 97.06857pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--112
+Underfull \hbox (badness 10000) in paragraph at lines 134--136
 
  []
 
 [1] [1]
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
@@ -252,60 +309,144 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [3
 
 ])
-\tf@toc=\write3
-\openout3 = `document.toc'.
+\tf@toc=\write4
+\openout4 = `document.toc'.
 
  [4] (./document.lof)
-\tf@lof=\write4
-\openout4 = `document.lof'.
+\tf@lof=\write5
+\openout5 = `document.lof'.
 
  [5
 
 ] (./document.lot)
-\tf@lot=\write5
-\openout5 = `document.lot'.
+\tf@lot=\write6
+\openout6 = `document.lot'.
 
  [6
 
-] [1
+]
+
+Package natbib Warning: Citation `deception' on page 1 undefined on input line 
+216.
+
+
+Package natbib Warning: Citation `social-engineering-fundamentals' on page 1 un
+defined on input line 216.
+
+[1
 
 
 ]
-[2] [3] [4] [5
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
 
-] [6] [7
+ []
 
-] [8] [9] [10] [11] [12] [13] [14
 
-] [15] [16] [17]
-[18] [19
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
 
-] [20] [21] [22] [23] [24] [25] [26] [27
+ []
 
-] [28] [29] [30] [31
+[2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 258.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 258.
+Package acronym Info: Label `acro:HTTP' newly defined as it shall be overridden
 
-] [32]
-[33] [34] [35
+although it is yet undefined on input line 295.
 
-] (./document.bbl) [36
+
+Package acronym Warning: Acronym `HTTP' is not defined on input line 295.
+
+
+Package acronym Warning: Acronym `HTTP' is not defined on input line 295.
+
+[3] [4]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 362.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 362.
+
+
+Package natbib Warning: Citation `ranum-myths' on page 5 undefined on input lin
+e 377.
+
+[5] [6] [7] [8
+
+] [9] [10
+
+] [11] [12] [13] [14] [15] [16] [17
+
+] [18] [19] [20]
+[21] [22
+
+] [23] [24] [25] [26] [27] [28] [29] [30
+
+] [31] [32] [33] [34
+
+] [35]
+[36] [37] [38
+
+] (./document.bbl
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `en-gb'. Using the pattern for
+** the default language instead.
+
+Underfull \hbox (badness 5316) in paragraph at lines 60--65
+[]\OT1/cmr/m/n/12 D. Turner, M. Fossi, E. John-son, T. Mark, J. Black-bird, S. 
+En-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--65
+\OT1/cmr/m/n/12 t-wise, M. K. Low, D. McK-in-ney, and C. Wueest, ``Syman-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--65
+\OT1/cmr/m/n/12 tec Global In-ter-net Se-cu-rity Threat Re-port -- Trends for 2
+017,''
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--65
+\OT1/cmr/m/n/12 https://www.symantec.com/content/dam/symantec/docs/reports/istr
+-22-2017-
+ []
+
+)
+
+Package natbib Warning: There were undefined citations.
+
+[39
 
 ] (./document.aux) ) 
 Here is how much of TeX's memory you used:
- 2657 strings out of 493029
- 36383 string characters out of 6136235
- 207855 words of memory out of 5000000
- 6167 multiletter control sequences out of 15000+600000
- 8843 words of font info for 31 fonts, out of 8000000 for 9000
+ 4451 strings out of 493029
+ 62229 string characters out of 6136235
+ 248437 words of memory out of 5000000
+ 7926 multiletter control sequences out of 15000+600000
+ 9487 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,43p,578b,291s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,11n,43p,1036b,994s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmc
-sc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on document.pdf (45 pages, 203832 bytes).
+sc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmtt12.pfb>
+Output written on document.pdf (48 pages, 294902 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
+ 205 PDF objects out of 1000 (max. 8388607)
+ 141 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
