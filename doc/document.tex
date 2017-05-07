@@ -1,0 +1,385 @@
+% !TeX spellcheck = en_GB
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+
+% Bibliography preamble
+\usepackage[numbers,sort&compress]{natbib}
+
+% Project Title
+\newcommand{\projectTitle}{Host Based Intrusion Detection and Classification using Neural Networks}
+
+% Macro for inserting quotes
+\newcommand{\quotes}[1]{``#1''}
+
+%Header / Footer
+
+\pagestyle{fancy}
+\fancyhead{} % Clear the header
+\fancyfoot{} % Clear the footer
+
+\fancyfoot[R]{ \thepage\ }
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\usepackage[margin=1in,left=1.5in,includefoot]{geometry}
+
+\begin{document}
+	% TITLE PAGE
+	\begin{titlepage}
+		\vspace*{\fill}
+		\begin{center}
+			\textsc{\Large \projectTitle}\\
+			[0.5in]
+			B.Tech Major Project Report\\
+			[2in]
+			By\\
+			[.5in]
+			\textsc{Anand Amrit Raj}\\
+			Supervised By : Ms. Veena Anand\\
+			[.5in]
+			\begin{figure}[!h]
+				\centering
+				\includegraphics[width=100pt]{pictures/nitrr-logo.jpg}
+			\end{figure}
+			\vspace{.25in}
+			\textsc{Department of Computer Sciene and Enginnering}\\
+			\textsc{National Institue of technology}\\
+			\textsc{Raipur, CG (India)}\\
+			MAY, 2017
+		\end{center}
+	 	\vspace*{\fill}
+	\end{titlepage}
+	% TITLE PAGE ENDS
+	
+	% SECOND PAGE
+	\begin{titlepage}
+		\vspace*{\fill}
+		\begin{center}
+			\textsc{\Large \projectTitle}\\
+			[0.5in]
+			\textbf{A Major Project Report}\\
+			[.25in]
+			\textit{submitted in partial fulfilment of the} \\
+			\textit{requirements for the award of the degree}\\
+			[.25in]
+			of\\
+			[.25in]
+			Bachelor of Technology \\
+			[.25in]
+			in\\
+			[.25in]
+			Computer Science and Enginneering\\
+			By\\
+			[.5in]
+			\textsc{Anand Amrit Raj}\\
+			Supervised By : Ms. Veena Anand\\
+			[.5in]
+			\begin{figure}[!h]
+				\centering
+				\includegraphics[width=100pt]{pictures/nitrr-logo.jpg}
+			\end{figure}
+			\vspace{.25in}
+			\textsc{Department of Computer Sciene and Enginnering}\\
+			\textsc{National Institue of technology}\\
+			\textsc{Raipur, CG (India)}\\
+			MAY, 2017
+		\end{center}
+		\vspace*{\fill}
+	\end{titlepage}
+	
+	% SECOND PAGE	
+	
+	
+	%CERTIFICATE
+	\begin{titlepage}
+		
+		\textbf{%\hspace*{-1pt} 
+			%\includegraphics[width=0.15\textwidth]{./img/logo.png}\hfill 
+			\makebox[0pt][l]{\includegraphics[width=0.20\textwidth]{pictures/nitrr-logo.jpg}}
+			\hfill
+			\Large Certificate \hfill\hfill\\
+			%\hspace*{-100pt} This Text}}
+		}
+		\vspace{15pt}
+		
+		I hereby certify that the work which is being presented in the B.Tech. Major Project Report entitled \quotes{\textbf{\projectTitle}}, in partial fulfillment of the requirements for the award of the Bachelor  of Technology in Computer Science \& Engineering and submitted to the Department of Computer Science \& Engineering of National Institute of Technology Raipur  is an authentic record of my own work carried out during a period from July 2016 to December 2016 under the supervision of  Ms. Veena Anand, Assistant Professor, CSE Department. 
+
+		The matter presented in this thesis has not been submitted by me for the award of any other degree elsewhere.\\
+		[.25in]
+		\begin{flushright}
+			\textit{Signature of Candidate}\\
+				\textbf{Anand Amrit Raj \\
+				Roll Number 13115006\\}
+		\end{flushright}
+	\vspace{10pt}
+	This is to certify that the above statement made by the candidate is correct to the best of my knowledge.
+
+		\begin{flushleft}
+			\textbf{Date:}
+		\end{flushleft}
+		\begin{flushright}
+			\textit{Signature of Supervisor}\\
+				\textbf{Ms. Veena Anand, Asst. Professor\\
+				Project Supervisor\\}
+		\end{flushright}
+		\vspace{30pt}
+		\begin{flushleft}
+			\textbf{\large Head}\\
+			\textbf{Computer Science and Engineering}\\
+			National Institute of Technology, Raipur, CG
+		\end{flushleft}
+	\end{titlepage}
+	%CERTIFICATE
+	
+	%ABSTRACT
+	\pagenumbering{roman}
+	\section*{\centering Abstract}
+	\addcontentsline{toc}{section}{\numberline{}Abstract}
+	
+	\lipsum[1-4]
+	\cleardoublepage
+	%ABSTRACT ENDS
+	
+	
+	%ACKNOWLEDGEMENT
+	\section*{\centering Acknowledgement}
+	\addcontentsline{toc}{section}{\numberline{}Acknowledgement}
+	
+	I express my sincere thanks and gratitude to my guide Ms. Veena Anand, Assistant Professor, Department of Computer Science \& Engineering, NIT Raipur for her guidance and supervision throughout the project. My sincere regards to Dr. Dilip Singh Sisodia Sir, Head of Department, Computer Science \& Engineering, NIT Raipur.\\
+	
+	I express my deep sense of gratitude to Director, NIT Raipur.  I am also thankful to all the other faculties of CSE Department and my colleagues at college who helped me to complete my project. I thank all my friends for their consistent support throughout the project term.
+	
+	\vspace{10pt}
+	
+	\flushleft
+	Anand Amrit Raj\\
+	B. Tech Computer Science and Engineering
+	
+	\cleardoublepage
+	%ACKNOWLEDGEMENT ENDS
+	
+	
+	% TABLE OF CONTENTS
+	\tableofcontents{}
+	\thispagestyle{empty}
+	\cleardoublepage
+	% TABLE OF CONTENTS ENDS
+		
+	%LIST OF FIGURES
+	\listoffigures
+	\addcontentsline{toc}{section}{\numberline{}List of Figures}
+	\cleardoublepage
+	%LIST OF FIGURES ENDS
+	
+	%LIST OF TABLES
+	\listoftables
+	\addcontentsline{toc}{section}{\numberline{}List of Tables}
+	\cleardoublepage
+	%LIST OF TABLES ENDS
+	
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+	% Introduction
+	\cleardoublepage
+	\section{Introduction}\label{sec:intro}
+	
+	
+		\subsection{Security Threats}
+		\lipsum[1-3]
+			\subsubsection{Role of Intrusion Detection}
+			\lipsum[1-2]
+		
+		\subsection{Background}
+			\lipsum[1-2]
+			\subsubsection{Feature Extraction}
+			\lipsum[1]
+	
+			\subsubsection{Classification}
+			\lipsum[1]			
+		\subsection{Goals}
+		\lipsum[1-3]
+		
+		\subsection{Document Structure}
+		\lipsum[1-2]
+	% Introduction Ends
+	
+	
+	% Networking
+	\cleardoublepage
+	\section{Networking}\label{sec:networking}
+	This section will contain information about basics of networking, tcp protocol, udp and icmp protocols
+		\subsection{OSI Layer}
+		\lipsum[1-3]
+		\subsection{Types of Protocols}
+		\lipsum[1]
+			\subsubsection{TCP}
+			\lipsum[1]
+			\subsubsection{UDP}
+			\lipsum[1]
+			\subsubsection{ICMP}
+			\lipsum[2]
+	% Networking
+	% Intrusion Detection	
+	\cleardoublepage
+	\section{Intrusion Detection}\label{sec:i-detection}
+	\lipsum[1-2]
+		\subsection{What is an Intrusion?}
+		\lipsum[1-2]
+		
+		\subsection{Types of Intrusions}
+		\lipsum[1]
+			\subsubsection{Type - 1}
+			\lipsum[1-2]
+			\subsubsection{Type - 2}
+			\lipsum[1-2]
+			\subsubsection{Type - 3}
+			\lipsum[1-2]
+			\subsubsection{Type - 1}
+			\lipsum[1-2]
+			\subsubsection{Type - 2}
+			\lipsum[1-2]
+			\subsubsection{Type - 3}
+			\lipsum[1-2]		
+		\subsection{Detecting Malicious Activities}
+		\lipsum[1-2]
+		
+		\subsection{Relevant Anomaly Detection Techniques}
+		\lipsum[1-2]
+			\subsubsection{Network-Based Techniques}
+			\lipsum[1-2]
+			\subsubsection{Host-Based Techniques}
+			\lipsum[1-2]
+			\subsubsection{Web-Based Techniques}
+			\lipsum[1-2]
+	% Intrusion Detection
+	
+	% Neural Networks
+	\cleardoublepage
+	\section{Neural Networks}\label{sec:neural-networks}
+	\lipsum[1]
+		\subsection{What is a Neural Network?}
+		\lipsum[1-2]
+		\subsection{Types of Neural Networks}
+		\lipsum[1-2]
+			\subsubsection{Type - 1}
+			\lipsum[1-2]
+			\subsubsection{Type - 2}
+			\lipsum[1-2]
+			\subsubsection{Type - 3}
+			\lipsum[1-2]
+			\subsubsection{Type - 1}
+			\lipsum[1-2]
+			\subsubsection{Type - 2}
+			\lipsum[1-2]
+			\subsubsection{Type - 3}
+			\lipsum[1-2]
+		\subsection{Neural Networks and Intrusion Detection}
+		\lipsum[1-3]
+	% Neural Networks
+	
+	% NN-Based IDS
+	\cleardoublepage
+	\section{Neural Network Based IDS}\label{sec:nn-based-ids}
+		\lipsum[2]
+		\subsection{Overview}
+		\lipsum[2]
+		
+		\subsection{Datasets}
+		\lipsum{3}
+		
+		\subsection{Raw Data Extraction (Packet Sniffing)}
+		\lipsum[1-3]
+		
+		\subsection{Feature Extraction}
+		\lipsum[1-6]
+			\subsubsection{Features with small variations}
+			\lipsum[1-3]
+			\subsubsection{Features with High Correlation}
+			\lipsum[1-3]
+			
+		\subsection{Implementations}
+		\lipsum[1]
+			\subsubsection{Supervised Learning Algorithm}
+			\lipsum[1]
+			\subsubsection{Single NN Classification Model}
+			\lipsum[1]
+			\subsubsection{Three-Parallel Neural Network Classification}
+			\lipsum[1-2]
+		\subsection{Proposed Model: Softmax Regression-based Neural Network}
+		\lipsum[1-4]
+	% NN-Based IDS	
+	
+	
+	%Experimental Methodology
+	\cleardoublepage
+	\section{Experimental Methdology}
+	\lipsum[1]
+		\subsection{Dataset}
+		\lipsum[1-2]
+		\subsection{Host Configuration}
+		\lipsum[1-2]
+		\subsection{Network Configuration}
+		\lipsum[1-3]
+		\subsection{Gathering Raw Data}
+		\lipsum[1]
+			\subsubsection{From Packet Sniffing}
+			\lipsum[1-2]
+			\subsubsection{PCAP Files from the Internet \cite{Chianese2017}}
+			\lipsum[1-2]
+	%Experimental Methodology Ends
+	
+	% Results and Discussion
+	\cleardoublepage
+	\section{Results and Discussion}
+	\lipsum[1]
+		\subsection{Model 1}
+		\lipsum[1-3]
+		\subsection{Model 2}
+		\lipsum[1-3]
+		\subsection{Model 3}
+		\lipsum[1-3]
+		\subsection{Model 4}
+		\lipsum[1-3]
+		\subsection{Model 5}
+		\lipsum[1-3]	
+	% Results and Discussion Ends
+
+	% Conclusion and Future Scope
+	\cleardoublepage
+	\section{Conclusion and Future Scope \cite{AlEroud2017}}
+	\lipsum[1-4]
+	% Conclusion and Future Scopes
+	
+	% References and Bibliography
+	\cleardoublepage
+	\bibliographystyle{IEEEtran}
+	\addcontentsline{toc}{section}{\numberline{}References}
+	\bibliography{references/bib}
+	% References and Bibliography
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}
