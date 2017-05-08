@@ -574,27 +574,70 @@ src="evil.com/code.js">
 			\end{description}
 			
 	% Networking Ends
+	
 	% Intrusion Detection	
 	\cleardoublepage
 	\section{Intrusion Detection}\label{sec:i-detection}
-	\lipsum[1-2]
-		\subsection{What is an Intrusion?}
-		\lipsum[1-2]
+		An intrusion detection system (IDS) is a device or software application that monitors a network or systems for malicious activity or policy violations. Any detected activity or violation is typically reported either to an administrator or collected centrally using a security information and event management (SIEM) system. A SIEM system combines outputs from multiple sources, and uses alarm filtering techniques to distinguish malicious activity from false alarms.
 		
-		\subsection{Types of Intrusions}
-		\lipsum[1]
-			\subsubsection{Type - 1}
-			\lipsum[1-2]
-			\subsubsection{Type - 2}
-			\lipsum[1-2]
-			\subsubsection{Type - 3}
-			\lipsum[1-2]
-			\subsubsection{Type - 1}
-			\lipsum[1-2]
-			\subsubsection{Type - 2}
-			\lipsum[1-2]
-			\subsubsection{Type - 3}
-			\lipsum[1-2]		
+		There is a wide spectrum of IDS, varying from antivirus software to hierarchical systems that monitor the traffic of an entire backbone network. The most common classifications are network intrusion detection systems (NIDS) and host-based intrusion detection systems (HIDS). A system that monitors important operating system files is an example of a HIDS, while a system that analyzes incoming network traffic is an example of a NIDS. It is also possible to classify IDS by detection approach: the most well-known variants are signature-based detection (recognizing bad patterns, such as malware) and anomaly-based detection (detecting deviations from a model of "good" traffic, which often relies on machine learning). Some IDS have the ability to respond to detected intrusions. Systems with response capabilities are typically referred to as an intrusion prevention system.
+		
+		Though they both relate to network security, an IDS differs from a firewall in that a firewall looks outwardly for intrusions in order to stop them from happening. Firewalls limit access between networks to prevent intrusion and do not signal an attack from inside the network. An IDS evaluates a suspected intrusion once it has taken place and signals an alarm. An IDS also watches for attacks that originate from within a system. This is traditionally achieved by examining network communications, identifying heuristics and patterns (often known as signatures) of common computer attacks, and taking action to alert operators. A system that terminates connections is called an intrusion prevention system, and is another form of an application layer firewall.
+		\subsection{Types of IDS}
+			\subsubsection{Network intrusion detection systems}
+			Network intrusion detection systems (NIDS) are placed at a strategic point or points within the network to monitor traffic to and from all devices on the network. It performs an analysis of passing traffic on the entire subnet, and matches the traffic that is passed on the subnets to the library of known attacks. Once an attack is identified, or abnormal behavior is sensed, the alert can be sent to the administrator. An example of an NIDS would be installing it on the subnet where firewalls are located in order to see if someone is trying to break into the firewall. Ideally one would scan all inbound and outbound traffic, however doing so might create a bottleneck that would impair the overall speed of the network. OPNET and NetSim are commonly used tools for simulation network intrusion detection systems. NID Systems are also capable of comparing signatures for similar packets to link and drop harmful detected packets which have a signature matching the records in the NIDS. When we classify the design of the NIDS according to the system interactivity property, there are two types: on-line and off-line NIDS, often referred to as inline and tap mode, respectively. On-line NIDS deals with the network in real time. It analyses the Ethernet packets and applies some rules, to decide if it is an attack or not. Off-line NIDS deals with stored data and passes it through some processes to decide if it is an attack or not.
+			
+			\subsubsection{Host intrusion detection systems}
+			Host intrusion detection systems (HIDS) run on individual hosts or devices on the network. A HIDS monitors the inbound and outbound packets from the device only and will alert the user or administrator if suspicious activity is detected. It takes a snapshot of existing system files and matches it to the previous snapshot. If the critical system files were modified or deleted, an alert is sent to the administrator to investigate. An example of HIDS usage can be seen on mission critical machines, which are not expected to change their configurations.
+			
+			Intrusion detection systems can also be system-specific using custom tools and honeypots.	
+			
+		\subsection{Detection Methods}
+			\subsubsection{Signature-based}
+			Signature-based IDS refers to the detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. This terminology originates from anti-virus software, which refers to these detected patterns as signatures. Although signature-based IDS can easily detect known attacks, it is impossible to detect new attacks, for which no pattern is available.
+			\subsubsection{Anomaly-based}
+			Anomaly-based intrusion detection systems were primarily introduced to detect unknown attacks, in part due to the rapid development of malware. The basic approach is to use machine learning to create a model of trustworthy activity, and then compare new behaviour against this model. Although this approach enables the detection of previously unknown attacks, it may suffer from false positives: previously unknown legitimate activity may also be classified as malicious.
+			
+			New types of what could be called anomaly-based intrusion detection systems are being viewed by Gartner as User and Entity Behaviour Analytics (UEBA) (an evolution of the user behaviour analytics category) and network traffic analysis (NTA). In particular, NTA deals with malicious insiders as well as targeted external attacks that have compromised a user machine or account. Gartner has noted that some organizations have opted for NTA over more traditional IDS.
+		\subsection{Common Network Attacks}
+			Moving up the internet protocol suite, the fundamental problem is similar, there is no authenticity in the messages or confidentiality preserving in most of the mechanisms. This is particularly manifest at the lower level. 
+			
+			This protocol can be exploited in a surprisingly different number of ways. Now that 24 hours uptime of a service is really important this simply means, a large number of fake connections are enough to make the connection unavailable for the legit users causing widespread trouble. Imagine Facebook servers being unavailable for even 1 hour. When the number of users is this high, this will cause service unavailability for a large number of users. 
+			
+			\subsubsection{SYN Flodding}
+			The SYN Flooding attack is to simply send a lot of SYN packets and never acknoledge any of the replies. This attack was theoretically known to be possible since 80's but came into attention when used to bring down Panix, a New York ISP, for several days in 1996.
+			
+			\subsubsection{Smurfing}
+			The Smurf attack is a distributed denial-of-service attack in which large numbers of Internet Control Message Protocol (ICMP) packets with the intended victim's spoofed source IP are broadcast to a computer network using an IP broadcast address. Most devices on a network will, by default, respond to this by sending a reply to the source IP address. If the number of machines on the network that receive and respond to these packets is very large, the victim's computer will be flooded with traffic. This can slow down the victim's computer to the point where it becomes impossible to work on.
+			
+			
+			\subsubsection{Denial-of-service attack}
+			In computing, a denial-of-service attack (DoS attack) is a cyber-attack where the perpetrator seeks to make a machine or network resource unavailable to its intended users by temporarily or indefinitely disrupting services of a host connected to the Internet. Denial of service is typically accomplished by flooding the targeted machine or resource with superfluous requests in an attempt to overload systems and prevent some or all legitimate requests from being fulfilled.
+			
+			In a distributed denial-of-service attack (DDoS attack), the incoming traffic flooding the victim originates from many different sources. This effectively makes it impossible to stop the attack simply by blocking a single source.
+			
+			A DoS or DDoS attack is analogous to a group of people crowding the entry door or gate to a shop or business, and not letting legitimate parties enter into the shop or business, disrupting normal operations.
+			
+			\subsubsection{Neptune Attacks}
+			
+			Neptune attacks can make memory resources too
+			full for a victim by sending a TCP packet requesting  to  initiate a TCP session. This  packet is part of a three-way handshake that is needed to establish a TCP connection between  two  hosts. The SYN flag on this packet is set  to  indicate that a new connection is  to  be  established. This packet includes  a spoofed  source  address, such that the victim is not able to finish the handshake but  had allocated  an  amount of system memory for this connection. After sending many of these packets, the victim eventually runs out of memory resources.
+			
+			\subsubsection{IPSweep and Portsweep}
+			IPsweep  and  Portsweep,  as  their  names  suggest, sweep through IP addresses and port numbers for a  victim  network  and  host  respectively looking for open ports, that could  potentially be used later in an attack.
+			
+			\subsubsection{Rootkit}
+			A rootkit is a collection of computer software, typically malicious, designed to enable access to a computer or areas of its software that would not otherwise be allowed (for example, to an unauthorized user) and often masks its existence or the existence of other software. The term rootkit is a concatenation of "root" (the traditional name of the privileged account on Unix-like operating systems) and the word "kit" (which refers to the software components that implement the tool). The term "rootkit" has negative connotations through its association with malware.
+			
+			\subsubsection{Satan}
+			SATAN (Security Administrator Tool for Analyzing Networks)is a security tool designed by Dan Farmer and Wieste Venema to help systems administrators recognize several network-related security problems, in a world where computer systems are becoming more and more dependant on networks. Satan is a tool designed to probe a computer system for security loopholes, (Security Administrator Tool for Analyzing Networks). Use of Satan is not inherently bad. Network coordinators sometimes run it against their own machines to probe for weaknesses which they can then fix. Running it against a machine you don't own is regarded as a hostile act (and may be illegal under some jurisdictions).
+			
+		
+		\subsection{Development}
+		The earliest preliminary IDS concept was delineated in 1980 by James Anderson at the National Security Agency and consisted of a set of tools intended to help administrators review audit trails. User access logs, file access logs, and system event logs are examples of audit trails.
+		
+		The proposed model uses a Softmax Regression based neural network which classifies the network traffic in real-time.The network is developed in Python using Tensorflow Library (By Google). Next a packet sniffer is developed in python which captures all the packets from and to the host. This form the raw data for the model. Now this data is then preprocessed to form the input to the model. This model then evaluates the network traffic to classify it among the known 18 types or any new attack or normal traffic.
+			
 		\subsection{Detecting Malicious Activities}
 		\lipsum[1-2]
 		
