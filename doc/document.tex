@@ -243,11 +243,11 @@
 
 		The main underlying technology actually employs a classic type of software called \emph{bot} (jargon for \emph{robot}), which is not malicious \emph{per s\'e}, but is used to remotely control a network of compromised hosts, called \emph{botnet}~\cite{holz}. Remote commands can be of any type and typically include launching an attack, starting a phishing or spam campaign, or even updating to the latest version of the bot software by downloading the binary code from a host controlled by the attackers (usually called \emph{bot master})~\cite{torpig}. The exchange good has now become the botnet infrastructure itself rather than the data that can be stolen or the spam that can be sent. These are mere outputs of todays' most popular service offered for rent by the underground economy.
 		
-			\subsubsection{Role of Intrusion Detection}
+		\subsubsection{Role of Intrusion Detection}
+		
+		The aforementioned, dramatic big picture may lead to think that the malicious software will eventually proliferate at every host of the Internet and no effective re-mediation exists. However, a more careful analysis reveals that, despite the complexity of this scenario, the problems that must be solved by a security infrastructure can be decomposed into relatively simple tasks that, surprisingly, may already have a solution. Let us look at an example.
 			
-			The aforementioned, dramatic big picture may lead to think that the malicious software will eventually proliferate at every host of the Internet and no effective re-mediation exists. However, a more careful analysis reveals that, despite the complexity of this scenario, the problems that must be solved by a security infrastructure can be decomposed into relatively simple tasks that, surprisingly, may already have a solution. Let us look at an example.
-			
-			\begin{example}
+		\begin{example}
 				This is how a sample exploitation can be structured
 				\begin{description}
 					\item [injection] --- a malicious request is sent to the vulnerable
@@ -326,12 +326,12 @@ src="evil.com/code.js">
 			improperly.
 		\end{description}
 		
-		It is now clear that protection mechanisms that analyze the network
+		It is now clear that protection mechanisms that analyse the network
 		traffic, the activity of the client's operating system, the web
 		server's HTTP logs, or any combination of the three, have chances
 		of recognizing that something malicious is happening in the
 		network. For instance, if the ISP network adopt \textsf{Snort}, a
-		lightweight IDS that analyzes the network traffic for known
+		lightweight IDS that analyses the network traffic for known
 		attack patterns, could block all the packets marked as
 		suspicious. This would prevent, for instance, the SQL injection
 		to reach the web application. A similar protection level can be
@@ -389,36 +389,191 @@ src="evil.com/code.js">
 		threats by detecting any variation from a system's normal operation,
 		rather than looking for signs of known-to-be-malicious
 		activity.
-		\subsection{Background}
-			\lipsum[1-2]
-			\subsubsection{Feature Extraction}
-			\lipsum[1]
+		
+			\subsubsection{Intrusion Detection Systems}
+			There are two approaches to analyzing of events using IDSs. These are misuse-based and anomaly-based approaches. Mis-
+			use-based IDSs aim to distinguish events that violate system policy. Anomaly-based IDSs try analyzing abnormal activities
+			and flag these activities as attacks. Both approaches have advantages and disadvantages when compared to each other.
+			
+			Snort is the most commonly used signature-based intrusion detection system. Snort is a network intrusion detection system that runs over IP networks analyzing real-time traffic for detection of misuses.
+			Snort depends on a template-matching scheme and makes content analysis. It has the ability to flag alerts depending on pre-defined misuse rules and saves packets in tcpdump files or in plain text files. Snort is preferred to be used in academic research projects as it is an open-source tool and for this reason we have also chosen Snort as the signature-based intrusion detection system in our work.
+			
+			Anomaly detection based intrusion detection systems are separated into many sub-categories in the literature including
+			statistical methodologies, data mining, artificial neural networks, genetic algorithms and immune systems. Among these sub-categories, statistical methods are the most commonly used ones in order to detect intrusions by analyzing abnormal activities occurring in the network.
+			
+			In this project we have used neural networks based to detect abnormal traffic in the network and then to the host. In our approach we sniff the packets going from and to the host and then apply feature extraction on those packets to get features about the traffic. Then it is converted into a feature matrix which is then fed into the neural network which adjusts its weights accordingly.
+			
+			\subsubsection{Misuse-based IDS}
+			Misuse detectors analyze system activities and try to find a match between these activities and known attacks having
+			definitions or signatures introduced to the system beforehand.
+			
+			\textit{Advantages}
+			\begin{itemize}
+				
+				\item Misuse detectors are very efficient in detecting attacks without signalling false alarms (FA).
+				
+				\item Misuse detectors can quickly detect specially designed intrusion tools and techniques.
+				\item Misuse detectors provide systems administrators an easy to use tool to monitor their systems even if they are not security
+				experts.
+			\end{itemize}
+			
+			\textit{Disadvantages}
+			\begin{itemize}
+				\item Misuse detectors can only detect attacks known beforehand. For this reason the systems must be updated with newly discovered attack signatures.
+				
+				\item Misuse detectors are designed to detect attacks that have signatures introduced to the system only. When a well-known attack is changed slightly and a variant of that attack is obtained, the detector is unable to detect this variant of the same attack.
+			\end{itemize}
+		
+			\subsubsection{Anomaly-based IDSs}
+			Anomaly detectors detect behaviors on a computer or computer network that are not normal. According to this ap-
+			proach, behaviors deviating from behaviors assumed as ‘‘normal” are thought to be attacks and anomaly detectors com-
+			pute the deviation in order to detect these attacks. Anomaly detectors construct profiles of users, servers and network
+			connections using their normal behaviors. These profiles are produced using the data that is accepted as normal. After
+			the profile construction, detectors monitor new event data, compare the new data with obtained profile and try to detect
+			deviations. These deviations from normal behaviors are flagged as attacks. Pros and cons of anomaly-based approach are as follows\\
+			\textit{Advantages}
+			\begin{itemize}
+				\item Anomaly-based IDSs, superior to signature-based ones, are able to detect attacks even when detailed information of the attack does not exist.
+				\item Anomaly-based detectors can be used to obtain signature information used by misuse-based IDS.
+			\end{itemize} 
+		
+			\textit{Disadvantages}
+			\begin{itemize}
+				\item Anomaly-based IDSs generally flag many false alarms (FA) just because user and network behavior are not always known beforehand.
+				\item Anomaly-based approach requires a large set of training data that consist of system event log in order to construct normal behavior profile.
+			\end{itemize}
+			
+		\subsection{Goal}\label{intro:goal}
+		Our project is developed with the following goals in mind:
+		
+		\begin{itemize}
+			\item Handle known classes of attacks.
+			\item Handle unknown classes of attacks.
+			\item Operate in real-time to classify continuous network traffic.
+			\item Retrain the model based on current network traffic without disrupting the real-time analysis of traffic.
+		\end{itemize}
 	
-			\subsubsection{Classification}
-			\lipsum[1]			
-		\subsection{Goals}
-		\lipsum[1-3]
+		For fulfilling above goals we have developed a neural network based on a very simple Softmax Regression model. It classifies the network packets based on labels and tries to identify the category of the packet according to the feature vector.
+		
+		Features are selected according to the feature selection algorithm and extracted in real-time from the packets using Python v3.6.1 then fed into the pre-trained neural network. This model then evaluates the packet and classifies it as one of the predefined attacks or a new attack or gives it a normal class.
 		
 		\subsection{Document Structure}
-		\lipsum[1-2]
+		This report is organized as follows. % TODO!
 	% Introduction Ends
 	
 	
 	% Networking
 	\cleardoublepage
-	\section{Networking}\label{sec:networking}
-	This section will contain information about basics of networking, tcp protocol, udp and icmp protocols
+	\section{Networking}\label{sec:netwrk}
+	\textbf{Ever wondered how a message transfers from one device to another?}\\ 
+	
+	Well,   the   answer   is   an   OSI   model   itself.   An   Open Systems  Interconnection  (OSI)  reference  model  is  the world’s major used networking architecture model.
+	
 		\subsection{OSI Layer}
-		\lipsum[1-3]
+		``The  OSI  reference  model  adopts  a  layered  approach 
+		where  a  communication subsystem  is  broken  down  into seven  layers,  each  one  of  which  performs  a well-defined function.''
+		
+		 First, TCP traffic is “real world,” since TCP is widely used in today' s Internet.  Consequently, any network path properties we can derive from measurements of a TCP transfer can potentially be directly applied to tuning TCP performance.  Second, TCP packet streams  allow  fine-scale  probing  without  unduly  loading  the  network, since TCP adapts its transmission rate to current congestion levels.
+	 
 		\subsection{Types of Protocols}
-		\lipsum[1]
-			\subsubsection{TCP}
-			\lipsum[1]
-			\subsubsection{UDP}
-			\lipsum[1]
-			\subsubsection{ICMP}
-			\lipsum[2]
-	% Networking
+			When capturing packets from a network device we encounter the following types of protocols.
+			
+			\subsubsection{Transmission Control Protocol(TCP/IP)}
+			It  is  most  widely  used network  protocol.HTTP  is  a  server/client  based  protocol used to transfer web pages on network.
+			TCP/IP is a stack of protocols having different protocols on both layer 3 and 4. It   is   a   layer 4 protocol and provide bi-directional communication. IP is a layer 3 protocol  and  provides addressing system that communication on  network. TCP/IP is a three way handshake process which first sends SYN then the server responds with SYN and ACK then finally the client returns ACK to the server. This is called three way handshake in TCP.
+			
+			Thus, in TCP, a connection is established before any data transfer takes place. Transmission Control Protocol accepts data from a data stream, divides it into chunks, and adds a TCP header creating a TCP segment. The TCP segment is then encapsulated into an Internet Protocol (IP) datagram, and exchanged with peers.
+			
+			A TCP segment consists of a segment header and a data section. The TCP header contains 10 mandatory fields, and an optional extension field.
+			
+			The data section follows the header. Its contents are the payload data carried for the application. The length of the data section is not specified in the TCP segment header. It can be calculated by subtracting the combined length of the TCP header and the encapsulating IP header from the total IP datagram length (specified in the IP header). 
+			
+			% TODO: Insert TCP Header Image!
+			
+			\begin{description}
+				\item[Source port (16 bits)] --- Identifies the sending port
+				\item[Destination port (16 bits)] --- Identifies the receiving port
+				\item[Sequence number (32 bits)] --- 
+					Has a dual role: 
+					\begin{itemize}
+						\item If the SYN flag is set (1), then this is the initial sequence number. The sequence number of the actual first data byte and the acknowledged number in the corresponding ACK are then this sequence number plus 1.5
+						
+						\item If the SYN flag is clear (0), then this is the accumulated sequence number of the first data byte of this segment for the current session.
+					\end{itemize}
+				\item [Acknowledgment number (32 bits)] ---If the ACK flag is set then the value of this field is the next sequence number that the sender is expecting. This acknowledges receipt of all prior bytes (if any). The first ACK sent by each end acknowledges the other end's initial sequence number itself, but no data.
+				
+				\item [Data offset (4 bits)] ---
+				Specifies the size of the TCP header in 32-bit words. The minimum size header is 5 words and the maximum is 15 words thus giving the minimum size of 20 bytes and maximum of 60 bytes, allowing for up to 40 bytes of options in the header. This field gets its name from the fact that it is also the offset from the start of the TCP segment to the actual data.
+				
+				\item [Reserved (3 bits)] --- 
+				For future use and should be set to zero
+				
+				\item [Flags (9 bits) (aka Control bits)] ---
+				Contains 9 1-bit flags
+				\begin{itemize}
+					\item NS (1 bit): ECN-nonce concealment protection (experimental: see RFC 3540).
+					\item CWR (1 bit): Congestion Window Reduced (CWR) flag is set by the sending host to indicate that it received a TCP segment with the ECE flag set and had responded in congestion control mechanism (added to header by RFC 3168).
+					\item ECE (1 bit): ECN-Echo has a dual role, depending on the value of the SYN flag. It indicates:
+					\begin{itemize}
+						\item If the SYN flag is set (1), that the TCP peer is ECN capable.
+						\item If the SYN flag is clear (0), that a packet with Congestion Experienced flag set 
+					\end{itemize}
+				
+					\item (ECN=11) in IP header was received during normal transmission (added to header by RFC 3168). This serves as an indication of network congestion (or impending congestion) to the TCP sender.
+					
+					\item URG (1 bit): indicates that the Urgent pointer field is significant
+					\item ACK (1 bit): indicates that the Acknowledgment field is significant. All packets after the initial SYN packet sent by the client should have this flag set.
+					\item PSH (1 bit): Push function. Asks to push the buffered data to the receiving application.
+					\item RST (1 bit): Reset the connection
+					\item SYN (1 bit): Synchronize sequence numbers. Only the first packet sent from each end should have this flag set. Some other flags and fields change meaning based on this flag, and some are only valid for when it is set, and others when it is clear.
+					\item FIN (1 bit): Last package from sender.
+				\end{itemize}
+				
+				\item [Window size (16 bits)] ---
+				The size of the receive window, which specifies the number of window size units (by default, bytes) (beyond the segment identified by the sequence number in the acknowledgement field) that the sender of this segment is currently willing to receive (see Flow control and Window Scaling)
+				\item [Checksum (16 bits)] ---
+				The 16-bit checksum field is used for error-checking of the header and data
+				\item [Urgent pointer (16 bits)] ---
+				if the URG flag is set, then this 16-bit field is an offset from the sequence number indicating the last urgent data byte
+				
+			\end{description}
+			
+			\subsubsection{User Datagram Protocol(UDP)}
+			UDP (User Datagram Protocol) is a simple OSI transport layer protocol for client/server network applications based on Internet Protocol (IP). UDP is the main alternative to TCP and one of the oldest network protocols in existence, introduced in 1980.
+			
+			UDP network traffic is organized in the form of datagrams. A datagram comprises one message unit. The first eight (8) bytes of a datagram contain header information and the remaining bytes contain message data.
+			The UDP header consists of 4 fields, each of which is 2 bytes (16 bits).The use of the fields "Checksum" and "Source port" is optional in IPv4. In IPv6 only the source port is optional (see below).
+			
+			% TODO: Insert UDP Header Image!
+			\begin{description}
+				\item [Source port number] ---
+				This field identifies the sender's port when meaningful and should be assumed to be the port to reply to if needed. If not used, then it should be zero. If the source host is the client, the port number is likely to be an ephemeral port number. If the source host is the server, the port number is likely to be a well-known port number.
+				
+				\item [Destination port number] ---
+				This field identifies the receiver's port and is required. Similar to source port number, if the client is the destination host then the port number will likely be an ephemeral port number and if the destination host is the server then the port number will likely be a well-known port number.
+				
+				\item [Length] ---
+				A field that specifies the length in bytes of the UDP header and UDP data. The minimum length is 8 bytes because that is the length of the header. The field size sets a theoretical limit of 65,535 bytes (8 byte header + 65,527 bytes of data) for a UDP datagram. However the actual limit for the data length, which is imposed by the underlying IPv4 protocol, is 65,507 bytes (65,535 − 8 byte UDP header − 20 byte IP header).In IPv6 jumbograms it is possible to have UDP packets of size greater than 65,535 bytes. RFC 2675 specifies that the length field is set to zero if the length of the UDP header plus UDP data is greater than 65,535.
+				
+				\item[Checksum] ---
+				The checksum field may be used for error-checking of the header and data. This field is optional in IPv4, and mandatory in IPv6. The field carries all-zeros if unused.
+			\end{description}
+		
+			\subsubsection{Internet Control Message Protocol(ICMP)}
+			The Internet Control Message Protocol (ICMP) is a supporting protocol in the Internet protocol suite. It is used by network devices, including routers, to send error messages and operational information indicating, for example, that a requested service is not available or that a host or router could not be reached.ICMP differs from transport protocols such as TCP and UDP in that it is not typically used to exchange data between systems, nor is it regularly employed by end-user network applications (with the exception of some diagnostic tools like ping and traceroute)
+			
+			The ICMP header starts after the IPv4 header and is identified by IP protocol number '1'. All ICMP packets have an 8-byte header and variable-sized data section. The first 4 bytes of the header have fixed format, while the last 4 bytes depend on the type/code of that ICMP packet.
+			
+			% TODO: Insert ICMP Header.
+			
+			\begin{description}
+				\item [Type ] --- ICMP type
+				\item [Code ] --- ICMP subtype
+				\item [Checksum] --- Error checking data, calculated from the ICMP header and data, with value 0 substituted for this field. The Internet Checksum is used, specified in RFC 1071.
+				\item [Rest of Header] --- Four-bytes field, contents vary based on the ICMP type and code.
+			\end{description}
+			
+	% Networking Ends
 	% Intrusion Detection	
 	\cleardoublepage
 	\section{Intrusion Detection}\label{sec:i-detection}
