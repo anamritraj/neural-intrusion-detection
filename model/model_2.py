@@ -20,7 +20,7 @@ dataframe = dataframe[0:494021]
 
 inputX =  dataframe.loc[:,[
 						  'protocol_type',
-						  'duration',
+						  'service',
 						  'src_bytes',
 						  'dst_bytes',
 						  'wrong_fragment',
@@ -33,7 +33,6 @@ inputX =  dataframe.loc[:,[
 						  'num_shells',
 						  'num_access_files',
 						  'num_outbound_cmds',
-						  'service',
 						  'land',
 						  'count',
 						  'srv_count',
@@ -136,8 +135,12 @@ inputY = np.array(inputY)
 # Hyperparameters Setup
 # ======================
 
+print(inputX)
+print(inputY)
+# exit(0)
+
 parameters = {
-	'learning_rate': 0.0001,
+	'learning_rate': 0.00001,
 	'training_epochs': 250,
 	'display_steps': 1,
 	'n_features': inputX[0].size,
@@ -173,7 +176,7 @@ def train_and_save_model(inputX, inputY, parameters):
 	# Initiate tf saver
 	saver = tf.train.Saver()
 	# Model Path
-	model_path = "./tmp_model_2/model.ckpt"
+	model_path = "./tmp_model2/model.ckpt"
 
 	# Starting Session
 	sess = tf.InteractiveSession()
@@ -228,33 +231,20 @@ def predict_class(input_x, save_path):
 
 def main():
 	save_path = train_and_save_model(inputX, inputY, parameters)
-	print(predict_x)
+	# print(predict_x)
 
-	predict_x = dataframe.loc[397000:397100,[
-						  'protocol_type',
-						  'duration',
-						  'src_bytes',
-						  'dst_bytes',
-						  'wrong_fragment',
-						  'hot',
-						  'num_compromised',
-						  'root_shell',
-						  'su_attempted',
-						  'num_root',
-						  'num_file_creations',
-						  'num_shells',
-						  'num_access_files',
-						  'num_outbound_cmds',
-						  'service',
-						  'land',
-						  'count',
-						  'srv_count',
-						  'urgent',
-						  'same_srv_rate',
-						  'diff_srv_rate',
-						  'srv_diff_host_rate']].as_matrix()
-	predict_x = preprocess_input(predict_x)
-	predict_class(predict_x, './tmp_model_2/model.ckpt')
+	# predict_x = dataframe.loc[397000:397100,[
+	# 					  'protocol_type',
+	# 					  'service',
+	# 					  'land',
+	# 					  'count',
+	# 					  'srv_count',
+	# 					  'urgent',
+	# 					  'same_srv_rate',
+	# 					  'diff_srv_rate',
+	# 					  'srv_diff_host_rate']].as_matrix()
+	# predict_x = preprocess_input(predict_x)
+	# predict_class(predict_x, './tmp/model.ckpt')
 
 if __name__ == '__main__':
 	main()
