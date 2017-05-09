@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.7)  9 MAY 2017 08:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.5.7)  9 MAY 2017 11:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -130,6 +130,23 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count99
 )
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen109
+\captionmargin@=\dimen110
+\captionwidth=\dimen111
+\caption@tempdima=\dimen112
+\caption@indent=\dimen113
+\caption@parindent=\dimen114
+\caption@hangindent=\dimen115
+)
+\c@ContinuedFloat=\count100
+Package caption Info: listings package is loaded.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -144,48 +161,55 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count100
-\Gm@cntv=\count101
-\c@Gm@tempcnt=\count102
-\Gm@bindingoffset=\dimen109
-\Gm@wd@mp=\dimen110
-\Gm@odd@mp=\dimen111
-\Gm@even@mp=\dimen112
-\Gm@layoutwidth=\dimen113
-\Gm@layoutheight=\dimen114
-\Gm@layouthoffset=\dimen115
-\Gm@layoutvoffset=\dimen116
+\Gm@cnth=\count101
+\Gm@cntv=\count102
+\c@Gm@tempcnt=\count103
+\Gm@bindingoffset=\dimen116
+\Gm@wd@mp=\dimen117
+\Gm@odd@mp=\dimen118
+\Gm@even@mp=\dimen119
+\Gm@layoutwidth=\dimen120
+\Gm@layoutheight=\dimen121
+\Gm@layouthoffset=\dimen122
+\Gm@layoutvoffset=\dimen123
 \Gm@dimlist=\toks23
 )
-\c@example=\count103
+\c@example=\count104
 
-(./document.aux)
+(./document.aux
+
+LaTeX Warning: Label `tab:model-1-params' multiply defined.
+
+
+LaTeX Warning: Label `tab:model-1-features' multiply defined.
+
+)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
  (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count104
-\scratchdimen=\dimen117
+\scratchcounter=\count105
+\scratchdimen=\dimen124
 \scratchbox=\box28
-\nofMPsegments=\count105
-\nofMParguments=\count106
+\nofMPsegments=\count106
+\nofMParguments=\count107
 \everyMPshowfont=\toks24
-\MPscratchCnt=\count107
-\MPscratchDim=\dimen118
-\MPnumerator=\count108
-\makeMPintoPDFobject=\count109
+\MPscratchCnt=\count108
+\MPscratchDim=\dimen125
+\MPnumerator=\count109
+\makeMPintoPDFobject=\count110
 \everyMPtoPDFconversion=\toks25
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -231,7 +255,9 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count110
+\c@lstlisting=\count111
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -271,7 +297,7 @@ e
 File: pictures/nitrr-logo.jpg Graphic file (type jpg)
 
 <use pictures/nitrr-logo.jpg>
-Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 69.
+Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 73.
 (pdftex.def)             Requested size: 100.0pt x 111.93108pt.
  [1
 
@@ -279,21 +305,21 @@ Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 69.
 ]
 File: pictures/nitrr-logo.jpg Graphic file (type jpg)
  <use pictures/nitrr-logo.jpg>
-Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 106.
+Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 110.
 (pdftex.def)             Requested size: 100.0pt x 111.93108pt.
  [1]
 File: pictures/nitrr-logo.jpg Graphic file (type jpg)
 
 <use pictures/nitrr-logo.jpg>
-Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 129.
+Package pdftex.def Info: pictures/nitrr-logo.jpg used on input line 133.
 (pdftex.def)             Requested size: 86.72267pt x 97.06857pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--136
+Underfull \hbox (badness 10000) in paragraph at lines 138--140
 
  []
 
 [1] [1]
-Underfull \hbox (badness 10000) in paragraph at lines 175--176
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
 
  []
 
@@ -327,52 +353,52 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ]
 
 Package natbib Warning: Citation `deception' on page 1 undefined on input line 
-216.
+220.
 
 
 Package natbib Warning: Citation `social-engineering-fundamentals' on page 1 un
-defined on input line 216.
+defined on input line 220.
 
 [1
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 244--245
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 242--243
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
 
  []
 
 [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 258.
+(Font)              <7> on input line 262.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 258.
+(Font)              <5> on input line 262.
 Package acronym Info: Label `acro:HTTP' newly defined as it shall be overridden
 
-although it is yet undefined on input line 295.
+although it is yet undefined on input line 299.
 
 
-Package acronym Warning: Acronym `HTTP' is not defined on input line 295.
+Package acronym Warning: Acronym `HTTP' is not defined on input line 299.
 
 
-Package acronym Warning: Acronym `HTTP' is not defined on input line 295.
+Package acronym Warning: Acronym `HTTP' is not defined on input line 299.
 
 [3] [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 362.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 366.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 362.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 366.
 
 
 Package natbib Warning: Citation `ranum-myths' on page 5 undefined on input lin
-e 377.
+e 381.
 
 [5]
 Missing character: There is no ‚ in font cmr12!
@@ -385,7 +411,7 @@ Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
  [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 468--469
+Underfull \hbox (badness 10000) in paragraph at lines 472--473
 
  []
 
@@ -412,31 +438,31 @@ Missing character: There is no í in font cmr12!
 ] [13] [14] [15] [16] [17]
 
 Package natbib Warning: Citation `anderson' on page 18 undefined on input line 
-703.
+707.
 
 
 Package natbib Warning: Citation `denning:tse1987:ides' on page 18 undefined on
- input line 706.
+ input line 710.
 
 
-Package natbib Warning: Citation `Self' on page 18 undefined on input line 708.
+Package natbib Warning: Citation `Self' on page 18 undefined on input line 712.
 
 
 
 Package natbib Warning: Citation `PrivilegedProgramsMonitoring' on page 18 unde
-fined on input line 710.
+fined on input line 714.
 
 
 Package natbib Warning: Citation `lee:2000:framework' on page 18 undefined on i
-nput line 715.
+nput line 719.
 
 
 Package natbib Warning: Citation `wagner:sp2001:staticanalysis' on page 18 unde
-fined on input line 731.
+fined on input line 735.
 
 
 Package natbib Warning: Citation `rulessystemcallarguments' on page 18 undefine
-d on input line 745.
+d on input line 749.
 
 [18] [19] [20
 
@@ -482,10 +508,36 @@ Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
  [27
 
-] [28] [29
+]
 
-] [30] [31] [32]
-[33
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[28]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[29] [30]
+
+LaTeX Warning: Reference `tab:mlp-params' on page 31 undefined on input line 11
+73.
+
+<pictures/mlp-network-diagram.png, id=143, 732.7375pt x 495.8525pt>
+File: pictures/mlp-network-diagram.png Graphic file (type png)
+
+<use pictures/mlp-network-diagram.png>
+Package pdftex.def Info: pictures/mlp-network-diagram.png used on input line 11
+80.
+(pdftex.def)             Requested size: 400.0pt x 270.68443pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[31] [32 <./pictures/mlp-network-diagram.png>] [33
+
+] [34] [35
 
 ] (./document.bbl
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
@@ -518,36 +570,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--47
 
 Package natbib Warning: There were undefined citations.
 
-[34
+[36
 
-] (./document.aux) ) 
+] (./document.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4456 strings out of 493029
- 62305 string characters out of 6136235
- 248423 words of memory out of 5000000
- 7931 multiletter control sequences out of 15000+600000
+ 5523 strings out of 493029
+ 81792 string characters out of 6136235
+ 265424 words of memory out of 5000000
+ 8990 multiletter control sequences out of 15000+600000
  9487 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,43p,1454b,994s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmc
-sc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
-12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on document.pdf (43 pages, 349994 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+s12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on document.pdf (45 pages, 404717 bytes).
 PDF statistics:
- 210 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
+ 219 PDF objects out of 1000 (max. 8388607)
+ 151 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
