@@ -58,7 +58,7 @@
 \contentsline {subsubsection}{\numberline {5.4.2}Softmax Model 2}{29}
 \contentsline {subsubsection}{\numberline {5.4.3}Multi-layer Perceptron Model}{31}
 \contentsline {section}{\numberline {6}Results and Discussion}{33}
-\contentsline {subsection}{\numberline {6.1}Model 1}{33}
-\contentsline {subsection}{\numberline {6.2}Model 2}{34}
-\contentsline {section}{\numberline {7}Conclusion and Future Scope \cite {AlEroud2017}}{35}
+\contentsline {subsection}{\numberline {6.1}Model Accuracy}{33}
+\contentsline {subsection}{\numberline {6.2}Probability of Correct Classification Results}{34}
+\contentsline {section}{\numberline {7}Conclusion and Future Scope}{35}
 \contentsline {section}{\hbox to\@tempdima {\hfil }References}{36}

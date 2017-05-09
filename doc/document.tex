@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{lipsum}
+\usepackage{multirow}
 % For theorems
 \usepackage{amsthm}
 
@@ -1066,7 +1067,7 @@ src="evil.com/code.js">
 					Learning Rate & 0.0001 \\
 					Number of Training Epochs & 250 \\
 					Number of Classes & 19 \\ 
-					Accuracy & 96.89 \\
+					Accuracy & 94.57 \\
 					\hline	
 				\end{tabular}
 				
@@ -1176,7 +1177,6 @@ src="evil.com/code.js">
 		
 		\begin{figure}
 			\centering
-%			\includegraphics[width=100pt]{pictures/nitrr-logo.jpg}
 			\includegraphics[width=400pt]{pictures/mlp-network-diagram.png}
 			\caption{Structure of the Multilayer Perceptron Network}
 			\label{fig:mlp-net}
@@ -1239,18 +1239,76 @@ src="evil.com/code.js">
 	% Results and Discussion
 	\cleardoublepage
 	\section{Results and Discussion}
-	\lipsum[1]
-		\subsection{Model 1}
-		\lipsum[1-3]
-		\subsection{Model 2}
-		\lipsum[1-3]
+	Each Neural Network was tested individually with the test dataset. The single NN output was compared with the desired outcome to give accuracy percentage for the individual models.
+		
+		\subsection{Model Accuracy}
+		All models reported accuracies above 90\% when tested against the training dataset. Model accuracies for all the models are listed in the Table \ref{result:model-accu}.
+		\begin{table}[!h]
+			\centering
+			\caption{Accuracies for different Models}
+			\label{result:model-accu}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				\textbf{NN Type}      & \textbf{Model Accuracies} & \textbf{Trained for (epochs)} \\ \hline
+				SF- 1                 & 94.57                     & 250                  \\ \hline
+				SF-2                  & 95.52                     & 250                  \\ \hline
+				Multilayer Perceptron & 96.89                     & 750                  \\ \hline
+			\end{tabular}
+		\end{table}
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[width=450pt]{pictures/model_1_2_accuracies.png}
+			\caption{SF-1 and SF-2 Accuracy vs Number of Epochs}
+			\label{fig:sf12-accu}
+		\end{figure}
+		
+		From the table it is evident that SF-1 model which uses least number of parameters has the lowest accuracy among all three, which was expected.
+		
+		However, it is to be noted that training times for training of SF-1 was significantly smaller than the training times for the other two models as clear from Figure \ref{fig:sf12-accu}
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[width=450pt]{pictures/mlp-accuracy.png}
+			\caption{MLP Accuracy vs Number of Epochs}
+			\label{fig:mlp-accu}
+		\end{figure}
+		Also, Number of epochs required to train the multilayer perceptron network was 700 for it to reach an accuracy of 90\%. The same is illustrated in Figure \ref{fig:mlp-accu}.
+		
+		
+		\subsection{Probability of Correct Classification Results}
+		As clear from Table \ref{tab:pcc-results}, the MLP network is most efficient in classifying the packets into one of the 6 categories. SF-1 as expected is least efficient among the three to classify the packets.
+		
+		Multilayer Perceptron Network takes time to learn but it learns the high level features more efficiently than the other two models. This is where the hidden layer comes into picture. The hidden layer learns crucial relations which are just not possible in normal Backpropagation Networks.
+		
+		\begin{table}[!h]
+			\centering
+			\caption{Probability of Correct classification for all three models }
+			\label{tab:pcc-results}
+			\begin{tabular}{|c|c|c|c|c|c|c|}
+				\hline
+				\multirow{2}{*}{\textbf{NN Type}} & \multicolumn{6}{c|}{\textbf{Probability of Correct Classification(\%)}}                          \\ \cline{2-7} 
+				& \textbf{DOS} & \textbf{U2R} & \textbf{R2L} & \textbf{Probe} & \textbf{Normal} & \textbf{Unknown} \\ \hline
+				SF- 1                             & 91.0         & 0.0          & 0.9          & 72.6           & 95.6            & 35.9        \\     
+				SF- 2                              & 93.5         & 0.0          & 0.1          & 73.9           & 95.9            & 24.2      \\       
+				Multilayer Perceptron             & 95.2         & 0.0          & 0.4          & 78.5           & 96.5            & 23.8    \\    \hline     
+			\end{tabular}
+		\end{table}
 		
 	% Results and Discussion Ends
 
 	% Conclusion and Future Scope
 	\cleardoublepage
-	\section{Conclusion and Future Scope \cite{AlEroud2017}}
-	\lipsum[1-4]
+	\section{Conclusion and Future Scope}
+	The main purpose of this project was to develop an NN-based supervised IDS. The IDS considered contains three interchangeable modular software components. The first
+	module pre-processes the raw training and testing data, the second module applies feature-extraction, and the last module performs the NN training and the classification of
+	network events. Three models were developed to compare the PCC and accuracies of all the three models.
+	
+	The performance of the IDS implementation was tested using the KDD Cup 99 dataset using separate testing and training sets. Simulations were conducted to investigate the effects of feature-extraction and compute performances obtained with Softmax and MLP implementation.
+	
+	Further analysis of the histogram obtained for each feature on a per outcome basis can be performed and used for additional processing in the feature-extraction module.
+	The IDS considered in this thesis is a signature-based IDS, which detects network attacks or intrusions through patterns in the features. Other approaches such as anomaly-
+	based IDS can be considered to complement signature based IDS where anomaly-based IDS are used to detect behavioral deviations from normal network behavior. Future projects may include the development of a separate anomaly-based IDS
+	to complement the results of the IDS considered in this study.
+	
 	% Conclusion and Future Scopes
 	
 	% References and Bibliography
