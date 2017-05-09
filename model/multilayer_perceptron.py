@@ -65,16 +65,16 @@ inputY = np.array(inputY)
 
 
 # Parameters
-learning_rate = 0.0003
+learning_rate = 0.0001
 training_epochs = 1500000
 batch_size = 10000
 display_step = 1
 
 # Network Parameters
 n_hidden_1 = 11# 1st layer number of features
-n_hidden_2 = 11 # 2nd layer number of features
+n_hidden_2 = 24 # 2nd layer number of features
 # n_hidden_3 = 11 # 2nd layer number of features
-n_input = 11 # MNIST data input (img shape: 28*28)
+n_input = 11 
 n_classes = 19 
 
 # tf Graph input
