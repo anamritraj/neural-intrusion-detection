@@ -21,24 +21,6 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{Chianese2017}
-\BIBentryALTinterwordspacing
-A.~Chianese, F.~Marulli, F.~Piccialli, P.~Benedusi, and J.~E. Jung, ``{An
-  associative engines based approach supporting collaborative analytics in the
-  Internet of cultural things},'' \emph{Future Generation Computer Systems},
-  vol.~66, pp. 187--198, 2017. [Online]. Available:
-  \url{http://dx.doi.org/10.1016/j.future.2016.04.015}
-\BIBentrySTDinterwordspacing
-
-\bibitem{AlEroud2017}
-\BIBentryALTinterwordspacing
-A.~AlEroud and I.~Alsmadi, ``{Identifying cyber-attacks on software defined
-  networks: An inference-based intrusion detection approach},'' \emph{Journal
-  of Network and Computer Applications}, vol.~80, no. November 2016, pp.
-  152--164, 2017. [Online]. Available:
-  \url{http://linkinghub.elsevier.com/retrieve/pii/S1084804516303447}
-\BIBentrySTDinterwordspacing
-
 \bibitem{torpig}
 B.~Stone-Gross, M.~Cova, L.~Cavallaro, B.~G. t, M.~tin Szydlowski~andRichard
   Kemmerer, and C.~K. andGiovanni Vigna, ``Your botnet is my botnet: Analysis
@@ -66,5 +48,14 @@ D.~Turner, M.~Fossi, E.~Johnson, T.~Mark, J.~Blackbird, S.~Entwise, M.~K. Low,
 \bibitem{holz}
 T.~Holz, ``A short visit to the bot zoo,'' \emph{IEEE Security \& Privacy},
   vol.~3, no.~3, pp. 76--79, 2005.
+
+\bibitem{AlEroud2017}
+\BIBentryALTinterwordspacing
+A.~AlEroud and I.~Alsmadi, ``{Identifying cyber-attacks on software defined
+  networks: An inference-based intrusion detection approach},'' \emph{Journal
+  of Network and Computer Applications}, vol.~80, no. November 2016, pp.
+  152--164, 2017. [Online]. Available:
+  \url{http://linkinghub.elsevier.com/retrieve/pii/S1084804516303447}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}

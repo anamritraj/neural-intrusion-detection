@@ -1,7 +1,7 @@
 \contentsline {section}{\hbox to\@tempdima {\hfil }Abstract}{i}
 \contentsline {section}{\hbox to\@tempdima {\hfil }Acknowledgement}{ii}
-\contentsline {section}{\hbox to\@tempdima {\hfil }List of Figures}{vi}
-\contentsline {section}{\hbox to\@tempdima {\hfil }List of Tables}{vii}
+\contentsline {section}{\hbox to\@tempdima {\hfil }List of Figures}{v}
+\contentsline {section}{\hbox to\@tempdima {\hfil }List of Tables}{vi}
 \contentsline {section}{\numberline {1}Introduction}{1}
 \contentsline {subsection}{\numberline {1.1}Security Threats}{2}
 \contentsline {subsubsection}{\numberline {1.1.1}Role of Intrusion Detection}{3}
@@ -33,44 +33,31 @@
 \contentsline {subsubsection}{\numberline {3.3.7}Satan}{15}
 \contentsline {subsection}{\numberline {3.4}Development}{16}
 \contentsline {subsection}{\numberline {3.5}Detecting Malicious Activities}{16}
-\contentsline {subsection}{\numberline {3.6}Relevant Anomaly Detection Techniques}{16}
-\contentsline {subsubsection}{\numberline {3.6.1}Network-Based Techniques}{17}
-\contentsline {subsubsection}{\numberline {3.6.2}Host-Based Techniques}{17}
-\contentsline {subsubsection}{\numberline {3.6.3}Web-Based Techniques}{18}
-\contentsline {section}{\numberline {4}Neural Networks}{19}
-\contentsline {subsection}{\numberline {4.1}What is a Neural Network?}{19}
-\contentsline {subsection}{\numberline {4.2}Types of Neural Networks}{19}
-\contentsline {subsubsection}{\numberline {4.2.1}Type - 1}{20}
-\contentsline {subsubsection}{\numberline {4.2.2}Type - 2}{20}
-\contentsline {subsubsection}{\numberline {4.2.3}Type - 3}{21}
-\contentsline {subsubsection}{\numberline {4.2.4}Type - 1}{21}
-\contentsline {subsubsection}{\numberline {4.2.5}Type - 2}{22}
-\contentsline {subsubsection}{\numberline {4.2.6}Type - 3}{22}
-\contentsline {subsection}{\numberline {4.3}Neural Networks and Intrusion Detection}{23}
-\contentsline {section}{\numberline {5}Neural Network Based IDS}{24}
-\contentsline {subsection}{\numberline {5.1}Overview}{24}
-\contentsline {subsection}{\numberline {5.2}Datasets}{24}
-\contentsline {subsection}{\numberline {5.3}Raw Data Extraction (Packet Sniffing)}{25}
-\contentsline {subsection}{\numberline {5.4}Feature Extraction}{26}
-\contentsline {subsubsection}{\numberline {5.4.1}Features with small variations}{27}
-\contentsline {subsubsection}{\numberline {5.4.2}Features with High Correlation}{28}
-\contentsline {subsection}{\numberline {5.5}Implementations}{29}
-\contentsline {subsubsection}{\numberline {5.5.1}Supervised Learning Algorithm}{29}
-\contentsline {subsubsection}{\numberline {5.5.2}Single NN Classification Model}{29}
-\contentsline {subsubsection}{\numberline {5.5.3}Three-Parallel Neural Network Classification}{30}
-\contentsline {subsection}{\numberline {5.6}Proposed Model: Softmax Regression-based Neural Network}{30}
-\contentsline {section}{\numberline {6}Experimental Methdology}{32}
-\contentsline {subsection}{\numberline {6.1}Dataset}{32}
-\contentsline {subsection}{\numberline {6.2}Host Configuration}{32}
-\contentsline {subsection}{\numberline {6.3}Network Configuration}{33}
-\contentsline {subsection}{\numberline {6.4}Gathering Raw Data}{34}
-\contentsline {subsubsection}{\numberline {6.4.1}From Packet Sniffing}{34}
-\contentsline {subsubsection}{\numberline {6.4.2}PCAP Files from the Internet \cite {Chianese2017}}{34}
-\contentsline {section}{\numberline {7}Results and Discussion}{36}
-\contentsline {subsection}{\numberline {7.1}Model 1}{36}
-\contentsline {subsection}{\numberline {7.2}Model 2}{37}
-\contentsline {subsection}{\numberline {7.3}Model 3}{37}
-\contentsline {subsection}{\numberline {7.4}Model 4}{38}
-\contentsline {subsection}{\numberline {7.5}Model 5}{39}
-\contentsline {section}{\numberline {8}Conclusion and Future Scope \cite {AlEroud2017}}{40}
-\contentsline {section}{\hbox to\@tempdima {\hfil }References}{41}
+\contentsline {subsubsection}{\numberline {3.5.1}Network-Based Techniques}{16}
+\contentsline {subsubsection}{\numberline {3.5.2}Host-Based Techniques}{17}
+\contentsline {subsubsection}{\numberline {3.5.3}Web-Based Techniques}{19}
+\contentsline {section}{\numberline {4}Neural Network Based IDS}{20}
+\contentsline {subsection}{\numberline {4.1}Overview}{20}
+\contentsline {subsection}{\numberline {4.2}Datasets}{21}
+\contentsline {subsection}{\numberline {4.3}Raw Data Extraction (Packet Sniffing)}{21}
+\contentsline {subsection}{\numberline {4.4}Feature Extraction}{22}
+\contentsline {subsubsection}{\numberline {4.4.1}Removal of Features with small variations}{22}
+\contentsline {subsubsection}{\numberline {4.4.2}Removal of Highly Correlated Features}{23}
+\contentsline {subsection}{\numberline {4.5}Implementations}{23}
+\contentsline {subsubsection}{\numberline {4.5.1}Supervised Learning Algorithm}{23}
+\contentsline {subsubsection}{\numberline {4.5.2}Single NN Classification Model}{24}
+\contentsline {subsubsection}{\numberline {4.5.3}Three-Parallel Neural Network Classification}{25}
+\contentsline {section}{\numberline {5}Experimental Methdology}{27}
+\contentsline {subsection}{\numberline {5.1}Dataset}{27}
+\contentsline {subsection}{\numberline {5.2}Host Configuration}{28}
+\contentsline {subsection}{\numberline {5.3}Gathering Raw Data}{28}
+\contentsline {subsubsection}{\numberline {5.3.1}From Packet Sniffing}{28}
+\contentsline {subsubsection}{\numberline {5.3.2}PCAP Files from the Internet}{28}
+\contentsline {section}{\numberline {6}Results and Discussion}{29}
+\contentsline {subsection}{\numberline {6.1}Model 1}{29}
+\contentsline {subsection}{\numberline {6.2}Model 2}{30}
+\contentsline {subsection}{\numberline {6.3}Model 3}{30}
+\contentsline {subsection}{\numberline {6.4}Model 4}{31}
+\contentsline {subsection}{\numberline {6.5}Model 5}{32}
+\contentsline {section}{\numberline {7}Conclusion and Future Scope \cite {AlEroud2017}}{33}
+\contentsline {section}{\hbox to\@tempdima {\hfil }References}{34}

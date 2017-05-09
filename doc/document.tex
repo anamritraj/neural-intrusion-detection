@@ -639,91 +639,409 @@ src="evil.com/code.js">
 		The proposed model uses a Softmax Regression based neural network which classifies the network traffic in real-time.The network is developed in Python using Tensorflow Library (By Google). Next a packet sniffer is developed in python which captures all the packets from and to the host. This form the raw data for the model. Now this data is then preprocessed to form the input to the model. This model then evaluates the network traffic to classify it among the known 18 types or any new attack or normal traffic.
 			
 		\subsection{Detecting Malicious Activities}
-		\lipsum[1-2]
+		Malicious activity is a generic term that refers to automated or manual attempts of compromising the security of a computer infrastructure. Examples of malicious activity include the output generated (or its effect on a system) by the execution of simple script kiddies, viruses, DoS attacks, exploits of XSS or SQL injection vulnerabilities, and so forth. This chapter describes the research tools and methodologies available to detect and
+		mitigate malicious activity on a network, a single host, a web-server and the combination of the three.
 		
-		\subsection{Relevant Anomaly Detection Techniques}
-		\lipsum[1-2]
+		First, the background concepts and the ID problem are described in this chapter along with a taxonomic description of the most relevant aspects of an IDS. Secondly, a detailed survey of the selected state-of-the-art anomaly detection approaches is presented with the help of further classification dimensions. In addition, the problem of alert correlation, that is an orthogonal topic, is described and the most relevant, recent research approaches are over-viewed. Last but not least, the problem of evaluating an IDS is presented to provide the essential terminology and criteria to understand the effectiveness of both the reviewed literature and our original contributions.
 			\subsubsection{Network-Based Techniques}
-			\lipsum[1-2]
+			Our research does not include network-based IDS. Our contributions in alert correlation, however, leverage both network and host-based techniques, thus a brief overview of the latest (i.e., proposed between 2011 and 2016) network-based detection approaches is provided in this section. We remark that all the techniques included in the following are based on TCP/IP, meaning that models of normal activity are constructed by inspecting the decoded network frames up to the TCP layer.
+			
+			\begin{description}
+				\item[Time] refers to the use of \emph{timestamp} information,
+				extracted from network packets, to model normal packets. For example,
+				normal packets may be modelled by their minimum and maximum inter-arrival time.
+				\item[Header] means that the TCP header is decoded and the fields are modelled. For example, normal packets may be modelled by
+				the observed ports range.
+				\item[Payload] refers to the use of the payload, either at
+				IP or TCP layer. For example, normal packets may be modelled by the most frequent byte in the observed payloads.
+				\item[Stochastic] means that stochastic techniques are exploited to
+				create models. For example, the model of normal packets may be constructed by estimating the sample mean and variance of certain features (e.g., port number, content length).
+				\item[Deterministic] means that certain features are modelled following
+				a deterministic approach. For example, normal packets may be only
+				those containing a specified set of values for the TTL field.
+				\item[Clustering] refers to the use of clustering (and subsequent classification) techniques. For instance, payload byte vectors may be
+				compressed using a SOM where class of different packets will stimulate neighbour nodes.
+			\end{description}
+			
+			Note that, since recent research have experimented with several
+			techniques and algorithms, mixed approaches exist and often lead to
+			better results.
 			\subsubsection{Host-Based Techniques}
-			\lipsum[1-2]
+			A survey of the latest (i.e., proposed
+			between 2011 and 2017) host-based detection approaches is provided in
+			this section. Most of the techniques leverage system call invoked by
+			the kernel to create models of normal behaviour of processes.
+			
+			\begin{description}
+				\item[Syscall] refers, in general, to the use of system calls to
+				characterize normal host activity. For example, a process may be
+				modeled by the stream of system calls invoked during normal operation.
+				\item[Stochastic] means that stochastic techniques are exploited to
+				create models. For example, the model of normal processes may be
+				constructed by estimating the sample mean and variance of certain
+				features (e.g., length of the \texttt{open}'s \texttt{path} argument).
+				\item[Deterministic] means that certain features are modeled following
+				a deterministic approach. For example, normal processes may be only
+				those that use a fixed number, say 12, of file descriptors.
+				\item[Comprehensive] approaches are those that have been extensively
+				developed and, in general, incorporate a rich set of features, beyond
+				the proof-of-concept.
+				\item[Context] refers to the use of context information in
+				general. For example, the normal behavior of processes can be modeled
+				also by means of the number of the environmental variables utilized or
+				by the sequence of system calls invoked.
+				\item[Data] means that the data flow is taken into account. For
+				example, normal processes may be modeled by the set of values of the
+				system call arguments.
+				\item[Forensics] means that the approach has been also evaluated for
+				off-line, forensics analysis.
+			\end{description}
+			
+			
+			Host-based anomaly detection has been part of intrusion detection
+			since its very inception: it already appears in the seminal
+			work~\citep{anderson}. However, the definition of a set of statistical
+			characterization techniques for events, variables and counters such as
+			the CPU load and the usage of certain commands is due
+			to~\citep{denning:tse1987:ides}. The first mention of intrusion
+			detection through the analysis of the sequence of syscalls from system
+			processes is in \citep{Self}, where ``normal sequences'' of system
+			calls are considered. A similar idea was presented earlier in
+			\citep{PrivilegedProgramsMonitoring}, which proposes a misuse-based
+			idea by manually describe the canonical sequence of calls of each and
+			every program, something evidently impossible in practice.
+			
+			
+			In \citep{lee:2000:framework} a set of models based on data mining
+			techniques is proposed. In principle, the models are agnostic with
+			respect to the type of raw event collected, which can be user activity
+			(e.g., login time, CPUload), network packets (e.g.,
+			data collected with tcpdump), or operating
+			system activity (e.g., system call traces collected with OpenBSM). Events are processed using automatic classification
+			algorithms to assign labels drawn from a finite set. In addition,
+			frequent episodes are extracted and, finally, association rules among
+			events are mined. Such there algorithms are combined together at
+			detection time. Events marked with wrong labels, unexpectedly frequent
+			episodes or rule violations will all trigger alerts.
+			
+			
+			Alternatively, other authors proposed to use static analysis, as
+			opposed to dynamic learning, to profile a program's normal
+			behavior. The technique described in
+			\citep{wagner:sp2001:staticanalysis} combines the benefits of dynamic
+			and static analysis. In particular, three models are proposed to
+			automatically derive a specification of the application behavior:
+			call-graph, context-free grammars (or non-deterministic pushdown
+			automata), and digraphs. All the models' building blocks are system
+			calls. The call-graph is statically constructed and then simulated,
+			while the program is running, to resolve non-deterministic paths. In
+			some sense, the context-free grammar model ---called abstract stack---
+			is the evolution of the call-graph model as it allows to keep track of
+			the state (i.e., call stack). The digraph ---actually $k$-graph---
+			model is keeps track of $k$-long sequences of system calls from an
+			arbitrary point of the execution. Despite is simplicity, which ensures
+			a negligible performance overhead with respect to the others, this
+			model achieves the best detection precision.
+			In \citep{rulessystemcallarguments} the LERAD
+			algorithm (Learning Rules for Anomaly Detection) is
+			described. Basically, it is a learning system to mine rules expressing
+			normal values of arguments, normal sequences of system calls, or
+			both. In particular, the basic algorithm learns rules in the form $A =
+			a, B = b, \dots \Rightarrow X \in \{x_{1}, x_{2}, \dots\}$ where
+			uppercase letters indicate parameter names (e.g., \texttt{path},
+			\texttt{flags}) while lowercase symbols indicate their corresponding
+			values. For some reason, the rule-learning algorithm first extracts
+			random pairs from the training set to generate a first set of
+			rules. After this, two optimization steps are run to remove rules with
+			low coverage and those prone to generate FP (according
+			to a validation dataset). A system call is deemed anomalous if no
+			matching rule is found. A similar learning and detection algorithm is
+			run among sequences of system calls. The main advantage of the
+			described approach is that no relationship is learned among the values
+			of different arguments of the same system call. Beside the unrealistic
+			assumption regarding the availability of a labelled validation dataset,
+			another side issue is that the evaluation is quite poor and uses
+			non-standard metrics.
+			
+			
 			\subsubsection{Web-Based Techniques}
-			\lipsum[1-2]
+			A survey of the latest (i.e., proposed
+			between 2013 and 2017) host-based detection approaches is provided in this section. All the techniques included in the following are based on HTTP, meaning that models of normal activity are
+			constructed either by inspecting the decoded network frames up to the HTTP layer, or by acting as reverse
+			HTTP proxies.
+			
+			Such
+			characteristics are based on our analysis and experience, thus, other
+			classifications may be possible. They are defined as follows:
+			
+			\begin{description}
+				\item[Adaptive] refers to the capability of self-adapting to
+				variations in the normal behavior.
+				\item[Stochastic] means that stochastic techniques are exploited to
+				create models. For example, the model of normal HTTP
+				requests may be constructed by estimating the sample mean and variance
+				of certain features (e.g., length of the string parameters contained
+				in a POST request).
+				\item[Deterministic] means that certain features are modeled following
+				a deterministic approach. For example, normal HTTP
+				sessions may be only those that are generated by a certain finite
+				state machine.
+				\item[Comprehensive] approaches are those that have been extensively
+				developed and, in general, incorporate a rich set of features, beyond
+				the proof-of-concept.
+				\item[Response] indicates that HTTP responses are
+				modeled along with HTTP requests. For instance,
+				normal HTTP responses may be modeled with the average
+				number of \texttt{<script />} nodes found in the response body.
+				\item[Session] indicates that the concept of web application session
+				is taken into account. For example, normal HTTP
+				interactions may be modeled with the sequences of paths corresponding
+				to a stream of HTTP requests.
+				\item[Data] indicates that parameters (i.e., GET and POST variables)
+				contained into HTTP requests are modeled. For
+				example, normal HTTP request may be modeled as the cardinality of string parameters in each request.
+			\end{description}
+			
 	% Intrusion Detection
-	
-	% Neural Networks
-	\cleardoublepage
-	\section{Neural Networks}\label{sec:neural-networks}
-	\lipsum[1]
-		\subsection{What is a Neural Network?}
-		\lipsum[1-2]
-		\subsection{Types of Neural Networks}
-		\lipsum[1-2]
-			\subsubsection{Type - 1}
-			\lipsum[1-2]
-			\subsubsection{Type - 2}
-			\lipsum[1-2]
-			\subsubsection{Type - 3}
-			\lipsum[1-2]
-			\subsubsection{Type - 1}
-			\lipsum[1-2]
-			\subsubsection{Type - 2}
-			\lipsum[1-2]
-			\subsubsection{Type - 3}
-			\lipsum[1-2]
-		\subsection{Neural Networks and Intrusion Detection}
-		\lipsum[1-3]
-	% Neural Networks
 	
 	% NN-Based IDS
 	\cleardoublepage
 	\section{Neural Network Based IDS}\label{sec:nn-based-ids}
-		\lipsum[2]
+		One promising research in Intrusion Detection concerns the application of the Neural Network techniques, for the misuse detection model and the anomaly detection model. Performance evaluations presented in this
+		paper all refer to the DARPA Intrusion Data Base.
+		An artificial Neural Network consists of a collection of treatments to transform a set of inputs to a set of searched out puts, through a set of simple processing
+		units, or nodes and connections between them. Subsets of the units are input nodes, output nodes, and nodes
+		between input and output form hidden layers the connection between two units has some weight, used to determine how much one unit will affect the other. Two types of architecture of Neural Networks can be distinguished:
+		\begin{itemize}
+			\item Supervised training algorithms --- where in the learning 
+			phase, the network learns the desired output for a given input or pattern. The well known architecture of supervised neural network is the Multi Level Perceptron (MLP)the MLP is employed for Pattern 
+			Recognition problems.
+			\item Unsupervised training algorithms --- where in the phase, the network learns without specifying desired output. Self Organizing Maps ( SOM ) are popular unsupervised training algorithms a SOM tries to find a topological mapping from the input space to clusters. SOM are employed for classification problems.
+		\end{itemize}
+		
 		\subsection{Overview}
-		\lipsum[2]
+		The IDS implementation was developed using Python3 on Tensorflow and is divided
+		into three software modules: raw data pre-processing, feature extraction and classification.
+		
+		Each software module was designed to work independently with other modules,
+		producing a set of output files used by the subsequent modules in the process flow. Any of the software modules in the process flow can be replaced provided the required inputs are available and in the correct format and syntax. With this built-in flexibility in mind, it is possible to adapt the raw data pre-processing module to allow the IDS to be trained with network traffic data other than the KDD Cup 99 dataset.
+		
+		For this thesis research, two different classification architectures were explored and compared in terms of accuracy and computing times. The first architecture utilized a single NN for the classification process and is illustrated as a block diagram. The second architecture utilized three separate NNs for the classification process and is illustrated as a block diagram in Figure 3. This second structure was inspired by, where the training data was randomly separated into an arbitrary number of subsets for the purpose of temporal analysis of network traffic data, and each subset was used to train an individual classifier separately. In this thesis, the training data was split into three subsets, and each NN trains with each subset, respectively. The outputs from each of the three separate NNs were combined to produce the final output. Further details are provided in Section E.
 		
 		\subsection{Datasets}
-		\lipsum{3}
+		
+		The KDD Cup 99 data set was developed for use in the Third International Knowledge Discovery and Data Mining Tools Competition. The dataset was created through a raw TCP data dump of a simulated U.S. Air Force local-area network (LAN), where the network was subjected to deliberate network attacks.
+		Each training sample in the training dataset represents a connection summary, and there are a total of 25,192 samples in the training dataset. Each sample can be classified as one of the 22 training attack types and can be further categorized as one of the general five outcome types: DOS, U2R, R2L, Probe or Normal. Refer to Appendix A for the full list of outcome types, and a detailed description of each of the outcome types can be found in the table % TODO:!
+		
+		Each connection summary is described using 41 features which the NN classifier uses as inputs for both training and testing. In the test dataset, each sample is similarly a connection summary, and there are a
+		total of 22,543 samples in the test dataset. In addition, there are 15 types of attacks which are not found in the training dataset. For the purpose of testing the ability of the IDS to handle unknown attack types, these 15 types of attacks are classified as unknown types in the performance evaluation phase.
+		
+		A breakdown of the number of outcome types for the testing and training dataset is shown in Table %TODO
+		
+		It must be noted that the KDD Cup 99 dataset is solely used for the purpose of developing the IDS software. It was noted by Brugger that the KDD Cup 99 data is outdated and not fully representative of network traffic attacks; thus, there is a need for the IDS to be validated with updated and more representative network data in future projects.
 		
 		\subsection{Raw Data Extraction (Packet Sniffing)}
-		\lipsum[1-3]
+		The raw data pre-processing stage takes the KDD Cup 99 training data and
+		converts it into a matrix of representative numerical data for the feature-extraction and classification stage. This stage performs the pre-processing described in the following paragraphs.
+		
+		Transforming semantic features into enumeration allows subsequent stages to
+		process these features as numerical values. In addition, the same set of conversion rules applies to both training and test dataset; thus, both training and test dataset must use the same set of semantics for the respective features. For the “protocol\_type,” “service,” and
+		“flag” fields, the enumerations used.
+		
+		Normalizing features scales features in the range 0 to 1, preventing the training process from being affected by large variations in the feature values.
+		
+		Formatting raw data for Tensorflow input saves the processed raw data in a
+		suitable format for the feature-extraction and classification stage. For example, in this simulation setup, 25,192 training samples were in the raw data, each training sample has 41 features, and each training sample has one of five possible general outcomes; thus, a single training data matrix that encompasses the features and outcomes for every one of the 25,192 training samples was produced as an output.
+		
+		Calculating mean, standard deviation, and histogram of features per outcome type provides data for the feature-extraction stage to determine if the feature is useful for classification. In this case, the software module calculates the mean and standard deviation of each feature for each outcome type. For example, a 5-by-41 matrix is generated for the mean of the features per outcome type, where there are five outcome types and 41 features. In addition, the histogram of the feature values, for each feature per outcome type, is also created for visual analysis purposes.
+		
+		
 		
 		\subsection{Feature Extraction}
-		\lipsum[1-6]
-			\subsubsection{Features with small variations}
-			\lipsum[1-3]
-			\subsubsection{Features with High Correlation}
-			\lipsum[1-3]
+		This software module uses the properties of each feature per outcome type to evaluate the features that are useful at the training stage. For this application, an array of 1s and 0s is generated, where a value of 1 indicates to the classification stage that the respective feature is to be used for training, while a value of 0 means the opposite.
+		The feature-extraction stage uses two methods to remove redundant or irrelevant features.
+			\subsubsection{Removal of Features with small variations}
+			The first filtering mechanism removes all features which remain relatively constant across different outcome types. For a feature to be considered “constant,” the conditions described in the following paragraphs must be satisfied.
+			
+			The mean of a feature is approximately the same for all outcome types. In such a case, the classification stage is not able to use this feature to differentiate between different outcome types during the training stage. The mean of the five outcome types are tabulated, and the standard deviation of the five means are then calculated. If this
+			standard deviation is less than the empirical threshold value of 0.0001, the mean values of the five outcome types are considered to be similar.
+			
+			The standard deviation value of the feature is small for all outcome types. In such a case, features vary within a relatively small range, making this feature useless for training purposes. The standard deviation of the five outcome types are first tabulated. If all five standard deviation values are less than the empirical threshold value of 0.001, this means that the feature does not vary significantly for all outcome types.
+			\subsubsection{Removal of Highly Correlated Features}
+			In this step, the correlation coefficient matrix of the features is calculated, and pairs of features which have a correlation coefficient value larger than or equal to 0.97 are identified. For each pair of highly correlated features, only one of the features is selected for the feature vector and used at the classification stage. The correlation coefficient matrix is calculated by
+			\begin{equation}
+			R(i,j) = \frac{C(i, j)}{\sqrt{C(i, i) c(j,j)}}
+			\end{equation}
+			
+			where \emph{i} and \emph{j} represent one of the 41 features and \emph{C ( i , j )} is the corresponding covariance matrix. The covariance matrix \emph{C ( i , j )} is defined as
+			\begin{equation}
+				C(i,j) = \frac{\sum_{k=1}^{N}(i_{k}-\bar{i})(j_{k} - \bar{j})}{N}
+			\end{equation}
+			
+			where i and j represents the mean of the respective features and N is the number of training samples in the training dataset. The mean i is defined as
+			\begin{equation}
+				\bar{i} = \frac{\sum_{k=1}^{N}i_{k}}{N}
+			\end{equation}
+			and $j$ is also defined similarly. To summarize, a flow chart of the raw data pre-processing and feature-extraction processes for the KDD Cup 99 data before the classification stage.
 			
 		\subsection{Implementations}
-		\lipsum[1]
 			\subsubsection{Supervised Learning Algorithm}
-			\lipsum[1]
+			
+			The NN is a non-linear process that is trained to perform a particular task filtering, predicting, identifying patterns, etc.). In this thesis, the NN is implemented using the MATLAB software.
+			% TODO Table and Figure.
+			The NN consists of an interconnected network of basic computing blocks called
+			neurons. Inter-neuron connections contain synaptic weights, and the synaptic weights are
+			used to retain knowledge obtained through the training process. Through the training
+			process, the synaptic weights are tuned to achieve the training objective. In the NN
+			toolbox provided by MATLAB, training functions are defined explicitly as global
+			algorithms for the synaptic weights tuning process. In addition to the training algorithm,
+			the NN toolbox also allows the definition of post-processing algorithms to evaluate the
+			network performance after the training process. A defined proportion of the training
+			dataset also needs to be allocated for validation purposes in the training process,
+			preventing over-fitting of the NN to the training dataset.
+			
+			In this thesis, the NN type of interest is the multi-layer feedforward network. In such networks, the neurons are arranged in layers. The most basic form is the single-layer feedforward network, where the input source nodes directly project to a layer of output nodes. The multi-layer feedforward network extends the single-layer feedforward network through the addition of one or more hidden layers in the network. The NN used in this thesis consists of one hidden layer and one output layer. The hidden layer creates an additional set of synaptic connections between the input nodes and output layer of neurons, which allows the derivation of higher-order statistics and relationships; this is especially important in applications where the inputs have large dimensions.
+			
+			Each neuron in its respective layer is connected to every other node in the adjacent forward layer. The number of neurons in the single hidden layer is derived based
+			on a rule-of-thumb from, where the number of neurons is the sum of two-thirds the number of features and the number of outcome types. If the value calculated is a decimal number, the decimal number is rounded up.
+			
+			The NN output $ y_{k}$ can be mathematically described as
+			\begin{equation}
+				y_k(l) = f_s[\sum_{h=1}^{H} w_{kh} f_{sh}(\sum_{i=1}^{I} w_{hi} x_i(l))]
+			\end{equation}
+			where $ k $ is the respective outcome type, $ x_i $ is the input, $ i $ is the respective feature of the input, $ I $ represents the total number of features per input sample and the sample number of the input is $ l $ . The total number of hidden layers is $ H $ , and $ h $ represents the respective hidden layer. The weights from neuron $ i $ to neuron $ h $ and the weights from neuron $ h $ to neuron $ k $ are, respectively, defined as $ w_hi $  and $ w_kh $ . The hidden layer activation function and the output layer activation function are defined, respectively, as $ f_sh $ and $ f_s $ . The hidden layer activation function $ f_sh $ uses the tangent sigmoid function.
+			
+			\begin{equation}
+				f_{sh}(z) = \frac{2}{1 + e^{-2x}} - 1
+			\end{equation}
+			where $ z $ is the input to the activation function. The output layer activation function $ f_s $ uses the normalized exponential function.
+			
+			\begin{equation}
+				f_s(z) = \frac{e^z}{\sum_{k=1}^{K} e^{z_k}}
+			\end{equation}
+			where $ K $ is the total number of outcome types.
 			\subsubsection{Single NN Classification Model}
-			\lipsum[1]
+			The NN is trained using 25,192 training samples. The IDS must classify each
+			network event as one of the five known outcome types or an unknown type. The NN
+			chosen for this module has the characteristics discussed in the following paragraphs.
+			
+			The NN has a single hidden layer, and the MATLAB “patternnet” function was
+			used to create the NN. For the scenarios in Section III, the number of neurons in the
+			hidden layer is described as follows. In the baseline scenario without feature-extraction,
+			the hidden layer uses 33 neurons, which is calculated based on 2/3(41) + 5 (41 input
+			features and five NN outcome types). In the scenario utilizing feature-extraction, the
+			hidden layer uses 27 neurons, which is calculated based on 2/3(33) + 5 (33 input features
+			and five NN outcome types).
+			
+			The NN utilizes a supervised learning approach with the training function as
+			scaled conjugate gradient and the performance function as cross-entropy. The training
+			proportion of the training dataset is 90\%, and the validation proportion of the training
+			dataset is 10\%. The division of the training dataset into training and validation sets was
+			performed randomly. A separate test dataset was used to test the NN.
+			
+			The NN takes in two input matrices at the training stage: a training feature matrix
+			that contains the feature vectors and a training outcome matrix that indicates the
+			respective output type for every feature vector.
+			
+			For every test input to the NN, the NN outputs a vector of five numbers, where
+			each element represents one of the five known outcome types. The maximum value of
+			any element is one, and the output of the NN is indicated by the element with the
+			maximum value.
+			
+			As a result of the supervised learning approach implemented, the NN is unable to
+			classify unknown events type in the test dataset as unknown; thus, an additional
+			capability was included to classify unknown output types. First, a sixth element was
+			added to the NN output vector as a placeholder for the unknown outcome type. The
+			unknown type was determined through the use of a threshold value; if the maximum
+			output value of the NN is below the empirical threshold value of 0.8, this means that the NN is not able to match its output with one of the known output types with high
+			confidence. In this case, the NN output defaults to the unknown type.
+			
+			
 			\subsubsection{Three-Parallel Neural Network Classification}
-			\lipsum[1-2]
-		\subsection{Proposed Model: Softmax Regression-based Neural Network}
-		\lipsum[1-4]
+			The next architecture is comprised of three separate NN modules, where each NN
+			is trained using 1/3 of the 25,192 training samples.
+			
+			The training set used for each NN is exclusive, and the three NNs work in
+			parallel. To classify unknown event types, the output of each NN is subjected to the same
+			processing.
+			
+			Separate outputs are combined based on the number of samples within the
+			training set of the respective NNs. If no training samples of an outcome type are used to
+			train a NN, that respective NN is given a weight of zero in influencing the joint decision of the three NNs. Conversely, if all training samples of an outcome type are used to train a NN, that NN has a maximum weight of one in influencing the joint decision of the three NNs and the other two NNs have no influence on the joint decision.
+			
+			The weight used for each of the smaller NN module is calculated based on the following:
+			
+			\begin{itemize}
+				\item For each NN, the number of training samples per outcome type is
+				tabulated as $X_{ij} $, where $ i $ represents one of the three NNs and represents $ j $ an outcome type.
+				
+				\item The total number of training samples per outcome type in the full training
+				set is tabulated as $ Y_j $, where $ j $ represents a specific outcome type.
+				
+				\item The weight applied to each outcome type for the respective NN $ W_{ij} $ is
+				where $ i $ represents one of the three NNs and type. The respective weight is calculated by $ j $represents one outcome type.
+				\item For unknown outcome types, the default weight is the inverse of the
+				number of NNs used in decision fusion process, i.e. 1/3.
+			\end{itemize}
+		
+		Similarly to the single NN architecture, the final NN output is indicated by the
+		element with the highest value in the output vector. The IDS implementation and performance is discussed in the next chapter.
 	% NN-Based IDS	
 	
 	
 	%Experimental Methodology
 	\cleardoublepage
 	\section{Experimental Methdology}
-	\lipsum[1]
+	Simulation results are obtained from the IDS developed using Tensorflow in Python programming language. To allow comparison of results all the simulations were done on an Intel Core i7 2.8 GHz machine running Ubuntu 16.04 LTS with 8GB DDR3 RAM. Python version used was v3.6.1. TensorFlow v1.0.1 developed by Google was used to train the model.
 		\subsection{Dataset}
-		\lipsum[1-2]
+		The KDD 99 Dataset was used as the base dataset for the model. This dataset contains 41 features related to the per packet. It labels the packets into 19 different classes, which is then learnt by the model to give attack name or normal classification for a given packet. Although the scientific community discourages the use of KDD 99 dataset, but there are no major labelled datasets available for Training of Intrusion detection models.
+		
+		This data set is prepared by Stolfo et al. [5] and is built
+		based on the data captured in DARPA’98 IDS evaluation
+		program [6]. DARPA’98 is about 4 gigabytes of compressed
+		raw (binary) tcpdump data of 7 weeks of network traffic,
+		which can be processed into about 5 million connection
+		records, each with about 100 bytes. The two weeks of
+		test data have around 2 million connection records. KDD
+		training dataset consists of approximately 4,900,000 single
+		connection vectors each of which contains 41 features and
+		is labeled as either normal or an attack, with exactly one
+		specific attack type. The simulated attacks fall in one of the
+		following four categories:
+		
+		\begin{itemize}
+			\item \textbf{Denial of Service Attack (DoS)}: is an attack in
+			which the attacker makes some computing or memory
+			resource too busy or too full to handle legitimate re-
+			quests, or denies legitimate users access to a machine.
+			\item \textbf{User to Root Attack (U2R)}: is a class of exploit in
+			which the attacker starts out with access to a normal
+			user account on the system (perhaps gained by sniffing
+			passwords, a dictionary attack, or social engineering)
+			and is able to exploit some vulnerability to gain root
+			access to the system.
+			\item  \textbf{Remote to Local Attack (R2L)}: occurs when an
+			attacker who has the ability to send packets to a
+			machine over a network but who does not have an
+			account on that machine exploits some vulnerability to
+			gain local access as a user of that machine.
+			\item  \textbf{Probing Attack}: is an attempt to gather information
+			about a network of computers for the apparent purpose
+			of circumventing its security controls.
+		\end{itemize}
+		
 		\subsection{Host Configuration}
-		\lipsum[1-2]
-		\subsection{Network Configuration}
-		\lipsum[1-3]
+		The host computer is a Dell Inspiron 5547 with Fith generation Intel Core i7 2.8 GHz processor running Ubuntu 16.04 with 8 GB of RAM. Python 3.6.1 was used along with TensorFlow 1.0.1.
+		
+		The Host computer was connected to a LAN of 5 computers and 5 Mobile devices connected to one 150 Mbps Router. All the simulations were performed using the above conditions to make sure the results are least affected by anything.
+		
 		\subsection{Gathering Raw Data}
-		\lipsum[1]
+		We performed our simulations by gathering data from the following two sources. 
 			\subsubsection{From Packet Sniffing}
-			\lipsum[1-2]
-			\subsubsection{PCAP Files from the Internet \cite{Chianese2017}}
-			\lipsum[1-2]
+			A Python script gathers all the packets which are originating from and to the Network Interface Card of the Host. It unpacks headers and messages depending on the protocol.
+			
+			\subsubsection{PCAP Files from the Internet}
+			As it was not possible to perform all the attacks on the host computer, just to see that the model is working we downloaded datasets which contained attack packets. These datasets when parsed through our program give features which are to be fed into the model.
 	%Experimental Methodology Ends
 	
 	% Results and Discussion
