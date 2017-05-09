@@ -1,8 +1,9 @@
-\contentsline {table}{\numberline {1}{\ignorespaces Softmax Model 1 Parameters\relax }}{29}
-\contentsline {table}{\numberline {2}{\ignorespaces Softmax Model 1 Features\relax }}{29}
-\contentsline {table}{\numberline {3}{\ignorespaces Softmax Model 2 Parameters\relax }}{30}
-\contentsline {table}{\numberline {4}{\ignorespaces Softmax Model 2 Features\relax }}{30}
-\contentsline {table}{\numberline {5}{\ignorespaces Multilayer Perceptron Parameters\relax }}{31}
-\contentsline {table}{\numberline {6}{\ignorespaces Multilayer Perceptron Features\relax }}{32}
-\contentsline {table}{\numberline {7}{\ignorespaces Accuracies for different Models\relax }}{33}
-\contentsline {table}{\numberline {8}{\ignorespaces Probability of Correct classification for all three models \relax }}{34}
+\contentsline {table}{\numberline {1}{\ignorespaces Softmax Model 1 Parameters\relax }}{31}
+\contentsline {table}{\numberline {2}{\ignorespaces Softmax Model 1 Features\relax }}{31}
+\contentsline {table}{\numberline {3}{\ignorespaces Softmax Model 2 Parameters\relax }}{32}
+\contentsline {table}{\numberline {4}{\ignorespaces Softmax Model 2 Features\relax }}{33}
+\contentsline {table}{\numberline {5}{\ignorespaces Multilayer Perceptron Parameters\relax }}{34}
+\contentsline {table}{\numberline {6}{\ignorespaces Multilayer Perceptron Features\relax }}{35}
+\contentsline {table}{\numberline {7}{\ignorespaces Accuracies for different Models\relax }}{36}
+\contentsline {table}{\numberline {8}{\ignorespaces Probability of Correct classification for all three models \relax }}{37}
+\contentsline {table}{\numberline {9}{\ignorespaces Truth table for intrusion assertion by an IDS\relax }}{38}

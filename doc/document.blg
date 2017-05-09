@@ -23,45 +23,45 @@ Warning--I didn't find a database entry for "rulessystemcallarguments"
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 6 entries,
+You've used 18 entries,
             4087 wiz_defined-function locations,
-            877 strings with 8831 characters,
-and the built_in function-call counts, 3865 in all, are:
-= -- 303
-> -- 96
-< -- 20
-+ -- 50
-- -- 20
-* -- 195
-:= -- 637
-add.period$ -- 14
-call.type$ -- 6
-change.case$ -- 6
-chr.to.int$ -- 39
-cite$ -- 6
-duplicate$ -- 286
-empty$ -- 310
-format.name$ -- 23
-if$ -- 863
+            969 strings with 12164 characters,
+and the built_in function-call counts, 14144 in all, are:
+= -- 1181
+> -- 366
+< -- 115
++ -- 196
+- -- 66
+* -- 724
+:= -- 2236
+add.period$ -- 38
+call.type$ -- 18
+change.case$ -- 18
+chr.to.int$ -- 261
+cite$ -- 18
+duplicate$ -- 981
+empty$ -- 1023
+format.name$ -- 81
+if$ -- 3223
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 62
-newline$ -- 45
-num.names$ -- 6
-pop$ -- 143
+int.to.str$ -- 18
+missing$ -- 177
+newline$ -- 101
+num.names$ -- 18
+pop$ -- 392
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 283
+skip$ -- 1067
 stack$ -- 0
-substring$ -- 96
-swap$ -- 225
-text.length$ -- 7
+substring$ -- 624
+swap$ -- 832
+text.length$ -- 28
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 6
+type$ -- 18
 warning$ -- 0
-while$ -- 13
-width$ -- 7
-write$ -- 84
+while$ -- 65
+width$ -- 20
+write$ -- 231
 (There were 10 warnings)

@@ -1,3 +1,8 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Structure of the Multilayer Perceptron Network\relax }}{32}
-\contentsline {figure}{\numberline {2}{\ignorespaces SF-1 and SF-2 Accuracy vs Number of Epochs\relax }}{33}
-\contentsline {figure}{\numberline {3}{\ignorespaces MLP Accuracy vs Number of Epochs\relax }}{34}
+\contentsline {figure}{\numberline {1}{\ignorespaces TCP Header\relax }}{9}
+\contentsline {figure}{\numberline {2}{\ignorespaces UDP Header\relax }}{11}
+\contentsline {figure}{\numberline {3}{\ignorespaces ICMP Header\relax }}{12}
+\contentsline {figure}{\numberline {4}{\ignorespaces Placement of various kinds of IDS in the Network\relax }}{14}
+\contentsline {figure}{\numberline {5}{\ignorespaces Process of Classification of the Packets using the Neural Network\relax }}{29}
+\contentsline {figure}{\numberline {6}{\ignorespaces Structure of the Multilayer Perceptron Network\relax }}{34}
+\contentsline {figure}{\numberline {7}{\ignorespaces SF-1 and SF-2 Accuracy vs Number of Epochs\relax }}{36}
+\contentsline {figure}{\numberline {8}{\ignorespaces MLP Accuracy vs Number of Epochs\relax }}{37}
