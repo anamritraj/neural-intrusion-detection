@@ -134,14 +134,14 @@
 		}
 		\vspace{15pt}
 		
-		I hereby certify that the work which is being presented in the B.Tech. Major Project Report entitled \quotes{\textbf{\projectTitle}}, in partial fulfillment of the requirements for the award of the Bachelor  of Technology in Computer Science \& Engineering and submitted to the Department of Computer Science \& Engineering of National Institute of Technology Raipur  is an authentic record of my own work carried out during a period from January 2017 to May 201 under the supervision of  Ms. Veena Anand, Assistant Professor, CSE Department. 
+		I hereby certify that the work which is being presented in the B.Tech. Major Project Report entitled \quotes{\textbf{\projectTitle}}, in partial fulfillment of the requirements for the award of the Bachelor  of Technology in Computer Science \& Engineering and submitted to the Department of Computer Science \& Engineering of National Institute of Technology Raipur  is an authentic record of my own work carried out during a period from January 2017 to May 2017 under the supervision of  Ms. Veena Anand, Assistant Professor, CSE Department. 
 
-		The matter presented in this thesis has not been submitted by me for the award of any other degree elsewhere.\\
+		The matter presented in this project has not been submitted by me for the award of any other degree elsewhere.\\
 		[.25in]
 		\begin{flushright}
 			\textit{Signature of Candidate}\\
 				\textbf{Anand Amrit Raj \\
-				Roll Number 13115006\\}
+				Roll Number- 13115006\\}
 		\end{flushright}
 	\vspace{10pt}
 	This is to certify that the above statement made by the candidate is correct to the best of my knowledge.
@@ -168,7 +168,18 @@
 	\section*{\centering Abstract}
 	\addcontentsline{toc}{section}{\numberline{}Abstract}
 	
+	The Internet and the Web are huge. The relevant fact, however, is that they both became the most advanced workplace. Almost every industry connected its own network to the Internet and relies on these infrastructures for a vast majority of transactions; most of the time monetary transactions. The scary part is that, during their daily work activities, people typically pay poor or no attention at all to the risks that derive from exchanging any kind of information over such a complex, interconnected infrastructure.
 	
+	The aforementioned, dramatic big picture may lead to think that the malicious software will eventually proliferate at every host of the Internet and no effective re-mediation exists. However, a more careful analysis reveals that, despite the complexity of this scenario, the problems that must be solved by a security infrastructure can be decomposed into relatively simple tasks that, surprisingly, may already have a solution.
+	
+	For fulfilling above goals we have developed a neural network based on a very simple Softmax Regression model. It classifies the network packets based on labels and tries to identify the category of the packet according to the feature vector.
+	
+	In the Neural Network toolbox provided by TensorFlow, training functions are defined explicitly as global algorithms for the synaptic weights tuning process. In addition to the training algorithm, the Neural Network toolbox also allows the definition of post-processing algorithms to evaluate the
+	network performance after the training process. A defined proportion of the training dataset also needs to be allocated for validation purposes in the training process,preventing over-fitting of the Neural Network to the training dataset.
+	
+	The performance of the IDS implementation was tested using the KDD Cup 99 dataset using separate testing and training sets. Simulations were conducted to investigate the effects of feature-extraction and compute performances obtained with Softmax and MLP implementation.
+	
+	The project concludes with the future prospects which may include the development of a separate anomaly-based IDS to complement the results of the IDS considered in this study.
 	\cleardoublepage
 	%ABSTRACT ENDS
 	
@@ -185,7 +196,7 @@
 	
 	\begin{flushleft}
 	Anand Amrit Raj\\
-	B. Tech Computer Science and Engineering
+	B. Tech,  Computer Science and Engineering
 	\end{flushleft}
 	\cleardoublepage
 	%ACKNOWLEDGEMENT ENDS
@@ -864,7 +875,7 @@ src="evil.com/code.js">
 		Each software module was designed to work independently with other modules,
 		producing a set of output files used by the subsequent modules in the process flow. Any of the software modules in the process flow can be replaced provided the required inputs are available and in the correct format and syntax. With this built-in flexibility in mind, it is possible to adapt the raw data pre-processing module to allow the IDS to be trained with network traffic data other than the KDD Cup 99 dataset.
 		
-		For this thesis research, two different classification architectures were explored and compared in terms of accuracy and computing times. The first architecture utilized a single Neural Network for the classification process and is illustrated as a block diagram. The second architecture utilized three separate Neural Networks for the classification process and is illustrated as a block diagram in Figure 3. This second structure was inspired by, where the training data was randomly separated into an arbitrary number of subsets for the purpose of temporal analysis of network traffic data, and each subset was used to train an individual classifier separately \cite{Shamshirband2014}. In this thesis, the training data was split into three subsets, and each Neural Network trains with each subset, respectively. The outputs from each of the three separate Neural Networks were combined to produce the final output. Further details are provided in Section E.
+		For this project research, two different classification architectures were explored and compared in terms of accuracy and computing times. The first architecture utilized a single Neural Network for the classification process and is illustrated as a block diagram. The second architecture utilized three separate Neural Networks for the classification process and is illustrated as a block diagram in Figure 3. This second structure was inspired by, where the training data was randomly separated into an arbitrary number of subsets for the purpose of temporal analysis of network traffic data, and each subset was used to train an individual classifier separately \cite{Shamshirband2014}. In this project, the training data was split into three subsets, and each Neural Network trains with each subset, respectively. The outputs from each of the three separate Neural Networks were combined to produce the final output. Further details are provided in Section E.
 		
 		\subsection{Datasets}
 		
@@ -921,7 +932,7 @@ src="evil.com/code.js">
 			
 		\subsection{Implementations}
 			
-			The Neural Network is a non-linear process that is trained to perform a particular task filtering, predicting, identifying patterns, etc.). In this thesis, the Neural Network is implemented using the TensorFlow library by Google using Python v3.6.1.
+			The Neural Network is a non-linear process that is trained to perform a particular task filtering, predicting, identifying patterns, etc.). In this project, the Neural Network is implemented using the TensorFlow library by Google using Python v3.6.1.
 			
 			% TODO Table and Figure.
 			
@@ -936,7 +947,7 @@ src="evil.com/code.js">
 			dataset also needs to be allocated for validation purposes in the training process,
 			preventing over-fitting of the Neural Network to the training dataset.
 			
-			In this thesis, the Neural Network type of interest is the multi-layer feedforward network. In such networks, the neurons are arranged in layers. The most basic form is the single-layer feedforward network, where the input source nodes directly project to a layer of output nodes. The multi-layer feedforward network extends the single-layer feedforward network through the addition of one or more hidden layers in the network. The Neural Network used in this thesis consists of one hidden layer and one output layer. The hidden layer creates an additional set of synaptic connections between the input nodes and output layer of neurons, which allows the derivation of higher-order statistics and relationships; this is especially important in applications where the inputs have large dimensions.
+			In this project, the Neural Network type of interest is the multi-layer feedforward network. In such networks, the neurons are arranged in layers. The most basic form is the single-layer feedforward network, where the input source nodes directly project to a layer of output nodes. The multi-layer feedforward network extends the single-layer feedforward network through the addition of one or more hidden layers in the network. The Neural Network used in this project consists of one hidden layer and one output layer. The hidden layer creates an additional set of synaptic connections between the input nodes and output layer of neurons, which allows the derivation of higher-order statistics and relationships; this is especially important in applications where the inputs have large dimensions.
 			
 			Each neuron in its respective layer is connected to every other node in the adjacent forward layer. The number of neurons in the single hidden layer is derived based
 			on a rule-of-thumb from, where the number of neurons is the sum of two-thirds the number of features and the number of outcome types. If the value calculated is a decimal number, the decimal number is rounded up.
@@ -1386,9 +1397,7 @@ src="evil.com/code.js">
 	The performance of the IDS implementation was tested using the KDD Cup 99 dataset using separate testing and training sets. Simulations were conducted to investigate the effects of feature-extraction and compute performances obtained with Softmax and MLP implementation.
 	
 	Further analysis of the histogram obtained for each feature on a per outcome basis can be performed and used for additional processing in the feature-extraction module.
-	The IDS considered in this thesis is a signature-based IDS, which detects network attacks or intrusions through patterns in the features. Other approaches such as anomaly-
-	based IDS can be considered to complement signature based IDS where anomaly-based IDS are used to detect behavioral deviations from normal network behavior. Future projects may include the development of a separate anomaly-based IDS
-	to complement the results of the IDS considered in this study.
+	The IDS considered in this project is a signature-based IDS, which detects network attacks or intrusions through patterns in the features. Other approaches such as anomaly based IDS can be considered to complement signature based IDS where anomaly-based IDS are used to detect behavioral deviations from normal network behavior. Future projects may include the development of a separate anomaly-based IDS to complement the results of the IDS considered in this study.
 	
 	% Conclusion and Future Scopes
 	
