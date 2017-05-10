@@ -134,7 +134,7 @@
 		}
 		\vspace{15pt}
 		
-		I hereby certify that the work which is being presented in the B.Tech. Major Project Report entitled \quotes{\textbf{\projectTitle}}, in partial fulfillment of the requirements for the award of the Bachelor  of Technology in Computer Science \& Engineering and submitted to the Department of Computer Science \& Engineering of National Institute of Technology Raipur  is an authentic record of my own work carried out during a period from July 2016 to December 2016 under the supervision of  Ms. Veena Anand, Assistant Professor, CSE Department. 
+		I hereby certify that the work which is being presented in the B.Tech. Major Project Report entitled \quotes{\textbf{\projectTitle}}, in partial fulfillment of the requirements for the award of the Bachelor  of Technology in Computer Science \& Engineering and submitted to the Department of Computer Science \& Engineering of National Institute of Technology Raipur  is an authentic record of my own work carried out during a period from January 2017 to May 201 under the supervision of  Ms. Veena Anand, Assistant Professor, CSE Department. 
 
 		The matter presented in this thesis has not been submitted by me for the award of any other degree elsewhere.\\
 		[.25in]
@@ -168,7 +168,7 @@
 	\section*{\centering Abstract}
 	\addcontentsline{toc}{section}{\numberline{}Abstract}
 	
-	\lipsum[1-4]
+	
 	\cleardoublepage
 	%ABSTRACT ENDS
 	
@@ -236,8 +236,8 @@
 			\item[massification of attacks] --- in parallel to the explosion of the Web 2.0, attackers and the underground economy have quickly learned that a sweep of exploits run against \emph{every} reachable host have more chances to find a vulnerable target and, thus, is much more profitable compared to a single effort to break into a high-value, well-protected machine.
 		\end{description}
 		
-		These circumstances have initiated a vicious circle that provides the attackers with a very large pool of vulnerable targets. Vulnerable client hosts are compromised to ensure virtually unlimited bandwidth and computational resources to attackers, while server side applications are violated to host malicious code used to infect client visitors. And so forth. An old fashioned attacker would have violated a single site using all the resources available, stolen data and sold it to the underground market. Instead, a modern attacker adopts a vampire'' approach and exploit client-side software vulnerabilities to take (remote) control of million hosts. In the past the diffusion of malicious code such as viruses was sustained by sharing of infected, cracked software through floppy or compact disks; nowadays, the Web offers unlimited, public storage to attackers that deploy their exploit on compromised websites.
- 		 Thus, not only the type of vulnerabilities has changed, posing virtually every interconnected device at risk. The exploitation strategy created new types of threats that take advantage of classic malicious code patterns but in a new, extensive, and tremendously effective way.
+		These circumstances have initiated a vicious circle that provides the attackers with a very large pool of vulnerable targets. Vulnerable client hosts are compromised to ensure virtually unlimited bandwidth and computational resources to attackers, while server side applications are violated to host malicious code used to infect client visitors. And so forth. An old fashioned attacker would have violated a single site using all the resources available, stolen data and sold it to the underground market. Instead, a modern attacker adopts a vampire'' approach and exploit client-side software vulnerabilities to take (remote) control of million hosts \cite{Gautam2016}. In the past the diffusion of malicious code such as viruses was sustained by sharing of infected, cracked software through floppy or compact disks; nowadays, the Web offers unlimited, public storage to attackers that deploy their exploit on compromised websites.
+ 		 Thus, not only the type of vulnerabilities has changed, posing virtually every interconnected device at risk\cite{Iqbal2016}. The exploitation strategy created new types of threats that take advantage of classic malicious code patterns but in a new, extensive, and tremendously effective way.
 		
 		
 		
@@ -246,11 +246,11 @@
 		
 		Todays' underground economy run a very proficient market: everyone can buy credit card information for as low as \$0.06--\$30, full identities for just \$0.70--\$60 or rent a scam hosting solution for \$3--\$40 per week plus \$2-\$20 for the design~\cite{symantec_threat_report_2017}.\\ 	 
 
-		The main underlying technology actually employs a classic type of software called \emph{bot} (jargon for \emph{robot}), which is not malicious \emph{per s\'e}, but is used to remotely control a network of compromised hosts, called \emph{botnet}~\cite{holz}. Remote commands can be of any type and typically include launching an attack, starting a phishing or spam campaign, or even updating to the latest version of the bot software by downloading the binary code from a host controlled by the attackers (usually called \emph{bot master})~\cite{torpig}. The exchange good has now become the botnet infrastructure itself rather than the data that can be stolen or the spam that can be sent. These are mere outputs of todays' most popular service offered for rent by the underground economy.
+		The main underlying technology actually employs a classic type of software called \emph{bot} (jargon for \emph{robot}), which is not malicious \emph{per s\'e}, but is used to remotely control a network of compromised hosts, called \emph{botnet}~\cite{holz}. Remote commands can be of any type and typically include launching an attack, starting a phishing or spam campaign, or even updating to the latest version of the bot software by downloading the binary code from a host controlled by the attackers (usually called \emph{bot master})\cite{Airehrour2016}. The exchange good has now become the botnet infrastructure itself rather than the data that can be stolen or the spam that can be sent\cite{Ojha2017}. These are mere outputs of todays' most popular service offered for rent by the underground economy.
 		
 		\subsubsection{Role of Intrusion Detection}
 		
-		The aforementioned, dramatic big picture may lead to think that the malicious software will eventually proliferate at every host of the Internet and no effective re-mediation exists. However, a more careful analysis reveals that, despite the complexity of this scenario, the problems that must be solved by a security infrastructure can be decomposed into relatively simple tasks that, surprisingly, may already have a solution. Let us look at an example.
+		The aforementioned, dramatic big picture may lead to think that the malicious software will eventually proliferate at every host of the Internet and no effective re-mediation exists. However, a more careful analysis reveals that, despite the complexity of this scenario, the problems that must be solved by a security infrastructure can be decomposed into relatively simple tasks that, surprisingly, may already have a solution\cite{Gupta2016}. Let us look at an example.
 			
 		\begin{example}
 				This is how a sample exploitation can be structured
@@ -284,7 +284,7 @@
 					botnet. As part of it, the client host can be remotely controlled by
 					the attackers who can, for instance, rent it, use its bandwidth and
 					computational power along with other computers to run a distributed
-					(DoS) attack. Also, the host can be used to automatically perform
+					(DoS) attack\cite{Raman2017}. Also, the host can be used to automatically perform
 					the same attacks described above against other vulnerable web
 					applications. And so forth.
 				\end{description}
@@ -292,7 +292,7 @@
 		
 		This simple yet quite realistic example shows the various kinds of
 		malicious activity that are generated during a typical drive-by
-		exploitation. It also shows its requirements and assumptions that must
+		exploitation\cite{Saeed2016}. It also shows its requirements and assumptions that must
 		hold to guarantee success. More precisely, we can recognize:
 		
 		\begin{description}
@@ -335,7 +335,7 @@ src="evil.com/code.js">
 		traffic, the activity of the client's operating system, the web
 		server's HTTP logs, or any combination of the three, have chances
 		of recognizing that something malicious is happening in the
-		network. For instance, if the ISP network adopt \textsf{Snort}, a
+		network\cite{Gupta2016}. For instance, if the ISP network adopt \textsf{Snort}, a
 		lightweight IDS that analyses the network traffic for known
 		attack patterns, could block all the packets marked as
 		suspicious. This would prevent, for instance, the SQL injection
@@ -354,7 +354,7 @@ src="evil.com/code.js">
 		
 		Ideally, an effective and comprehensive countermeasure can be achieved
 		if all the protection tools involved (e.g., client-side,
-		server-side, network-side) can collaborate together. For
+		server-side, network-side) can collaborate together\cite{Bosman2017}. For
 		instance, if a website is publicly reported to be malicious, a
 		client-side protection tool should block all the content
 		downloaded from that particular website. This is only a simple
@@ -410,7 +410,7 @@ src="evil.com/code.js">
 			
 			\subsubsection{Misuse-based IDS}
 			Misuse detectors analyze system activities and try to find a match between these activities and known attacks having
-			definitions or signatures introduced to the system beforehand.
+			definitions or signatures introduced to the system beforehand\cite{Chowdhury2016}.
 			
 			\textit{Advantages}
 			\begin{itemize}
@@ -426,13 +426,13 @@ src="evil.com/code.js">
 			\begin{itemize}
 				\item Misuse detectors can only detect attacks known beforehand. For this reason the systems must be updated with newly discovered attack signatures.
 				
-				\item Misuse detectors are designed to detect attacks that have signatures introduced to the system only. When a well-known attack is changed slightly and a variant of that attack is obtained, the detector is unable to detect this variant of the same attack.
+				\item Misuse detectors are designed to detect attacks that have signatures introduced to the system only. When a well-known attack is changed slightly and a variant of that attack is obtained, the detector is unable to detect this variant of the same attack \cite{Gamarra2016}.
 			\end{itemize}
 		
 			\subsubsection{Anomaly-based IDSs}
 			Anomaly detectors detect behaviors on a computer or computer network that are not normal. According to this ap-
 			proach, behaviors deviating from behaviors assumed as ‘‘normal” are thought to be attacks and anomaly detectors com-
-			pute the deviation in order to detect these attacks. Anomaly detectors construct profiles of users, servers and network
+			pute the deviation in order to detect these attacks \cite{Gong2016}. Anomaly detectors construct profiles of users, servers and network
 			connections using their normal behaviors. These profiles are produced using the data that is accepted as normal. After
 			the profile construction, detectors monitor new event data, compare the new data with obtained profile and try to detect
 			deviations. These deviations from normal behaviors are flagged as attacks. Pros and cons of anomaly-based approach are as follows\\
@@ -460,10 +460,9 @@ src="evil.com/code.js">
 	
 		For fulfilling above goals we have developed a neural network based on a very simple Softmax Regression model. It classifies the network packets based on labels and tries to identify the category of the packet according to the feature vector.
 		
-		Features are selected according to the feature selection algorithm and extracted in real-time from the packets using Python v3.6.1 then fed into the pre-trained neural network. This model then evaluates the packet and classifies it as one of the predefined attacks or a new attack or gives it a normal class.
+		Features are selected according to the feature selection algorithm and extracted in real-time from the packets using Python v3.6.1 then fed into the pre-trained neural network. This model then evaluates the packet and classifies it as one of the predefined attacks or a new attack or gives it a normal class \cite{Iqbal2016}.
+		%\subsection{Document Structure}
 		
-		\subsection{Document Structure}
-		This report is organized as follows. % TODO!
 	% Introduction Ends
 	
 	
@@ -478,7 +477,7 @@ src="evil.com/code.js">
 		``The  OSI  reference  model  adopts  a  layered  approach 
 		where  a  communication subsystem  is  broken  down  into seven  layers,  each  one  of  which  performs  a well-defined function.''
 		
-		 First, TCP traffic is “real world,” since TCP is widely used in today' s Internet.  Consequently, any network path properties we can derive from measurements of a TCP transfer can potentially be directly applied to tuning TCP performance.  Second, TCP packet streams  allow  fine-scale  probing  without  unduly  loading  the  network, since TCP adapts its transmission rate to current congestion levels.
+		 First, TCP traffic is “real world,” since TCP is widely used in today' s Internet\cite{Gupta2016}.  Consequently, any network path properties we can derive from measurements of a TCP transfer can potentially be directly applied to tuning TCP performance.  Second, TCP packet streams  allow  fine-scale  probing  without  unduly  loading  the  network, since TCP adapts its transmission rate to current congestion levels \cite{Al-Yaseen2016}.
 	 
 		\subsection{Types of Protocols}
 			When capturing packets from a network device we encounter the following types of protocols.
@@ -487,13 +486,19 @@ src="evil.com/code.js">
 			It  is  most  widely  used network  protocol.HTTP  is  a  server/client  based  protocol used to transfer web pages on network.
 			TCP/IP is a stack of protocols having different protocols on both layer 3 and 4. It   is   a   layer 4 protocol and provide bi-directional communication. IP is a layer 3 protocol  and  provides addressing system that communication on  network. TCP/IP is a three way handshake process which first sends SYN then the server responds with SYN and ACK then finally the client returns ACK to the server. This is called three way handshake in TCP.
 			
+			\begin{figure}[!h]
+				\centering
+				\includegraphics[width=400pt]{pictures/tcp_header.png}
+				\caption{TCP Header}
+				\label{fig:tcp-header}
+			\end{figure}
+			
 			Thus, in TCP, a connection is established before any data transfer takes place. Transmission Control Protocol accepts data from a data stream, divides it into chunks, and adds a TCP header creating a TCP segment. The TCP segment is then encapsulated into an Internet Protocol (IP) datagram, and exchanged with peers.
 			
-			A TCP segment consists of a segment header and a data section. The TCP header contains 10 mandatory fields, and an optional extension field.
+			A TCP segment consists of a segment header and a data section. The TCP header contains 10 mandatory fields, and an optional extension field as shown in Figure \ref{fig:tcp-header}.
 			
 			The data section follows the header. Its contents are the payload data carried for the application. The length of the data section is not specified in the TCP segment header. It can be calculated by subtracting the combined length of the TCP header and the encapsulating IP header from the total IP datagram length (specified in the IP header). 
 			
-			% TODO: Insert TCP Header Image!
 			
 			\begin{description}
 				\item[Source port (16 bits)] --- Identifies the sending port
@@ -544,12 +549,18 @@ src="evil.com/code.js">
 			\end{description}
 			
 			\subsubsection{User Datagram Protocol(UDP)}
-			UDP (User Datagram Protocol) is a simple OSI transport layer protocol for client/server network applications based on Internet Protocol (IP). UDP is the main alternative to TCP and one of the oldest network protocols in existence, introduced in 1980.
+			UDP (User Datagram Protocol) is a simple OSI transport layer protocol for client/server network applications based on Internet Protocol (IP). UDP is the main alternative to TCP and one of the oldest network protocols in existence, introduced in 1980 \cite{Ahn2017}.
 			
 			UDP network traffic is organized in the form of datagrams. A datagram comprises one message unit. The first eight (8) bytes of a datagram contain header information and the remaining bytes contain message data.
 			The UDP header consists of 4 fields, each of which is 2 bytes (16 bits).The use of the fields "Checksum" and "Source port" is optional in IPv4. In IPv6 only the source port is optional (see below).
 			
-			% TODO: Insert UDP Header Image!
+			\begin{figure}[!h]
+				\centering
+				\includegraphics[width=250pt]{pictures/udp_header.png}
+				\caption{UDP Header}
+				\label{fig:udp-header}
+			\end{figure}
+		
 			\begin{description}
 				\item [Source port number] ---
 				This field identifies the sender's port when meaningful and should be assumed to be the port to reply to if needed. If not used, then it should be zero. If the source host is the client, the port number is likely to be an ephemeral port number. If the source host is the server, the port number is likely to be a well-known port number.
@@ -567,9 +578,14 @@ src="evil.com/code.js">
 			\subsubsection{Internet Control Message Protocol(ICMP)}
 			The Internet Control Message Protocol (ICMP) is a supporting protocol in the Internet protocol suite. It is used by network devices, including routers, to send error messages and operational information indicating, for example, that a requested service is not available or that a host or router could not be reached.ICMP differs from transport protocols such as TCP and UDP in that it is not typically used to exchange data between systems, nor is it regularly employed by end-user network applications (with the exception of some diagnostic tools like ping and traceroute)
 			
+			\begin{figure}[!h]
+				\centering
+				\includegraphics[width=250pt]{pictures/icmp_header.png}
+				\caption{ICMP Header}
+				\label{fig:icmp-header}
+			\end{figure}
 			The ICMP header starts after the IPv4 header and is identified by IP protocol number '1'. All ICMP packets have an 8-byte header and variable-sized data section. The first 4 bytes of the header have fixed format, while the last 4 bytes depend on the type/code of that ICMP packet.
 			
-			% TODO: Insert ICMP Header.
 			
 			\begin{description}
 				\item [Type ] --- ICMP type
@@ -594,7 +610,12 @@ src="evil.com/code.js">
 			
 			\subsubsection{Host intrusion detection systems}
 			Host intrusion detection systems (HIDS) run on individual hosts or devices on the network. A HIDS monitors the inbound and outbound packets from the device only and will alert the user or administrator if suspicious activity is detected. It takes a snapshot of existing system files and matches it to the previous snapshot. If the critical system files were modified or deleted, an alert is sent to the administrator to investigate. An example of HIDS usage can be seen on mission critical machines, which are not expected to change their configurations.
-			
+			\begin{figure}
+				\centering
+				\includegraphics[width=400pt]{pictures/applications-of-ids.png}
+				\caption{Placement of various kinds of IDS in the Network}
+				\label{fig:mlp-net}
+			\end{figure}
 			Intrusion detection systems can also be system-specific using custom tools and honeypots.	
 			
 		\subsection{Detection Methods}
@@ -648,6 +669,8 @@ src="evil.com/code.js">
 		mitigate malicious activity on a network, a single host, a web-server and the combination of the three.
 		
 		First, the background concepts and the ID problem are described in this chapter along with a taxonomic description of the most relevant aspects of an IDS. Secondly, a detailed survey of the selected state-of-the-art anomaly detection approaches is presented with the help of further classification dimensions. In addition, the problem of alert correlation, that is an orthogonal topic, is described and the most relevant, recent research approaches are over-viewed. Last but not least, the problem of evaluating an IDS is presented to provide the essential terminology and criteria to understand the effectiveness of both the reviewed literature and our original contributions.
+		
+		
 			\subsubsection{Network-Based Techniques}
 			Our research does not include network-based IDS. Our contributions in alert correlation, however, leverage both network and host-based techniques, thus a brief overview of the latest (i.e., proposed between 2011 and 2016) network-based detection approaches is provided in this section. We remark that all the techniques included in the following are based on TCP/IP, meaning that models of normal activity are constructed by inspecting the decoded network frames up to the TCP layer.
 			
@@ -998,6 +1021,14 @@ src="evil.com/code.js">
 	\cleardoublepage
 	\section{Experimental Methdology}
 	Simulation results are obtained from the IDS developed using Tensorflow in Python programming language. To allow comparison of results all the simulations were done on an Intel Core i7 2.8 GHz machine running Ubuntu 16.04 LTS with 8GB DDR3 RAM. Python version used was v3.6.1. TensorFlow v1.0.1 developed by Google was used to train the model.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[height=250pt]{pictures/classification-process.png}
+		\caption{Process of Classification of the Packets using the Neural Network}
+		\label{fig:classification-flow}
+	\end{figure}
+	
 		\subsection{Dataset}
 		The KDD 99 Dataset was used as the base dataset for the model. This dataset contains 41 features related to the per packet. It labels the packets into 19 different classes, which is then learnt by the model to give attack name or normal classification for a given packet. Although the scientific community discourages the use of KDD 99 dataset, but there are no major labelled datasets available for Training of Intrusion detection models.
 		
@@ -1292,6 +1323,44 @@ src="evil.com/code.js">
 				Multilayer Perceptron             & 95.2         & 0.0          & 0.4          & 78.5           & 96.5            & 23.8    \\    \hline     
 			\end{tabular}
 		\end{table}
+		
+		\subsection{ROC Curve}
+		For accessing the quality of an IDS first a couple of terms need to be defined. When an IDS is looking at a network packet, it classifies it as an intrusion. This is called positive. When the IDS detects intrusion and an intrusion is indeed in progress, it is called a True Positive(TP). When the IDS detects an intrusion when there is no intrusion, it is called False Positive(FP).
+		
+		On the other hand when an intrusion is not in progress and IDS detects it as harmless it is called True Negetive(TN). And the opposite: when there is no intrusion, while there is actually in intrusion in progress, it is called as False Negetive(FN). All this is illustrated in Table \ref{table:ids-tt}.
+		
+		The total number of intrusions during a certain amount of time is defined as the number of True Positives and the number of False Negatives as these are actually intrusions). The total number of non-intrusions is thus derived from the number of True Negatives and the number of False Positives (as these actually aren’t intrusions). From these numbers we can then derive the Base Rate, which is the probability of an attack on our
+		system. This is defined as the number of intrusions over the number of events. See also Equation \ref{base-rate-eqn}.
+		
+		\begin{equation}
+			\label{base-rate-eqn}
+			Base Rate = \frac{TP + FN}{TP + FP + FN + TN}
+		\end{equation}
+		
+		\begin{table}[]
+			\centering
+			\caption{Truth table for intrusion assertion by an IDS}
+			\label{table:ids-tt}
+			\begin{tabular}{|c|c|c|c|}
+				\hline
+				\multicolumn{2}{|c|}{\multirow{2}{*}{\textbf{}}} & \multicolumn{2}{l|}{Assertion by the IDS} \\ \cline{3-4} 
+				\multicolumn{2}{|c|}{}                           & Positive            & Negative            \\ \hline
+				\multirow{2}{*}{Intrusion?}         & Yes        & True Positive       & False Negative      \\ \cline{2-4} 
+				& No         & False Positive      & True Negative       \\ \hline
+			\end{tabular}
+		\end{table}
+	
+		Other rates that are interesting when evaluating an IDS are True Positive Rate, False Positive Rate, True Negative Rate and False Negative Rate. These rates corresponds to the terms already defined (the same names, only without the word Rate). While a True Positive is an actual intrusion correctly detected by the IDS, the True Positive Rate is the probability that an intrusion attempt in the environment is detected by the IDS. In other words, the number of True Positives over all intrusion attempts in the environment:
+		\begin{equation}
+		TPR = P(A | I) = \frac{TP}{TP + FN}
+		\end{equation}
+		where $ A $ is an Alarm and $ I $ is an Intrusion. The False Positive Rate, the probability of an alarm given no intrusion, is given by:
+		
+		\begin{equation}
+			FPR = P(A | \neg I) = \frac{TP}{TP + FN}
+		\end{equation}
+		
+		\subsubsection{Speed of Detection}
 		
 	% Results and Discussion Ends
 

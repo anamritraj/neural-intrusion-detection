@@ -9,56 +9,57 @@
 \contentsline {subsubsection}{\numberline {1.1.3}Misuse-based IDS}{6}
 \contentsline {subsubsection}{\numberline {1.1.4}Anomaly-based IDSs}{6}
 \contentsline {subsection}{\numberline {1.2}Goal}{7}
-\contentsline {subsection}{\numberline {1.3}Document Structure}{7}
 \contentsline {section}{\numberline {2}Networking}{8}
 \contentsline {subsection}{\numberline {2.1}OSI Layer}{8}
 \contentsline {subsection}{\numberline {2.2}Types of Protocols}{8}
 \contentsline {subsubsection}{\numberline {2.2.1}Transmission Control Protocol(TCP/IP)}{8}
 \contentsline {subsubsection}{\numberline {2.2.2}User Datagram Protocol(UDP)}{10}
 \contentsline {subsubsection}{\numberline {2.2.3}Internet Control Message Protocol(ICMP)}{11}
-\contentsline {section}{\numberline {3}Intrusion Detection}{12}
-\contentsline {subsection}{\numberline {3.1}Types of IDS}{12}
-\contentsline {subsubsection}{\numberline {3.1.1}Network intrusion detection systems}{12}
-\contentsline {subsubsection}{\numberline {3.1.2}Host intrusion detection systems}{13}
-\contentsline {subsection}{\numberline {3.2}Detection Methods}{13}
-\contentsline {subsubsection}{\numberline {3.2.1}Signature-based}{13}
-\contentsline {subsubsection}{\numberline {3.2.2}Anomaly-based}{13}
-\contentsline {subsection}{\numberline {3.3}Common Network Attacks}{14}
-\contentsline {subsubsection}{\numberline {3.3.1}SYN Flodding}{14}
-\contentsline {subsubsection}{\numberline {3.3.2}Smurfing}{14}
-\contentsline {subsubsection}{\numberline {3.3.3}Denial-of-service attack}{14}
-\contentsline {subsubsection}{\numberline {3.3.4}Neptune Attacks}{15}
-\contentsline {subsubsection}{\numberline {3.3.5}IPSweep and Portsweep}{15}
-\contentsline {subsubsection}{\numberline {3.3.6}Rootkit}{15}
-\contentsline {subsubsection}{\numberline {3.3.7}Satan}{15}
-\contentsline {subsection}{\numberline {3.4}Development}{16}
-\contentsline {subsection}{\numberline {3.5}Detecting Malicious Activities}{16}
-\contentsline {subsubsection}{\numberline {3.5.1}Network-Based Techniques}{16}
-\contentsline {subsubsection}{\numberline {3.5.2}Host-Based Techniques}{17}
-\contentsline {subsubsection}{\numberline {3.5.3}Web-Based Techniques}{19}
-\contentsline {section}{\numberline {4}Neural Network Based IDS}{20}
-\contentsline {subsection}{\numberline {4.1}Overview}{20}
-\contentsline {subsection}{\numberline {4.2}Datasets}{21}
-\contentsline {subsection}{\numberline {4.3}Raw Data Extraction (Packet Sniffing)}{21}
-\contentsline {subsection}{\numberline {4.4}Feature Extraction}{22}
-\contentsline {subsubsection}{\numberline {4.4.1}Removal of Features with small variations}{22}
-\contentsline {subsubsection}{\numberline {4.4.2}Removal of Highly Correlated Features}{23}
-\contentsline {subsection}{\numberline {4.5}Implementations}{23}
-\contentsline {subsubsection}{\numberline {4.5.1}Supervised Learning Algorithm}{23}
-\contentsline {subsubsection}{\numberline {4.5.2}Single NN Classification Model}{24}
-\contentsline {subsubsection}{\numberline {4.5.3}Three-Parallel Neural Network Classification}{25}
-\contentsline {section}{\numberline {5}Experimental Methdology}{27}
-\contentsline {subsection}{\numberline {5.1}Dataset}{27}
-\contentsline {subsection}{\numberline {5.2}Host Configuration}{28}
-\contentsline {subsection}{\numberline {5.3}Gathering Raw Data}{28}
-\contentsline {subsubsection}{\numberline {5.3.1}From Packet Sniffing}{28}
-\contentsline {subsubsection}{\numberline {5.3.2}PCAP Files from the Internet}{28}
-\contentsline {subsection}{\numberline {5.4}Model Parameters}{28}
-\contentsline {subsubsection}{\numberline {5.4.1}Softmax Model 1}{28}
-\contentsline {subsubsection}{\numberline {5.4.2}Softmax Model 2}{29}
-\contentsline {subsubsection}{\numberline {5.4.3}Multi-layer Perceptron Model}{31}
-\contentsline {section}{\numberline {6}Results and Discussion}{33}
-\contentsline {subsection}{\numberline {6.1}Model Accuracy}{33}
-\contentsline {subsection}{\numberline {6.2}Probability of Correct Classification Results}{34}
-\contentsline {section}{\numberline {7}Conclusion and Future Scope}{35}
-\contentsline {section}{\hbox to\@tempdima {\hfil }References}{36}
+\contentsline {section}{\numberline {3}Intrusion Detection}{13}
+\contentsline {subsection}{\numberline {3.1}Types of IDS}{13}
+\contentsline {subsubsection}{\numberline {3.1.1}Network intrusion detection systems}{13}
+\contentsline {subsubsection}{\numberline {3.1.2}Host intrusion detection systems}{14}
+\contentsline {subsection}{\numberline {3.2}Detection Methods}{15}
+\contentsline {subsubsection}{\numberline {3.2.1}Signature-based}{15}
+\contentsline {subsubsection}{\numberline {3.2.2}Anomaly-based}{15}
+\contentsline {subsection}{\numberline {3.3}Common Network Attacks}{15}
+\contentsline {subsubsection}{\numberline {3.3.1}SYN Flodding}{15}
+\contentsline {subsubsection}{\numberline {3.3.2}Smurfing}{16}
+\contentsline {subsubsection}{\numberline {3.3.3}Denial-of-service attack}{16}
+\contentsline {subsubsection}{\numberline {3.3.4}Neptune Attacks}{16}
+\contentsline {subsubsection}{\numberline {3.3.5}IPSweep and Portsweep}{16}
+\contentsline {subsubsection}{\numberline {3.3.6}Rootkit}{17}
+\contentsline {subsubsection}{\numberline {3.3.7}Satan}{17}
+\contentsline {subsection}{\numberline {3.4}Development}{17}
+\contentsline {subsection}{\numberline {3.5}Detecting Malicious Activities}{17}
+\contentsline {subsubsection}{\numberline {3.5.1}Network-Based Techniques}{18}
+\contentsline {subsubsection}{\numberline {3.5.2}Host-Based Techniques}{19}
+\contentsline {subsubsection}{\numberline {3.5.3}Web-Based Techniques}{20}
+\contentsline {section}{\numberline {4}Neural Network Based IDS}{22}
+\contentsline {subsection}{\numberline {4.1}Overview}{22}
+\contentsline {subsection}{\numberline {4.2}Datasets}{23}
+\contentsline {subsection}{\numberline {4.3}Raw Data Extraction (Packet Sniffing)}{23}
+\contentsline {subsection}{\numberline {4.4}Feature Extraction}{24}
+\contentsline {subsubsection}{\numberline {4.4.1}Removal of Features with small variations}{24}
+\contentsline {subsubsection}{\numberline {4.4.2}Removal of Highly Correlated Features}{25}
+\contentsline {subsection}{\numberline {4.5}Implementations}{25}
+\contentsline {subsubsection}{\numberline {4.5.1}Supervised Learning Algorithm}{25}
+\contentsline {subsubsection}{\numberline {4.5.2}Single NN Classification Model}{26}
+\contentsline {subsubsection}{\numberline {4.5.3}Three-Parallel Neural Network Classification}{27}
+\contentsline {section}{\numberline {5}Experimental Methdology}{29}
+\contentsline {subsection}{\numberline {5.1}Dataset}{29}
+\contentsline {subsection}{\numberline {5.2}Host Configuration}{30}
+\contentsline {subsection}{\numberline {5.3}Gathering Raw Data}{30}
+\contentsline {subsubsection}{\numberline {5.3.1}From Packet Sniffing}{30}
+\contentsline {subsubsection}{\numberline {5.3.2}PCAP Files from the Internet}{30}
+\contentsline {subsection}{\numberline {5.4}Model Parameters}{31}
+\contentsline {subsubsection}{\numberline {5.4.1}Softmax Model 1}{31}
+\contentsline {subsubsection}{\numberline {5.4.2}Softmax Model 2}{32}
+\contentsline {subsubsection}{\numberline {5.4.3}Multi-layer Perceptron Model}{33}
+\contentsline {section}{\numberline {6}Results and Discussion}{36}
+\contentsline {subsection}{\numberline {6.1}Model Accuracy}{36}
+\contentsline {subsection}{\numberline {6.2}Probability of Correct Classification Results}{37}
+\contentsline {subsection}{\numberline {6.3}ROC Curve}{37}
+\contentsline {subsubsection}{\numberline {6.3.1}Speed of Detection}{38}
+\contentsline {section}{\numberline {7}Conclusion and Future Scope}{39}
+\contentsline {section}{\hbox to\@tempdima {\hfil }References}{40}
