@@ -606,9 +606,21 @@ src="evil.com/code.js">
 		Though they both relate to network security, an IDS differs from a firewall in that a firewall looks outwardly for intrusions in order to stop them from happening. Firewalls limit access between networks to prevent intrusion and do not signal an attack from inside the network. An IDS evaluates a suspected intrusion once it has taken place and signals an alarm. An IDS also watches for attacks that originate from within a system. This is traditionally achieved by examining network communications, identifying heuristics and patterns (often known as signatures) of common computer attacks, and taking action to alert operators. A system that terminates connections is called an intrusion prevention system, and is another form of an application layer firewall.
 		\subsection{Types of IDS}
 			\subsubsection{Network intrusion detection systems}
+			\begin{figure}[!h]
+				\centering
+				\includegraphics[height=200pt]{pictures/network-based-ids.png}
+				\caption{Network Based Intrusion Detection System}
+				\label{fig:network-ids}
+			\end{figure}
 			Network intrusion detection systems (NIDS) are placed at a strategic point or points within the network to monitor traffic to and from all devices on the network. It performs an analysis of passing traffic on the entire subnet, and matches the traffic that is passed on the subnets to the library of known attacks. Once an attack is identified, or abnormal behavior is sensed, the alert can be sent to the administrator. An example of an NIDS would be installing it on the subnet where firewalls are located in order to see if someone is trying to break into the firewall. Ideally one would scan all inbound and outbound traffic, however doing so might create a bottleneck that would impair the overall speed of the network. OPNET and NetSim are commonly used tools for simulation network intrusion detection systems. NID Systems are also capable of comparing signatures for similar packets to link and drop harmful detected packets which have a signature matching the records in the NIDS. When we classify the design of the NIDS according to the system interactivity property, there are two types: on-line and off-line NIDS, often referred to as inline and tap mode, respectively. On-line NIDS deals with the network in real time. It analyses the Ethernet packets and applies some rules, to decide if it is an attack or not. Off-line NIDS deals with stored data and passes it through some processes to decide if it is an attack or not.
 			
 			\subsubsection{Host intrusion detection systems}
+			\begin{figure}[!h]
+				\centering
+				\includegraphics[height=200pt]{pictures/host-ids.png}
+				\caption{Host Based Intrusion Detection System}
+				\label{fig:host-ids}
+			\end{figure}
 			Host intrusion detection systems (HIDS) run on individual hosts or devices on the network. A HIDS monitors the inbound and outbound packets from the device only and will alert the user or administrator if suspicious activity is detected. It takes a snapshot of existing system files and matches it to the previous snapshot. If the critical system files were modified or deleted, an alert is sent to the administrator to investigate. An example of HIDS usage can be seen on mission critical machines, which are not expected to change their configurations.
 			\begin{figure}
 				\centering
@@ -832,9 +844,10 @@ src="evil.com/code.js">
 			
 	% Intrusion Detection
 	
-	% NN-Based IDS
+	% Neural Network-Based IDS
 	\cleardoublepage
-	\section{Neural Network Based IDS}\label{sec:nn-based-ids}
+	\section{Neural Network Based IDS}
+	\label{sec:nn-based-ids}
 		One promising research in Intrusion Detection concerns the application of the Neural Network techniques, for the misuse detection model and the anomaly detection model. Performance evaluations presented in this
 		paper all refer to the DARPA Intrusion Data Base.
 		An artificial Neural Network consists of a collection of treatments to transform a set of inputs to a set of searched out puts, through a set of simple processing
@@ -854,14 +867,14 @@ src="evil.com/code.js">
 		Each software module was designed to work independently with other modules,
 		producing a set of output files used by the subsequent modules in the process flow. Any of the software modules in the process flow can be replaced provided the required inputs are available and in the correct format and syntax. With this built-in flexibility in mind, it is possible to adapt the raw data pre-processing module to allow the IDS to be trained with network traffic data other than the KDD Cup 99 dataset.
 		
-		For this thesis research, two different classification architectures were explored and compared in terms of accuracy and computing times. The first architecture utilized a single NN for the classification process and is illustrated as a block diagram. The second architecture utilized three separate NNs for the classification process and is illustrated as a block diagram in Figure 3. This second structure was inspired by, where the training data was randomly separated into an arbitrary number of subsets for the purpose of temporal analysis of network traffic data, and each subset was used to train an individual classifier separately. In this thesis, the training data was split into three subsets, and each NN trains with each subset, respectively. The outputs from each of the three separate NNs were combined to produce the final output. Further details are provided in Section E.
+		For this thesis research, two different classification architectures were explored and compared in terms of accuracy and computing times. The first architecture utilized a single Neural Network for the classification process and is illustrated as a block diagram. The second architecture utilized three separate Neural Networks for the classification process and is illustrated as a block diagram in Figure 3. This second structure was inspired by, where the training data was randomly separated into an arbitrary number of subsets for the purpose of temporal analysis of network traffic data, and each subset was used to train an individual classifier separately. In this thesis, the training data was split into three subsets, and each Neural Network trains with each subset, respectively. The outputs from each of the three separate Neural Networks were combined to produce the final output. Further details are provided in Section E.
 		
 		\subsection{Datasets}
 		
 		The KDD Cup 99 data set was developed for use in the Third International Knowledge Discovery and Data Mining Tools Competition. The dataset was created through a raw TCP data dump of a simulated U.S. Air Force local-area network (LAN), where the network was subjected to deliberate network attacks.
 		Each training sample in the training dataset represents a connection summary, and there are a total of 25,192 samples in the training dataset. Each sample can be classified as one of the 22 training attack types and can be further categorized as one of the general five outcome types: DOS, U2R, R2L, Probe or Normal. Refer to Appendix A for the full list of outcome types, and a detailed description of each of the outcome types can be found in the table % TODO:!
 		
-		Each connection summary is described using 41 features which the NN classifier uses as inputs for both training and testing. In the test dataset, each sample is similarly a connection summary, and there are a
+		Each connection summary is described using 41 features which the Neural Network classifier uses as inputs for both training and testing. In the test dataset, each sample is similarly a connection summary, and there are a
 		total of 22,543 samples in the test dataset. In addition, there are 15 types of attacks which are not found in the training dataset. For the purpose of testing the ability of the IDS to handle unknown attack types, these 15 types of attacks are classified as unknown types in the performance evaluation phase.
 		
 		A breakdown of the number of outcome types for the testing and training dataset is shown in Table %TODO
@@ -913,27 +926,28 @@ src="evil.com/code.js">
 			and $j$ is also defined similarly. To summarize, a flow chart of the raw data pre-processing and feature-extraction processes for the KDD Cup 99 data before the classification stage.
 			
 		\subsection{Implementations}
-			\subsubsection{Supervised Learning Algorithm}
 			
-			The NN is a non-linear process that is trained to perform a particular task filtering, predicting, identifying patterns, etc.). In this thesis, the NN is implemented using the MATLAB software.
+			The Neural Network is a non-linear process that is trained to perform a particular task filtering, predicting, identifying patterns, etc.). In this thesis, the Neural Network is implemented using the TensorFlow library by Google using Python v3.6.1.
+			
 			% TODO Table and Figure.
-			The NN consists of an interconnected network of basic computing blocks called
+			
+			The Neural Network consists of an interconnected network of basic computing blocks called
 			neurons. Inter-neuron connections contain synaptic weights, and the synaptic weights are
 			used to retain knowledge obtained through the training process. Through the training
-			process, the synaptic weights are tuned to achieve the training objective. In the NN
-			toolbox provided by MATLAB, training functions are defined explicitly as global
+			process, the synaptic weights are tuned to achieve the training objective. In the Neural Network
+			toolbox provided by TensorFlow, training functions are defined explicitly as global
 			algorithms for the synaptic weights tuning process. In addition to the training algorithm,
-			the NN toolbox also allows the definition of post-processing algorithms to evaluate the
+			the Neural Network toolbox also allows the definition of post-processing algorithms to evaluate the
 			network performance after the training process. A defined proportion of the training
 			dataset also needs to be allocated for validation purposes in the training process,
-			preventing over-fitting of the NN to the training dataset.
+			preventing over-fitting of the Neural Network to the training dataset.
 			
-			In this thesis, the NN type of interest is the multi-layer feedforward network. In such networks, the neurons are arranged in layers. The most basic form is the single-layer feedforward network, where the input source nodes directly project to a layer of output nodes. The multi-layer feedforward network extends the single-layer feedforward network through the addition of one or more hidden layers in the network. The NN used in this thesis consists of one hidden layer and one output layer. The hidden layer creates an additional set of synaptic connections between the input nodes and output layer of neurons, which allows the derivation of higher-order statistics and relationships; this is especially important in applications where the inputs have large dimensions.
+			In this thesis, the Neural Network type of interest is the multi-layer feedforward network. In such networks, the neurons are arranged in layers. The most basic form is the single-layer feedforward network, where the input source nodes directly project to a layer of output nodes. The multi-layer feedforward network extends the single-layer feedforward network through the addition of one or more hidden layers in the network. The Neural Network used in this thesis consists of one hidden layer and one output layer. The hidden layer creates an additional set of synaptic connections between the input nodes and output layer of neurons, which allows the derivation of higher-order statistics and relationships; this is especially important in applications where the inputs have large dimensions.
 			
 			Each neuron in its respective layer is connected to every other node in the adjacent forward layer. The number of neurons in the single hidden layer is derived based
 			on a rule-of-thumb from, where the number of neurons is the sum of two-thirds the number of features and the number of outcome types. If the value calculated is a decimal number, the decimal number is rounded up.
 			
-			The NN output $ y_{k}$ can be mathematically described as
+			The Neural Network output $ y_{k}$ can be mathematically described as
 			\begin{equation}
 				y_k(l) = f_s[\sum_{h=1}^{H} w_{kh} f_{sh}(\sum_{i=1}^{I} w_{hi} x_i(l))]
 			\end{equation}
@@ -948,73 +962,76 @@ src="evil.com/code.js">
 				f_s(z) = \frac{e^z}{\sum_{k=1}^{K} e^{z_k}}
 			\end{equation}
 			where $ K $ is the total number of outcome types.
-			\subsubsection{Single NN Classification Model}
-			The NN is trained using 25,192 training samples. The IDS must classify each
-			network event as one of the five known outcome types or an unknown type. The NN
-			chosen for this module has the characteristics discussed in the following paragraphs.
 			
-			The NN has a single hidden layer, and the MATLAB “patternnet” function was
-			used to create the NN. For the scenarios in Section III, the number of neurons in the
-			hidden layer is described as follows. In the baseline scenario without feature-extraction,
-			the hidden layer uses 33 neurons, which is calculated based on 2/3(41) + 5 (41 input
-			features and five NN outcome types). In the scenario utilizing feature-extraction, the
-			hidden layer uses 27 neurons, which is calculated based on 2/3(33) + 5 (33 input features
-			and five NN outcome types).
+			\subsubsection{Softmax Regression Model- 1}
+			The Neural Network is trained using 4,55,216 training samples. The IDS must classify each
+			network event as one of the five known outcome types or an unknown type. The Neural Network
+			chosen for this module has the characteristics discussed in the following sections.
 			
-			The NN utilizes a supervised learning approach with the training function as
+			The Neural Network utilizes a supervised learning approach with the training function as
 			scaled conjugate gradient and the performance function as cross-entropy. The training
 			proportion of the training dataset is 90\%, and the validation proportion of the training
 			dataset is 10\%. The division of the training dataset into training and validation sets was
-			performed randomly. A separate test dataset was used to test the NN.
+			performed randomly. A separate test dataset was used to test the Neural Network.
 			
-			The NN takes in two input matrices at the training stage: a training feature matrix
+			The Neural Network takes in two input matrices at the training stage: a training feature matrix
 			that contains the feature vectors and a training outcome matrix that indicates the
 			respective output type for every feature vector.
 			
-			For every test input to the NN, the NN outputs a vector of five numbers, where
+			For every test input to the Neural Network, the Neural Network outputs a vector of five numbers, where
 			each element represents one of the five known outcome types. The maximum value of
-			any element is one, and the output of the NN is indicated by the element with the
+			any element is one, and the output of the Neural Network is indicated by the element with the
 			maximum value.
 			
-			As a result of the supervised learning approach implemented, the NN is unable to
+			As a result of the supervised learning approach implemented, the Neural Network is unable to
 			classify unknown events type in the test dataset as unknown; thus, an additional
 			capability was included to classify unknown output types. First, a sixth element was
-			added to the NN output vector as a placeholder for the unknown outcome type. The
+			added to the Neural Network output vector as a placeholder for the unknown outcome type. The
 			unknown type was determined through the use of a threshold value; if the maximum
-			output value of the NN is below the empirical threshold value of 0.8, this means that the NN is not able to match its output with one of the known output types with high
-			confidence. In this case, the NN output defaults to the unknown type.
+			output value of the Neural Network is below the empirical threshold value of 0.8, this means that the Neural Network is not able to match its output with one of the known output types with high
+			confidence. In this case, the Neural Network output defaults to the unknown type.
 			
 			
-			\subsubsection{Three-Parallel Neural Network Classification}
-			The next architecture is comprised of three separate NN modules, where each NN
-			is trained using 1/3 of the 25,192 training samples.
+			\subsubsection{Softmax Regression Model- 2}
+			The next neural network is based on the previous neural network, except that is uses more features than the previous model. 
 			
-			The training set used for each NN is exclusive, and the three NNs work in
-			parallel. To classify unknown event types, the output of each NN is subjected to the same
-			processing.
-			
-			Separate outputs are combined based on the number of samples within the
-			training set of the respective NNs. If no training samples of an outcome type are used to
-			train a NN, that respective NN is given a weight of zero in influencing the joint decision of the three NNs. Conversely, if all training samples of an outcome type are used to train a NN, that NN has a maximum weight of one in influencing the joint decision of the three NNs and the other two NNs have no influence on the joint decision.
-			
-			The weight used for each of the smaller NN module is calculated based on the following:
-			
+			This model is again trained on the KDD dataset for for 250 epochs. Then this model is used to classify the packets into attack or non-attack (normal).
 			\begin{itemize}
-				\item For each NN, the number of training samples per outcome type is
-				tabulated as $X_{ij} $, where $ i $ represents one of the three NNs and represents $ j $ an outcome type.
+				\item For each Neural Network, the number of training samples per outcome type is
+				tabulated as $X_{ij} $, where $ i $ represents one of the three Neural Networks and represents $ j $ an outcome type.
 				
 				\item The total number of training samples per outcome type in the full training
 				set is tabulated as $ Y_j $, where $ j $ represents a specific outcome type.
 				
-				\item The weight applied to each outcome type for the respective NN $ W_{ij} $ is
-				where $ i $ represents one of the three NNs and type. The respective weight is calculated by $ j $represents one outcome type.
+				\item The weight applied to each outcome type for the respective Neural Network $ W_{ij} $ is
+				where $ i $ represents one of the three Neural Networks and type. The respective weight is calculated by $ j $represents one outcome type.
 				\item For unknown outcome types, the default weight is the inverse of the
-				number of NNs used in decision fusion process, i.e. 1/3.
+				number of Neural Networks used in decision fusion process, i.e. 1/3.
 			\end{itemize}
 		
-		Similarly to the single NN architecture, the final NN output is indicated by the
+		Similarly to the single Neural Network architecture, the final Neural Network output is indicated by the
 		element with the highest value in the output vector. The IDS implementation and performance is discussed in the next chapter.
-	% NN-Based IDS	
+		
+		The Neural Network consists of an interconnected network of basic computing blocks called
+		neurons. Inter-neuron connections contain synaptic weights, and the synaptic weights are
+		used to retain knowledge obtained through the training process. Through the training
+		process, the synaptic weights are tuned to achieve the training objective. In the Neural Network
+		toolbox provided by Tensorflow, training functions are defined explicitly as global
+		algorithms for the synaptic weights tuning process. In addition to the training algorithm,
+		TensorFlow also allows the definition of post-processing algorithms to evaluate the
+		network performance after the training process. A defined proportion of the training
+		dataset also needs to be allocated for validation purposes in the training process,
+		preventing overfitting of the Neural Network to the training dataset.
+		
+		\subsubsection{Multilayer Perceptron Model}
+		
+		A multilayer perceptron (MLP) is a feedforward artificial neural network model that maps sets of input data onto a set of appropriate outputs. An MLP consists of multiple layers of nodes in a directed graph, with each layer fully connected to the next one. Except for the input nodes, each node is a neuron (or processing element) with a nonlinear activation function. MLP utilizes a supervised learning technique called backpropagation for training the network.
+		
+		Table \ref{tab:mlp-params} shows the setup for the MLP model. This model uses 9 features out of the available 41 features. Due to memory constraints involved in training it was not possible to feed any more features into the model. The machine just ran out of available memory when more than 9 features were fed as input. The Model however, achieved 98\% accuracy over the train and test data.
+		
+		It takes 9 selected features as follows  protocol\_type, service, land, count, srv\_count, urgent, same\_srv\_rate, diff\_srv\_rate, srv\_diff\_host\_rate. All these features are then converted into vector arrays for the model to train upon them. The model uses a softmax regression model with AdamOptimizer instead of the more popular Gradient Descent optimizer. Table \ref{tab:mlp-params} lists the parameters selected for this model. Also, there are 11 neurons in the first layer, 21 neurons in the second layer and 19 neurons in the output layer.
+		
+	% Neural Network-Based IDS	
 	
 	
 	%Experimental Methodology
@@ -1069,7 +1086,7 @@ src="evil.com/code.js">
 		\subsection{Host Configuration}
 		The host computer is a Dell Inspiron 5547 with Fith generation Intel Core i7 2.8 GHz processor running Ubuntu 16.04 with 8 GB of RAM. Python 3.6.1 was used along with TensorFlow 1.0.1.
 		
-		The Host computer was connected to a LAN of 5 computers and 5 Mobile devices connected to one 150 Mbps Router. All the simulations were performed using the above conditions to make sure the results are least affected by anything.
+		The Host computer was connected to a LAN of 5 computers and 5 Mobile devices connected to one 150 Mbps Router. All the simulations were performed using the above conditions to make sure the results are least affected by any other external factors.
 		
 		\subsection{Gathering Raw Data}
 		We performed our simulations by gathering data from the following two sources. 
@@ -1127,13 +1144,13 @@ src="evil.com/code.js">
 		The Neural Network consists of an interconnected network of basic computing blocks called
 		neurons. Inter-neuron connections contain synaptic weights, and the synaptic weights are
 		used to retain knowledge obtained through the training process. Through the training
-		process, the synaptic weights are tuned to achieve the training objective. In the NN
+		process, the synaptic weights are tuned to achieve the training objective. In the Neural Network
 		toolbox provided by Tensorflow, training functions are defined explicitly as global
 		algorithms for the synaptic weights tuning process. In addition to the training algorithm,
 		TensorFlow also allows the definition of post-processing algorithms to evaluate the
 		network performance after the training process. A defined proportion of the training
 		dataset also needs to be allocated for validation purposes in the training process,
-		preventing overfitting of the NN to the training dataset.
+		preventing overfitting of the Neural Network to the training dataset.
 		\subsubsection{Softmax Model 2}
 		The structure for the Model 2 is exaclty the same as that of Model 1. It only differs in the Hyper Parameters. Table \ref{tab:model-2-params} shows the setup for the first model. This model uses 21 features out of the original 41 features and achieves an accuracy of about 97\% over 250 epochs. This is the model which takes the least amount of time for training. 
 		
@@ -1191,20 +1208,20 @@ src="evil.com/code.js">
 		The Neural Network consists of an interconnected network of basic computing blocks called
 		neurons. Inter-neuron connections contain synaptic weights, and the synaptic weights are
 		used to retain knowledge obtained through the training process. Through the training
-		process, the synaptic weights are tuned to achieve the training objective. In the NN
+		process, the synaptic weights are tuned to achieve the training objective. In the Neural Network
 		toolbox provided by Tensorflow, training functions are defined explicitly as global
 		algorithms for the synaptic weights tuning process. In addition to the training algorithm,
 		TensorFlow also allows the definition of post-processing algorithms to evaluate the
 		network performance after the training process. A defined proportion of the training
 		dataset also needs to be allocated for validation purposes in the training process,
-		preventing overfitting of the NN to the training dataset.
+		preventing overfitting of the Neural Network to the training dataset.
 	
 		\subsubsection{Multi-layer Perceptron Model}
 		A multilayer perceptron (MLP) is a feedforward artificial neural network model that maps sets of input data onto a set of appropriate outputs. An MLP consists of multiple layers of nodes in a directed graph, with each layer fully connected to the next one. Except for the input nodes, each node is a neuron (or processing element) with a nonlinear activation function. MLP utilizes a supervised learning technique called backpropagation for training the network.
 		
-		Table \ref{tab:mlp-params} shows the setup for the MLP model. This model uses 9 features out of the available 41 features. Due to memory constraints involved in training it was not possible to feed any more features into the model. The machine just ran out of available memory when more than 9 features were fed as input. The Model however, achieved a decent accuracy of 95.82\%.
+		Table \ref{tab:mlp-params} shows the setup for the MLP model. This model uses 9 features out of the available 41 features. Due to memory constraints involved in training it was not possible to feed any more features into the model. The machine just ran out of available memory when more than 9 features were fed as input. The Model however, achieved 98\% accuracy over the train and test data.
 		
-		It takes 9 selected features as follows  protocol\_type, service, land, count, srv\_count, urgent, same\_srv\_rate, diff\_srv\_rate, srv\_diff\_host\_rate. All these features are then converted into vector arrays for the model to train upon them. The model uses a softmax regression model with AdamOptimizer instead of the more popular Gradient Descent optimizer. Table \ref{tab:model-1-params} lists the parameters selected for Model 1. Also, there are 11 neurons in the first layer, 24 neurons in the second layer and 19 neurons in the output layer.
+		It takes 9 selected features as follows  protocol\_type, service, land, count, srv\_count, urgent, same\_srv\_rate, diff\_srv\_rate, srv\_diff\_host\_rate. All these features are then converted into vector arrays for the model to train upon them. The model uses a softmax regression model with AdamOptimizer instead of the more popular Gradient Descent optimizer. Table \ref{tab:mlp-params} lists the parameters selected for this model. Also, there are 11 neurons in the first layer, 21 neurons in the second layer and 19 neurons in the output layer.
 		
 		\begin{figure}
 			\centering
@@ -1216,7 +1233,7 @@ src="evil.com/code.js">
 		\begin{table}[h!]
 			\centering
 			\caption{Multilayer Perceptron Parameters}
-			\label{tab:model-1-params}
+			\label{tab:mlp-params}
 			\begin{tabular}{|l|c|}
 				\hline
 				\bfseries{Parameters} & \textbf{Value} \\ \hline
@@ -1224,7 +1241,7 @@ src="evil.com/code.js">
 				Learning Rate & 0.0001 \\
 				Number of Training Epochs & 250 \\
 				Number of Classes & 19 \\ 
-				Accuracy & 96.89 \\
+				Accuracy & 98.76 \\
 				\hline	
 			\end{tabular}
 			
@@ -1253,13 +1270,13 @@ src="evil.com/code.js">
 		The Neural Network consists of an interconnected network of basic computing blocks called
 		neurons. Inter-neuron connections contain synaptic weights, and the synaptic weights are
 		used to retain knowledge obtained through the training process. Through the training
-		process, the synaptic weights are tuned to achieve the training objective. In the NN
+		process, the synaptic weights are tuned to achieve the training objective. In the Neural Network
 		toolbox provided by Tensorflow, training functions are defined explicitly as global
 		algorithms for the synaptic weights tuning process. In addition to the training algorithm,
 		TensorFlow also allows the definition of post-processing algorithms to evaluate the
 		network performance after the training process. A defined proportion of the training
 		dataset also needs to be allocated for validation purposes in the training process,
-		preventing overfitting of the NN to the training dataset.
+		preventing overfitting of the Neural Network to the training dataset.
 	
 		
 			
@@ -1270,7 +1287,7 @@ src="evil.com/code.js">
 	% Results and Discussion
 	\cleardoublepage
 	\section{Results and Discussion}
-	Each Neural Network was tested individually with the test dataset. The single NN output was compared with the desired outcome to give accuracy percentage for the individual models.
+	Each Neural Network was tested individually with the test dataset. The single Neural Network output was compared with the desired outcome to give accuracy percentage for the individual models.
 		
 		\subsection{Model Accuracy}
 		All models reported accuracies above 90\% when tested against the training dataset. Model accuracies for all the models are listed in the Table \ref{result:model-accu}.
@@ -1280,29 +1297,24 @@ src="evil.com/code.js">
 			\label{result:model-accu}
 			\begin{tabular}{|c|c|c|}
 				\hline
-				\textbf{NN Type}      & \textbf{Model Accuracies} & \textbf{Trained for (epochs)} \\ \hline
+				\textbf{Neural Network Type}      & \textbf{Model Accuracies} & \textbf{Trained for (epochs)} \\ \hline
 				SF- 1                 & 94.57                     & 250                  \\ \hline
 				SF-2                  & 95.52                     & 250                  \\ \hline
-				Multilayer Perceptron & 96.89                     & 750                  \\ \hline
+				Multilayer Perceptron & 98.76                     & 250                  \\ \hline
 			\end{tabular}
 		\end{table}
 		\begin{figure}[!h]
 			\centering
-			\includegraphics[width=450pt]{pictures/model_1_2_accuracies.png}
-			\caption{SF-1 and SF-2 Accuracy vs Number of Epochs}
+			\includegraphics[width=400pt]{pictures/all_accuracy.png}
+			\caption{Accuracy vs Number of Epochs for all three models}
 			\label{fig:sf12-accu}
 		\end{figure}
 		
 		From the table it is evident that SF-1 model which uses least number of parameters has the lowest accuracy among all three, which was expected.
 		
 		However, it is to be noted that training times for training of SF-1 was significantly smaller than the training times for the other two models as clear from Figure \ref{fig:sf12-accu}
-		\begin{figure}[!h]
-			\centering
-			\includegraphics[width=450pt]{pictures/mlp-accuracy.png}
-			\caption{MLP Accuracy vs Number of Epochs}
-			\label{fig:mlp-accu}
-		\end{figure}
-		Also, Number of epochs required to train the multilayer perceptron network was 700 for it to reach an accuracy of 90\%. The same is illustrated in Figure \ref{fig:mlp-accu}.
+		
+		Both SF-1 and SF-2 reached saturation of learning at around 100 epochs, however, the MLP network took longer to learn the model, but produced better output after 175 epochs.
 		
 		
 		\subsection{Probability of Correct Classification Results}
@@ -1316,7 +1328,7 @@ src="evil.com/code.js">
 			\label{tab:pcc-results}
 			\begin{tabular}{|c|c|c|c|c|c|c|}
 				\hline
-				\multirow{2}{*}{\textbf{NN Type}} & \multicolumn{6}{c|}{\textbf{Probability of Correct Classification(\%)}}                          \\ \cline{2-7} 
+				\multirow{2}{*}{\textbf{Neural Network Type}} & \multicolumn{6}{c|}{\textbf{Probability of Correct Classification(\%)}}                          \\ \cline{2-7} 
 				& \textbf{DOS} & \textbf{U2R} & \textbf{R2L} & \textbf{Probe} & \textbf{Normal} & \textbf{Unknown} \\ \hline
 				SF- 1                             & 91.0         & 0.0          & 0.9          & 72.6           & 95.6            & 35.9        \\     
 				SF- 2                              & 93.5         & 0.0          & 0.1          & 73.9           & 95.9            & 24.2      \\       
@@ -1326,7 +1338,12 @@ src="evil.com/code.js">
 		
 		\subsection{ROC Curve}
 		For accessing the quality of an IDS first a couple of terms need to be defined. When an IDS is looking at a network packet, it classifies it as an intrusion. This is called positive. When the IDS detects intrusion and an intrusion is indeed in progress, it is called a True Positive(TP). When the IDS detects an intrusion when there is no intrusion, it is called False Positive(FP).
-		
+		\begin{figure}[!h]
+			\centering
+			\includegraphics[width=400pt]{pictures/allroc.png}
+			\caption{ROC curves for three Models}
+			\label{fig:sf12-accu}
+		\end{figure}
 		On the other hand when an intrusion is not in progress and IDS detects it as harmless it is called True Negetive(TN). And the opposite: when there is no intrusion, while there is actually in intrusion in progress, it is called as False Negetive(FN). All this is illustrated in Table \ref{table:ids-tt}.
 		
 		The total number of intrusions during a certain amount of time is defined as the number of True Positives and the number of False Negatives as these are actually intrusions). The total number of non-intrusions is thus derived from the number of True Negatives and the number of False Positives (as these actually aren’t intrusions). From these numbers we can then derive the Base Rate, which is the probability of an attack on our
@@ -1350,6 +1367,8 @@ src="evil.com/code.js">
 			\end{tabular}
 		\end{table}
 	
+		
+	
 		Other rates that are interesting when evaluating an IDS are True Positive Rate, False Positive Rate, True Negative Rate and False Negative Rate. These rates corresponds to the terms already defined (the same names, only without the word Rate). While a True Positive is an actual intrusion correctly detected by the IDS, the True Positive Rate is the probability that an intrusion attempt in the environment is detected by the IDS. In other words, the number of True Positives over all intrusion attempts in the environment:
 		\begin{equation}
 		TPR = P(A | I) = \frac{TP}{TP + FN}
@@ -1360,15 +1379,14 @@ src="evil.com/code.js">
 			FPR = P(A | \neg I) = \frac{TP}{TP + FN}
 		\end{equation}
 		
-		\subsubsection{Speed of Detection}
 		
 	% Results and Discussion Ends
 
 	% Conclusion and Future Scope
 	\cleardoublepage
 	\section{Conclusion and Future Scope}
-	The main purpose of this project was to develop an NN-based supervised IDS. The IDS considered contains three interchangeable modular software components. The first
-	module pre-processes the raw training and testing data, the second module applies feature-extraction, and the last module performs the NN training and the classification of
+	The main purpose of this project was to develop an Neural Network-based supervised IDS. The IDS considered contains three interchangeable modular software components. The first
+	module pre-processes the raw training and testing data, the second module applies feature-extraction, and the last module performs the Neural Network training and the classification of
 	network events. Three models were developed to compare the PCC and accuracies of all the three models.
 	
 	The performance of the IDS implementation was tested using the KDD Cup 99 dataset using separate testing and training sets. Simulations were conducted to investigate the effects of feature-extraction and compute performances obtained with Softmax and MLP implementation.
