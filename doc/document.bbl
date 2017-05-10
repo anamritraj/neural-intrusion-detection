@@ -144,6 +144,11 @@ W.~L. Al-Yaseen, Z.~A. Othman, and M.~Z.~A. Nazri, ``{Real-time Multi-agent
   \url{http://dx.doi.org/10.1016/j.patrec.2016.11.018}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Peng2016}
+J.~Peng, K.~K.~R. Choo, and H.~Ashman, ``{User profiling in intrusion
+  detection: A review},'' \emph{Journal of Network and Computer Applications},
+  vol.~72, pp. 14--27, 2016.
+
 \bibitem{Ahn2017}
 \BIBentryALTinterwordspacing
 J.~Ahn, S.~Cho, and D.~H. Chung, ``{Analysis of energy and control efficiencies
@@ -152,5 +157,97 @@ J.~Ahn, S.~Cho, and D.~H. Chung, ``{Analysis of energy and control efficiencies
   \emph{Applied Energy}, vol. 190, pp. 222--231, 2017. [Online]. Available:
   \url{http://linkinghub.elsevier.com/retrieve/pii/S0306261916319353}
 \BIBentrySTDinterwordspacing
+
+\bibitem{So-In2016}
+\BIBentryALTinterwordspacing
+C.~So-In, S.~Permpol, and K.~Rujirakul, ``{Soft computing-based localizations
+  in wireless sensor networks},'' \emph{Pervasive and Mobile Computing},
+  vol.~29, pp. 17--37, 2016. [Online]. Available:
+  \url{http://dx.doi.org/10.1016/j.pmcj.2015.06.010}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Takenaka2016}
+\BIBentryALTinterwordspacing
+T.~Takenaka, Y.~Yamamoto, K.~Fukuda, A.~Kimura, and K.~Ueda, ``{Enhancing
+  products and services using smart appliance networks},'' \emph{CIRP Annals -
+  Manufacturing Technology}, vol.~65, no.~1, pp. 397--400, 2016. [Online].
+  Available: \url{http://dx.doi.org/10.1016/j.cirp.2016.04.062}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Lin2017}
+\BIBentryALTinterwordspacing
+P.~Lin, D.-c. Lyu, F.~Chen, S.-S. Wang, and Y.~Tsao, ``{Multi-style learning
+  with denoising autoencoders for acoustic modeling in the internet of things
+  (IoT)},'' \emph{Computer Speech {\&} Language}, 2017. [Online]. Available:
+  \url{http://dx.doi.org/10.1016/j.csl.2017.02.001}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Zarpelao2017}
+\BIBentryALTinterwordspacing
+B.~B. Zarpel{\~{a}}o, R.~S. Miani, C.~T. Kawakani, and S.~C. de~Alvarenga, ``{A
+  survey of intrusion detection in Internet of Things},'' \emph{Journal of
+  Network and Computer Applications}, no. February, pp. 0--1, 2017. [Online].
+  Available:
+  \url{http://linkinghub.elsevier.com/retrieve/pii/S1084804517300802}
+\BIBentrySTDinterwordspacing
+
+\bibitem{SumaiyaThaseen2016}
+\BIBentryALTinterwordspacing
+I.~{Sumaiya Thaseen} and C.~{Aswani Kumar}, ``{Intrusion detection model using
+  fusion of chi-square feature selection and multi class SVM},'' \emph{Journal
+  of King Saud University - Computer and Information Sciences}, no. 2016, 2016.
+  [Online]. Available: \url{http://dx.doi.org/10.1016/j.jksuci.2015.12.004}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Vijai2016}
+\BIBentryALTinterwordspacing
+P.~Vijai and P.~B. Sivakumar, ``{Design of IoT Systems and Analytics in the
+  Context of Smart City Initiatives in India},'' \emph{Procedia Computer
+  Science}, vol.~92, pp. 583--588, 2016. [Online]. Available:
+  \url{http://dx.doi.org/10.1016/j.procs.2016.07.386}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Wang2010}
+\BIBentryALTinterwordspacing
+G.~Wang, J.~Hao, J.~Ma, and L.~Huang, ``{A new approach to intrusion detection
+  using Artificial Neural Networks and fuzzy clustering},'' \emph{Expert
+  Systems with Applications}, vol.~37, no.~9, pp. 6225--6232, 2010. [Online].
+  Available: \url{http://dx.doi.org/10.1016/j.eswa.2010.02.102}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Saxena2016}
+\BIBentryALTinterwordspacing
+D.~Saxena and I.~I.~T. Roorkee, ``{Named Data Networking: A Survey},''
+  \emph{Computer Science Review, Elsevier}, vol.~19, pp. 15----55, 2016.
+  [Online]. Available: \url{http://dx.doi.org/10.1016/j.cosrev.2016.01.001}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Srinivasu2012}
+P.~Srinivasu and P.~Avadhani, ``{Genetic Algorithm based Weight Extraction
+  Algorithm for Artificial Neural Network Classifier in Intrusion Detection},''
+  \emph{Procedia Engineering}, vol.~38, pp. 144--153, 2012.
+
+\bibitem{Chianese2017}
+\BIBentryALTinterwordspacing
+A.~Chianese, F.~Marulli, F.~Piccialli, P.~Benedusi, and J.~E. Jung, ``{An
+  associative engines based approach supporting collaborative analytics in the
+  Internet of cultural things},'' \emph{Future Generation Computer Systems},
+  vol.~66, pp. 187--198, 2017. [Online]. Available:
+  \url{http://dx.doi.org/10.1016/j.future.2016.04.015}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Mahapatra2016}
+\BIBentryALTinterwordspacing
+B.~Mahapatra and S.~Patnaik, ``{Self Adaptive Intrusion Detection Technique
+  Using Data Mining Concept in an Ad-hoc Network},'' \emph{Procedia Computer
+  Science}, vol.~92, pp. 292--297, 2016. [Online]. Available:
+  \url{http://dx.doi.org/10.1016/j.procs.2016.07.358}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Shamshirband2014}
+S.~Shamshirband, N.~B. Anuar, M.~L.~M. Kiah, V.~A. Rohani, D.~Petkovi{\'{c}},
+  S.~Misra, and A.~N. Khan, ``{Co-FAIS: Cooperative fuzzy artificial immune
+  system for detecting intrusion in wireless sensor networks},'' \emph{Journal
+  of Network and Computer Applications}, vol.~42, pp. 102--117, 2014.
 
 \end{thebibliography}

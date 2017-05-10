@@ -41,7 +41,7 @@
 \contentsline {subsection}{\numberline {4.3}Raw Data Extraction (Packet Sniffing)}{24}
 \contentsline {subsection}{\numberline {4.4}Feature Extraction}{25}
 \contentsline {subsubsection}{\numberline {4.4.1}Removal of Features with small variations}{25}
-\contentsline {subsubsection}{\numberline {4.4.2}Removal of Highly Correlated Features}{26}
+\contentsline {subsubsection}{\numberline {4.4.2}Removal of Highly Correlated Features}{25}
 \contentsline {subsection}{\numberline {4.5}Implementations}{26}
 \contentsline {subsubsection}{\numberline {4.5.1}Softmax Regression Model- 1}{27}
 \contentsline {subsubsection}{\numberline {4.5.2}Softmax Regression Model- 2}{28}

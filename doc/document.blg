@@ -11,57 +11,50 @@ Database file #1: references/bib.bib
 Warning--I didn't find a database entry for "deception"
 Warning--I didn't find a database entry for "social-engineering-fundamentals"
 Warning--I didn't find a database entry for "ranum-myths"
-Warning--I didn't find a database entry for "anderson"
-Warning--I didn't find a database entry for "denning:tse1987:ides"
-Warning--I didn't find a database entry for "Self"
-Warning--I didn't find a database entry for "PrivilegedProgramsMonitoring"
-Warning--I didn't find a database entry for "lee:2000:framework"
-Warning--I didn't find a database entry for "wagner:sp2001:staticanalysis"
-Warning--I didn't find a database entry for "rulessystemcallarguments"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 18 entries,
+You've used 31 entries,
             4087 wiz_defined-function locations,
-            969 strings with 12164 characters,
-and the built_in function-call counts, 14144 in all, are:
-= -- 1181
-> -- 366
-< -- 115
-+ -- 196
-- -- 66
-* -- 724
-:= -- 2236
-add.period$ -- 38
-call.type$ -- 18
-change.case$ -- 18
-chr.to.int$ -- 261
-cite$ -- 18
-duplicate$ -- 981
-empty$ -- 1023
-format.name$ -- 81
-if$ -- 3223
+            1056 strings with 15186 characters,
+and the built_in function-call counts, 25293 in all, are:
+= -- 2144
+> -- 645
+< -- 222
++ -- 346
+- -- 112
+* -- 1294
+:= -- 3973
+add.period$ -- 64
+call.type$ -- 31
+change.case$ -- 31
+chr.to.int$ -- 507
+cite$ -- 31
+duplicate$ -- 1737
+empty$ -- 1793
+format.name$ -- 140
+if$ -- 5784
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 177
-newline$ -- 101
-num.names$ -- 18
-pop$ -- 392
+int.to.str$ -- 31
+missing$ -- 300
+newline$ -- 160
+num.names$ -- 31
+pop$ -- 649
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1067
+skip$ -- 1926
 stack$ -- 0
-substring$ -- 624
-swap$ -- 832
-text.length$ -- 28
+substring$ -- 1207
+swap$ -- 1498
+text.length$ -- 53
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 18
+type$ -- 31
 warning$ -- 0
-while$ -- 65
-width$ -- 20
-write$ -- 231
-(There were 10 warnings)
+while$ -- 122
+width$ -- 33
+write$ -- 390
+(There were 3 warnings)

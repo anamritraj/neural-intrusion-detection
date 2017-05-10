@@ -460,7 +460,7 @@ src="evil.com/code.js">
 	
 		For fulfilling above goals we have developed a neural network based on a very simple Softmax Regression model. It classifies the network packets based on labels and tries to identify the category of the packet according to the feature vector.
 		
-		Features are selected according to the feature selection algorithm and extracted in real-time from the packets using Python v3.6.1 then fed into the pre-trained neural network. This model then evaluates the packet and classifies it as one of the predefined attacks or a new attack or gives it a normal class \cite{Iqbal2016}.
+		Features are selected according to the feature selection algorithm and extracted in real-time from the packets using Python v3.6.1 then fed into the pre-trained neural network. This model then evaluates the packet and classifies it as one of the predefined attacks or a new attack or gives it a normal class.
 		%\subsection{Document Structure}
 		
 	% Introduction Ends
@@ -493,11 +493,11 @@ src="evil.com/code.js">
 				\label{fig:tcp-header}
 			\end{figure}
 			
-			Thus, in TCP, a connection is established before any data transfer takes place. Transmission Control Protocol accepts data from a data stream, divides it into chunks, and adds a TCP header creating a TCP segment. The TCP segment is then encapsulated into an Internet Protocol (IP) datagram, and exchanged with peers.
+			Thus, in TCP, a connection is established before any data transfer takes place. Transmission Control Protocol accepts data from a data stream, divides it into chunks, and adds a TCP header creating a TCP segment. The TCP segment is then encapsulated into an Internet Protocol (IP) datagram, and exchanged with peers\cite{Iqbal2016}.
 			
 			A TCP segment consists of a segment header and a data section. The TCP header contains 10 mandatory fields, and an optional extension field as shown in Figure \ref{fig:tcp-header}.
 			
-			The data section follows the header. Its contents are the payload data carried for the application. The length of the data section is not specified in the TCP segment header. It can be calculated by subtracting the combined length of the TCP header and the encapsulating IP header from the total IP datagram length (specified in the IP header). 
+			The data section follows the header. Its contents are the payload data carried for the application. The length of the data section is not specified in the TCP segment header. It can be calculated by subtracting the combined length of the TCP header and the encapsulating IP header from the total IP datagram length (specified in the IP header) \cite{Peng2016}. 
 			
 			
 			\begin{description}
@@ -576,7 +576,7 @@ src="evil.com/code.js">
 			\end{description}
 		
 			\subsubsection{Internet Control Message Protocol(ICMP)}
-			The Internet Control Message Protocol (ICMP) is a supporting protocol in the Internet protocol suite. It is used by network devices, including routers, to send error messages and operational information indicating, for example, that a requested service is not available or that a host or router could not be reached.ICMP differs from transport protocols such as TCP and UDP in that it is not typically used to exchange data between systems, nor is it regularly employed by end-user network applications (with the exception of some diagnostic tools like ping and traceroute)
+			The Internet Control Message Protocol (ICMP) is a supporting protocol in the Internet protocol suite \cite{So-In2016}. It is used by network devices, including routers, to send error messages and operational information indicating, for example, that a requested service is not available or that a host or router could not be reached.ICMP differs from transport protocols such as TCP and UDP in that it is not typically used to exchange data between systems, nor is it regularly employed by end-user network applications (with the exception of some diagnostic tools like ping and traceroute)
 			
 			\begin{figure}[!h]
 				\centering
@@ -599,9 +599,9 @@ src="evil.com/code.js">
 	% Intrusion Detection	
 	\cleardoublepage
 	\section{Intrusion Detection}\label{sec:i-detection}
-		An intrusion detection system (IDS) is a device or software application that monitors a network or systems for malicious activity or policy violations. Any detected activity or violation is typically reported either to an administrator or collected centrally using a security information and event management (SIEM) system. A SIEM system combines outputs from multiple sources, and uses alarm filtering techniques to distinguish malicious activity from false alarms.
+		An intrusion detection system (IDS) is a device or software application that monitors a network or systems for malicious activity or policy violations. Any detected activity or violation is typically reported either to an administrator or collected centrally using a security information and event management (SIEM) system. A SIEM system combines outputs from multiple sources, and uses alarm filtering techniques to distinguish malicious activity from false alarms \cite{Takenaka2016}.
 		
-		There is a wide spectrum of IDS, varying from antivirus software to hierarchical systems that monitor the traffic of an entire backbone network. The most common classifications are network intrusion detection systems (NIDS) and host-based intrusion detection systems (HIDS). A system that monitors important operating system files is an example of a HIDS, while a system that analyzes incoming network traffic is an example of a NIDS. It is also possible to classify IDS by detection approach: the most well-known variants are signature-based detection (recognizing bad patterns, such as malware) and anomaly-based detection (detecting deviations from a model of "good" traffic, which often relies on machine learning). Some IDS have the ability to respond to detected intrusions. Systems with response capabilities are typically referred to as an intrusion prevention system.
+		There is a wide spectrum of IDS, varying from antivirus software to hierarchical systems that monitor the traffic of an entire backbone network. The most common classifications are network intrusion detection systems (NIDS) and host-based intrusion detection systems (HIDS). A system that monitors important operating system files is an example of a HIDS, while a system that analyzes incoming network traffic is an example of a NIDS \cite{So-In2016}. It is also possible to classify IDS by detection approach: the most well-known variants are signature-based detection (recognizing bad patterns, such as malware) and anomaly-based detection (detecting deviations from a model of "good" traffic, which often relies on machine learning). Some IDS have the ability to respond to detected intrusions. Systems with response capabilities are typically referred to as an intrusion prevention system.
 		
 		Though they both relate to network security, an IDS differs from a firewall in that a firewall looks outwardly for intrusions in order to stop them from happening. Firewalls limit access between networks to prevent intrusion and do not signal an attack from inside the network. An IDS evaluates a suspected intrusion once it has taken place and signals an alarm. An IDS also watches for attacks that originate from within a system. This is traditionally achieved by examining network communications, identifying heuristics and patterns (often known as signatures) of common computer attacks, and taking action to alert operators. A system that terminates connections is called an intrusion prevention system, and is another form of an application layer firewall.
 		\subsection{Types of IDS}
@@ -612,7 +612,7 @@ src="evil.com/code.js">
 				\caption{Network Based Intrusion Detection System}
 				\label{fig:network-ids}
 			\end{figure}
-			Network intrusion detection systems (NIDS) are placed at a strategic point or points within the network to monitor traffic to and from all devices on the network. It performs an analysis of passing traffic on the entire subnet, and matches the traffic that is passed on the subnets to the library of known attacks. Once an attack is identified, or abnormal behavior is sensed, the alert can be sent to the administrator. An example of an NIDS would be installing it on the subnet where firewalls are located in order to see if someone is trying to break into the firewall. Ideally one would scan all inbound and outbound traffic, however doing so might create a bottleneck that would impair the overall speed of the network. OPNET and NetSim are commonly used tools for simulation network intrusion detection systems. NID Systems are also capable of comparing signatures for similar packets to link and drop harmful detected packets which have a signature matching the records in the NIDS. When we classify the design of the NIDS according to the system interactivity property, there are two types: on-line and off-line NIDS, often referred to as inline and tap mode, respectively. On-line NIDS deals with the network in real time. It analyses the Ethernet packets and applies some rules, to decide if it is an attack or not. Off-line NIDS deals with stored data and passes it through some processes to decide if it is an attack or not.
+			Network intrusion detection systems (NIDS) are placed at a strategic point or points within the network to monitor traffic to and from all devices on the network \cite{Bosman2017}. It performs an analysis of passing traffic on the entire subnet, and matches the traffic that is passed on the subnets to the library of known attacks. Once an attack is identified, or abnormal behavior is sensed, the alert can be sent to the administrator. An example of an NIDS would be installing it on the subnet where firewalls are located in order to see if someone is trying to break into the firewall. Ideally one would scan all inbound and outbound traffic, however doing so might create a bottleneck that would impair the overall speed of the network \cite{Lin2017}. OPNET and NetSim are commonly used tools for simulation network intrusion detection systems. NID Systems are also capable of comparing signatures for similar packets to link and drop harmful detected packets which have a signature matching the records in the NIDS. When we classify the design of the NIDS according to the system interactivity property, there are two types: on-line and off-line NIDS, often referred to as inline and tap mode, respectively. On-line NIDS deals with the network in real time \cite{Zarpelao2017}. It analyses the Ethernet packets and applies some rules, to decide if it is an attack or not. Off-line NIDS deals with stored data and passes it through some processes to decide if it is an attack or not \cite{Lin2017}.
 			
 			\subsubsection{Host intrusion detection systems}
 			\begin{figure}[!h]
@@ -621,7 +621,7 @@ src="evil.com/code.js">
 				\caption{Host Based Intrusion Detection System}
 				\label{fig:host-ids}
 			\end{figure}
-			Host intrusion detection systems (HIDS) run on individual hosts or devices on the network. A HIDS monitors the inbound and outbound packets from the device only and will alert the user or administrator if suspicious activity is detected. It takes a snapshot of existing system files and matches it to the previous snapshot. If the critical system files were modified or deleted, an alert is sent to the administrator to investigate. An example of HIDS usage can be seen on mission critical machines, which are not expected to change their configurations.
+			Host intrusion detection systems (HIDS) run on individual hosts or devices on the network. A HIDS monitors the inbound and outbound packets from the device only and will alert the user or administrator if suspicious activity is detected \cite{SumaiyaThaseen2016}. It takes a snapshot of existing system files and matches it to the previous snapshot. If the critical system files were modified or deleted, an alert is sent to the administrator to investigate \cite{Vijai2016}. An example of HIDS usage can be seen on mission critical machines, which are not expected to change their configurations.
 			\begin{figure}
 				\centering
 				\includegraphics[width=400pt]{pictures/applications-of-ids.png}
@@ -634,23 +634,23 @@ src="evil.com/code.js">
 			\subsubsection{Signature-based}
 			Signature-based IDS refers to the detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. This terminology originates from anti-virus software, which refers to these detected patterns as signatures. Although signature-based IDS can easily detect known attacks, it is impossible to detect new attacks, for which no pattern is available.
 			\subsubsection{Anomaly-based}
-			Anomaly-based intrusion detection systems were primarily introduced to detect unknown attacks, in part due to the rapid development of malware. The basic approach is to use machine learning to create a model of trustworthy activity, and then compare new behaviour against this model. Although this approach enables the detection of previously unknown attacks, it may suffer from false positives: previously unknown legitimate activity may also be classified as malicious.
+			Anomaly-based intrusion detection systems were primarily introduced to detect unknown attacks, in part due to the rapid development of malware \cite{Saeed2016}. The basic approach is to use machine learning to create a model of trustworthy activity, and then compare new behaviour against this model. Although this approach enables the detection of previously unknown attacks, it may suffer from false positives: previously unknown legitimate activity may also be classified as malicious.
 			
-			New types of what could be called anomaly-based intrusion detection systems are being viewed by Gartner as User and Entity Behaviour Analytics (UEBA) (an evolution of the user behaviour analytics category) and network traffic analysis (NTA). In particular, NTA deals with malicious insiders as well as targeted external attacks that have compromised a user machine or account. Gartner has noted that some organizations have opted for NTA over more traditional IDS.
+			New types of what could be called anomaly-based intrusion detection systems are being viewed by Gartner as User and Entity Behaviour Analytics (UEBA) (an evolution of the user behaviour analytics category) and network traffic analysis (NTA) \cite{Wang2010}. In particular, NTA deals with malicious insiders as well as targeted external attacks that have compromised a user machine or account. Gartner has noted that some organizations have opted for NTA over more traditional IDS.
 		\subsection{Common Network Attacks}
-			Moving up the internet protocol suite, the fundamental problem is similar, there is no authenticity in the messages or confidentiality preserving in most of the mechanisms. This is particularly manifest at the lower level. 
+			Moving up the internet protocol suite, the fundamental problem is similar, there is no authenticity in the messages or confidentiality preserving in most of the mechanisms.
 			
 			This protocol can be exploited in a surprisingly different number of ways. Now that 24 hours uptime of a service is really important this simply means, a large number of fake connections are enough to make the connection unavailable for the legit users causing widespread trouble. Imagine Facebook servers being unavailable for even 1 hour. When the number of users is this high, this will cause service unavailability for a large number of users. 
 			
 			\subsubsection{SYN Flodding}
-			The SYN Flooding attack is to simply send a lot of SYN packets and never acknoledge any of the replies. This attack was theoretically known to be possible since 80's but came into attention when used to bring down Panix, a New York ISP, for several days in 1996.
-			
+			The SYN Flooding attack is to simply send a lot of SYN packets and never acknoledge any of the replies. This attack was theoretically known to be possible since 80's but came into attention when used to bring down Panix, a New York ISP, for several days in 1996 \cite{Gautam2016}.
+ 			
 			\subsubsection{Smurfing}
-			The Smurf attack is a distributed denial-of-service attack in which large numbers of Internet Control Message Protocol (ICMP) packets with the intended victim's spoofed source IP are broadcast to a computer network using an IP broadcast address. Most devices on a network will, by default, respond to this by sending a reply to the source IP address. If the number of machines on the network that receive and respond to these packets is very large, the victim's computer will be flooded with traffic. This can slow down the victim's computer to the point where it becomes impossible to work on.
+			The Smurf attack is a distributed denial-of-service attack in which large numbers of Internet Control Message Protocol (ICMP) packets with the intended victim's spoofed source IP are broadcast to a computer network using an IP broadcast address \cite{Wang2010}. Most devices on a network will, by default, respond to this by sending a reply to the source IP address. If the number of machines on the network that receive and respond to these packets is very large, the victim's computer will be flooded with traffic. This can slow down the victim's computer to the point where it becomes impossible to work on.
 			
 			
 			\subsubsection{Denial-of-service attack}
-			In computing, a denial-of-service attack (DoS attack) is a cyber-attack where the perpetrator seeks to make a machine or network resource unavailable to its intended users by temporarily or indefinitely disrupting services of a host connected to the Internet. Denial of service is typically accomplished by flooding the targeted machine or resource with superfluous requests in an attempt to overload systems and prevent some or all legitimate requests from being fulfilled.
+			In computing, a denial-of-service attack (DoS attack) is a cyber-attack where the perpetrator seeks to make a machine or network resource unavailable to its intended users by temporarily or indefinitely disrupting services of a host connected to the Internet \cite{Wang2010}. Denial of service is typically accomplished by flooding the targeted machine or resource with superfluous requests in an attempt to overload systems and prevent some or all legitimate requests from being fulfilled.
 			
 			In a distributed denial-of-service attack (DDoS attack), the incoming traffic flooding the victim originates from many different sources. This effectively makes it impossible to stop the attack simply by blocking a single source.
 			
@@ -659,16 +659,16 @@ src="evil.com/code.js">
 			\subsubsection{Neptune Attacks}
 			
 			Neptune attacks can make memory resources too
-			full for a victim by sending a TCP packet requesting  to  initiate a TCP session. This  packet is part of a three-way handshake that is needed to establish a TCP connection between  two  hosts. The SYN flag on this packet is set  to  indicate that a new connection is  to  be  established. This packet includes  a spoofed  source  address, such that the victim is not able to finish the handshake but  had allocated  an  amount of system memory for this connection. After sending many of these packets, the victim eventually runs out of memory resources.
+			full for a victim by sending a TCP packet requesting  to  initiate a TCP session. This  packet is part of a three-way handshake that is needed to establish a TCP connection between  two  hosts \cite{Wang2010}. The SYN flag on this packet is set  to  indicate that a new connection is  to  be  established. This packet includes  a spoofed  source  address, such that the victim is not able to finish the handshake but  had allocated  an  amount of system memory for this connection. After sending many of these packets, the victim eventually runs out of memory resources.
 			
 			\subsubsection{IPSweep and Portsweep}
-			IPsweep  and  Portsweep,  as  their  names  suggest, sweep through IP addresses and port numbers for a  victim  network  and  host  respectively looking for open ports, that could  potentially be used later in an attack.
+			IPsweep  and  Portsweep,  as  their  names  suggest, sweep through IP addresses and port numbers for a  victim  network  and  host  respectively looking for open ports, that could  potentially be used later in an attack \cite{Wang2010}.
 			
 			\subsubsection{Rootkit}
-			A rootkit is a collection of computer software, typically malicious, designed to enable access to a computer or areas of its software that would not otherwise be allowed (for example, to an unauthorized user) and often masks its existence or the existence of other software. The term rootkit is a concatenation of "root" (the traditional name of the privileged account on Unix-like operating systems) and the word "kit" (which refers to the software components that implement the tool). The term "rootkit" has negative connotations through its association with malware.
+			A rootkit is a collection of computer software, typically malicious, designed to enable access to a computer or areas of its software that would not otherwise be allowed (for example, to an unauthorized user) and often masks its existence or the existence of other software \cite{Wang2010}. The term rootkit is a concatenation of "root" (the traditional name of the privileged account on Unix-like operating systems) and the word "kit" (which refers to the software components that implement the tool). The term "rootkit" has negative connotations through its association with malware.
 			
 			\subsubsection{Satan}
-			SATAN (Security Administrator Tool for Analyzing Networks)is a security tool designed by Dan Farmer and Wieste Venema to help systems administrators recognize several network-related security problems, in a world where computer systems are becoming more and more dependant on networks. Satan is a tool designed to probe a computer system for security loopholes, (Security Administrator Tool for Analyzing Networks). Use of Satan is not inherently bad. Network coordinators sometimes run it against their own machines to probe for weaknesses which they can then fix. Running it against a machine you don't own is regarded as a hostile act (and may be illegal under some jurisdictions).
+			SATAN (Security Administrator Tool for Analyzing Networks)is a security tool designed by Dan Farmer and Wieste Venema to help systems administrators recognize several network-related security problems, in a world where computer systems are becoming more and more dependant on networks. Satan is a tool designed to probe a computer system for security loopholes, (Security Administrator Tool for Analyzing Networks) \cite{Wang2010}. Use of Satan is not inherently bad. Network coordinators sometimes run it against their own machines to probe for weaknesses which they can then fix. Running it against a machine you don't own is regarded as a hostile act (and may be illegal under some jurisdictions).
 			
 		
 		\subsection{Development}
@@ -677,14 +677,14 @@ src="evil.com/code.js">
 		The proposed model uses a Softmax Regression based neural network which classifies the network traffic in real-time.The network is developed in Python using Tensorflow Library (By Google). Next a packet sniffer is developed in python which captures all the packets from and to the host. This form the raw data for the model. Now this data is then preprocessed to form the input to the model. This model then evaluates the network traffic to classify it among the known 18 types or any new attack or normal traffic.
 			
 		\subsection{Detecting Malicious Activities}
-		Malicious activity is a generic term that refers to automated or manual attempts of compromising the security of a computer infrastructure. Examples of malicious activity include the output generated (or its effect on a system) by the execution of simple script kiddies, viruses, DoS attacks, exploits of XSS or SQL injection vulnerabilities, and so forth. This chapter describes the research tools and methodologies available to detect and
+		Malicious activity is a generic term that refers to automated or manual attempts of compromising the security of a computer infrastructure. Examples of malicious activity include the output generated (or its effect on a system) by the execution of simple script kiddies, viruses, DoS attacks, exploits of XSS or SQL injection vulnerabilities, and so forth \cite{Zarpelao2017}. This chapter describes the research tools and methodologies available to detect and
 		mitigate malicious activity on a network, a single host, a web-server and the combination of the three.
 		
-		First, the background concepts and the ID problem are described in this chapter along with a taxonomic description of the most relevant aspects of an IDS. Secondly, a detailed survey of the selected state-of-the-art anomaly detection approaches is presented with the help of further classification dimensions. In addition, the problem of alert correlation, that is an orthogonal topic, is described and the most relevant, recent research approaches are over-viewed. Last but not least, the problem of evaluating an IDS is presented to provide the essential terminology and criteria to understand the effectiveness of both the reviewed literature and our original contributions.
+		First, the background concepts and the ID problem are described in this chapter along with a taxonomic description of the most relevant aspects of an IDS. Secondly, a detailed survey of the selected state-of-the-art anomaly detection approaches is presented with the help of further classification dimensions \cite{Saxena2016}. In addition, the problem of alert correlation, that is an orthogonal topic, is described and the most relevant, recent research approaches are over-viewed \cite{So-In2016}. Last but not least, the problem of evaluating an IDS is presented to provide the essential terminology and criteria to understand the effectiveness of both the reviewed literature and our original contributions.
 		
 		
 			\subsubsection{Network-Based Techniques}
-			Our research does not include network-based IDS. Our contributions in alert correlation, however, leverage both network and host-based techniques, thus a brief overview of the latest (i.e., proposed between 2011 and 2016) network-based detection approaches is provided in this section. We remark that all the techniques included in the following are based on TCP/IP, meaning that models of normal activity are constructed by inspecting the decoded network frames up to the TCP layer.
+			Our research does not include network-based IDS. Our contributions in alert correlation, however, leverage both network and host-based techniques, thus a brief overview of the latest (i.e., proposed between 2011 and 2016) network-based detection approaches is provided in this section. We remark that all the techniques included in the following are based on TCP/IP, meaning that models of normal activity are constructed by inspecting the decoded network frames up to the TCP layer \cite{Zarpelao2017}.
 			
 			\begin{description}
 				\item[Time] refers to the use of \emph{timestamp} information,
@@ -740,19 +740,17 @@ src="evil.com/code.js">
 			
 			Host-based anomaly detection has been part of intrusion detection
 			since its very inception: it already appears in the seminal
-			work~\citep{anderson}. However, the definition of a set of statistical
+			work \cite{Srinivasu2012}. However, the definition of a set of statistical
 			characterization techniques for events, variables and counters such as
 			the CPU load and the usage of certain commands is due
-			to~\citep{denning:tse1987:ides}. The first mention of intrusion
+			t the first mention of intrusion
 			detection through the analysis of the sequence of syscalls from system
-			processes is in \citep{Self}, where ``normal sequences'' of system
-			calls are considered. A similar idea was presented earlier in
-			\citep{PrivilegedProgramsMonitoring}, which proposes a misuse-based
-			idea by manually describe the canonical sequence of calls of each and
-			every program, something evidently impossible in practice.
+			processes is in \citealp{Chianese2017}, where ``normal sequences'' of system
+			calls are considered. A similar idea was presented earlier in, which proposes a misuse-based
+			idea by manually describe the canonical sequence of calls of each and every program, something evidently impossible in practice.
 			
 			
-			In \citep{lee:2000:framework} a set of models based on data mining
+			In a set of models based on data mining
 			techniques is proposed. In principle, the models are agnostic with
 			respect to the type of raw event collected, which can be user activity
 			(e.g., login time, CPUload), network packets (e.g.,
@@ -767,8 +765,7 @@ src="evil.com/code.js">
 			
 			Alternatively, other authors proposed to use static analysis, as
 			opposed to dynamic learning, to profile a program's normal
-			behavior. The technique described in
-			\citep{wagner:sp2001:staticanalysis} combines the benefits of dynamic
+			behavior. The technique described in combines the benefits of dynamic
 			and static analysis. In particular, three models are proposed to
 			automatically derive a specification of the application behavior:
 			call-graph, context-free grammars (or non-deterministic pushdown
@@ -782,7 +779,7 @@ src="evil.com/code.js">
 			arbitrary point of the execution. Despite is simplicity, which ensures
 			a negligible performance overhead with respect to the others, this
 			model achieves the best detection precision.
-			In \citep{rulessystemcallarguments} the LERAD
+			In \cite{Mahapatra2016} the LERAD
 			algorithm (Learning Rules for Anomaly Detection) is
 			described. Basically, it is a learning system to mine rules expressing
 			normal values of arguments, normal sequences of system calls, or
@@ -848,7 +845,7 @@ src="evil.com/code.js">
 	\cleardoublepage
 	\section{Neural Network Based IDS}
 	\label{sec:nn-based-ids}
-		One promising research in Intrusion Detection concerns the application of the Neural Network techniques, for the misuse detection model and the anomaly detection model. Performance evaluations presented in this
+		One promising research in Intrusion Detection concerns the application of the Neural Network techniques, for the misuse detection model and the anomaly detection model \cite{Zarpelao2017}. Performance evaluations presented in this
 		paper all refer to the DARPA Intrusion Data Base.
 		An artificial Neural Network consists of a collection of treatments to transform a set of inputs to a set of searched out puts, through a set of simple processing
 		units, or nodes and connections between them. Subsets of the units are input nodes, output nodes, and nodes
@@ -867,19 +864,16 @@ src="evil.com/code.js">
 		Each software module was designed to work independently with other modules,
 		producing a set of output files used by the subsequent modules in the process flow. Any of the software modules in the process flow can be replaced provided the required inputs are available and in the correct format and syntax. With this built-in flexibility in mind, it is possible to adapt the raw data pre-processing module to allow the IDS to be trained with network traffic data other than the KDD Cup 99 dataset.
 		
-		For this thesis research, two different classification architectures were explored and compared in terms of accuracy and computing times. The first architecture utilized a single Neural Network for the classification process and is illustrated as a block diagram. The second architecture utilized three separate Neural Networks for the classification process and is illustrated as a block diagram in Figure 3. This second structure was inspired by, where the training data was randomly separated into an arbitrary number of subsets for the purpose of temporal analysis of network traffic data, and each subset was used to train an individual classifier separately. In this thesis, the training data was split into three subsets, and each Neural Network trains with each subset, respectively. The outputs from each of the three separate Neural Networks were combined to produce the final output. Further details are provided in Section E.
+		For this thesis research, two different classification architectures were explored and compared in terms of accuracy and computing times. The first architecture utilized a single Neural Network for the classification process and is illustrated as a block diagram. The second architecture utilized three separate Neural Networks for the classification process and is illustrated as a block diagram in Figure 3. This second structure was inspired by, where the training data was randomly separated into an arbitrary number of subsets for the purpose of temporal analysis of network traffic data, and each subset was used to train an individual classifier separately \cite{Shamshirband2014}. In this thesis, the training data was split into three subsets, and each Neural Network trains with each subset, respectively. The outputs from each of the three separate Neural Networks were combined to produce the final output. Further details are provided in Section E.
 		
 		\subsection{Datasets}
 		
 		The KDD Cup 99 data set was developed for use in the Third International Knowledge Discovery and Data Mining Tools Competition. The dataset was created through a raw TCP data dump of a simulated U.S. Air Force local-area network (LAN), where the network was subjected to deliberate network attacks.
-		Each training sample in the training dataset represents a connection summary, and there are a total of 25,192 samples in the training dataset. Each sample can be classified as one of the 22 training attack types and can be further categorized as one of the general five outcome types: DOS, U2R, R2L, Probe or Normal. Refer to Appendix A for the full list of outcome types, and a detailed description of each of the outcome types can be found in the table % TODO:!
+		Each training sample in the training dataset represents a connection summary, and there are a total of 25,192 samples in the training dataset. Each sample can be classified as one of the 22 training attack types and can be further categorized as one of the general five outcome types: DOS, U2R, R2L, Probe or Normal. Refer to Appendix A for the full list of outcome types, and a detailed description of each outcome.
 		
-		Each connection summary is described using 41 features which the Neural Network classifier uses as inputs for both training and testing. In the test dataset, each sample is similarly a connection summary, and there are a
-		total of 22,543 samples in the test dataset. In addition, there are 15 types of attacks which are not found in the training dataset. For the purpose of testing the ability of the IDS to handle unknown attack types, these 15 types of attacks are classified as unknown types in the performance evaluation phase.
-		
-		A breakdown of the number of outcome types for the testing and training dataset is shown in Table %TODO
-		
-		It must be noted that the KDD Cup 99 dataset is solely used for the purpose of developing the IDS software. It was noted by Brugger that the KDD Cup 99 data is outdated and not fully representative of network traffic attacks; thus, there is a need for the IDS to be validated with updated and more representative network data in future projects.
+		Each connection summary is described using 41 features which the Neural Network classifier uses as inputs for both training and testing. In the test dataset, each sample is similarly a connection summary, and there are a total of 22,543 samples in the test dataset. In addition, there are 15 types of attacks which are not found in the training dataset. For the purpose of testing the ability of the IDS to handle unknown attack types, these 15 types of attacks are classified as unknown types in the performance evaluation phase.
+				
+		It must be noted that the KDD Cup 99 dataset is solely used for the purpose of developing the IDS software. It was noted by Brugger that the KDD Cup 99 data is outdated and not fully representative of network traffic attacks; thus, there is a need for the IDS to be validated with updated and more representative network data in future projects \citealp{Shamshirband2014}.
 		
 		\subsection{Raw Data Extraction (Packet Sniffing)}
 		The raw data pre-processing stage takes the KDD Cup 99 training data and
@@ -887,14 +881,14 @@ src="evil.com/code.js">
 		
 		Transforming semantic features into enumeration allows subsequent stages to
 		process these features as numerical values. In addition, the same set of conversion rules applies to both training and test dataset; thus, both training and test dataset must use the same set of semantics for the respective features. For the “protocol\_type,” “service,” and
-		“flag” fields, the enumerations used.
+		“flag” fields, the enumerations used \cite{Gautam2016}.
 		
 		Normalizing features scales features in the range 0 to 1, preventing the training process from being affected by large variations in the feature values.
 		
 		Formatting raw data for Tensorflow input saves the processed raw data in a
 		suitable format for the feature-extraction and classification stage. For example, in this simulation setup, 25,192 training samples were in the raw data, each training sample has 41 features, and each training sample has one of five possible general outcomes; thus, a single training data matrix that encompasses the features and outcomes for every one of the 25,192 training samples was produced as an output.
 		
-		Calculating mean, standard deviation, and histogram of features per outcome type provides data for the feature-extraction stage to determine if the feature is useful for classification. In this case, the software module calculates the mean and standard deviation of each feature for each outcome type. For example, a 5-by-41 matrix is generated for the mean of the features per outcome type, where there are five outcome types and 41 features. In addition, the histogram of the feature values, for each feature per outcome type, is also created for visual analysis purposes.
+		Calculating mean, standard deviation, and histogram of features per outcome type provides data for the feature-extraction stage to determine if the feature is useful for classification. In this case, the software module calculates the mean and standard deviation of each feature for each outcome type. For example, a 5-by-41 matrix is generated for the mean of the features per outcome type, where there are five outcome types and 41 features \cite{Gautam2016}. In addition, the histogram of the feature values, for each feature per outcome type, is also created for visual analysis purposes.
 		
 		
 		
@@ -934,7 +928,7 @@ src="evil.com/code.js">
 			The Neural Network consists of an interconnected network of basic computing blocks called
 			neurons. Inter-neuron connections contain synaptic weights, and the synaptic weights are
 			used to retain knowledge obtained through the training process. Through the training
-			process, the synaptic weights are tuned to achieve the training objective. In the Neural Network
+			process, the synaptic weights are tuned to achieve the training objective \cite{Wang2010}. In the Neural Network
 			toolbox provided by TensorFlow, training functions are defined explicitly as global
 			algorithms for the synaptic weights tuning process. In addition to the training algorithm,
 			the Neural Network toolbox also allows the definition of post-processing algorithms to evaluate the
@@ -951,7 +945,7 @@ src="evil.com/code.js">
 			\begin{equation}
 				y_k(l) = f_s[\sum_{h=1}^{H} w_{kh} f_{sh}(\sum_{i=1}^{I} w_{hi} x_i(l))]
 			\end{equation}
-			where $ k $ is the respective outcome type, $ x_i $ is the input, $ i $ is the respective feature of the input, $ I $ represents the total number of features per input sample and the sample number of the input is $ l $ . The total number of hidden layers is $ H $ , and $ h $ represents the respective hidden layer. The weights from neuron $ i $ to neuron $ h $ and the weights from neuron $ h $ to neuron $ k $ are, respectively, defined as $ w_hi $  and $ w_kh $ . The hidden layer activation function and the output layer activation function are defined, respectively, as $ f_sh $ and $ f_s $ . The hidden layer activation function $ f_sh $ uses the tangent sigmoid function.
+			where $ k $ is the respective outcome type, $ x_i $ is the input, $ i $ is the respective feature of the input, $ I $ represents the total number of features per input sample and the sample number of the input is $ l $ . The total number of hidden layers is $ H $ , and $ h $ represents the respective hidden layer. The weights from neuron $ i $ to neuron $ h $ and the weights from neuron $ h $ to neuron $ k $ are, respectively, defined as $ w_hi $  and $ w_kh $ . The hidden layer activation function and the output layer activation function are defined, respectively, as $ f_sh $ and $ f_s $ . The hidden layer activation function $ f_sh $ uses the tangent sigmoid function  \cite{Ojha2017}.
 			
 			\begin{equation}
 				f_{sh}(z) = \frac{2}{1 + e^{-2x}} - 1
@@ -972,7 +966,7 @@ src="evil.com/code.js">
 			scaled conjugate gradient and the performance function as cross-entropy. The training
 			proportion of the training dataset is 90\%, and the validation proportion of the training
 			dataset is 10\%. The division of the training dataset into training and validation sets was
-			performed randomly. A separate test dataset was used to test the Neural Network.
+			performed randomly. A separate test dataset was used to test the Neural Network  \cite{Ojha2017}.
 			
 			The Neural Network takes in two input matrices at the training stage: a training feature matrix
 			that contains the feature vectors and a training outcome matrix that indicates the
@@ -986,7 +980,7 @@ src="evil.com/code.js">
 			As a result of the supervised learning approach implemented, the Neural Network is unable to
 			classify unknown events type in the test dataset as unknown; thus, an additional
 			capability was included to classify unknown output types. First, a sixth element was
-			added to the Neural Network output vector as a placeholder for the unknown outcome type. The
+			added to the Neural Network output vector as a placeholder for the unknown outcome type \cite{Iqbal2016}. The
 			unknown type was determined through the use of a threshold value; if the maximum
 			output value of the Neural Network is below the empirical threshold value of 0.8, this means that the Neural Network is not able to match its output with one of the known output types with high
 			confidence. In this case, the Neural Network output defaults to the unknown type.
@@ -1014,14 +1008,14 @@ src="evil.com/code.js">
 		
 		The Neural Network consists of an interconnected network of basic computing blocks called
 		neurons. Inter-neuron connections contain synaptic weights, and the synaptic weights are
-		used to retain knowledge obtained through the training process. Through the training
+		used to retain knowledge obtained through the training process \cite{Iqbal2016}. Through the training
 		process, the synaptic weights are tuned to achieve the training objective. In the Neural Network
 		toolbox provided by Tensorflow, training functions are defined explicitly as global
 		algorithms for the synaptic weights tuning process. In addition to the training algorithm,
 		TensorFlow also allows the definition of post-processing algorithms to evaluate the
 		network performance after the training process. A defined proportion of the training
 		dataset also needs to be allocated for validation purposes in the training process,
-		preventing overfitting of the Neural Network to the training dataset.
+		preventing overfitting of the Neural Network to the training dataset \cite{Iqbal2016}.
 		
 		\subsubsection{Multilayer Perceptron Model}
 		
