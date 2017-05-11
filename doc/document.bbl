@@ -21,6 +21,15 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{AlEroud2017}
+\BIBentryALTinterwordspacing
+A.~AlEroud and I.~Alsmadi, ``{Identifying cyber-attacks on software defined
+  networks: An inference-based intrusion detection approach},'' \emph{Journal
+  of Network and Computer Applications}, vol.~80, no. November 2016, pp.
+  152--164, 2017. [Online]. Available:
+  \url{http://linkinghub.elsevier.com/retrieve/pii/S1084804516303447}
+\BIBentrySTDinterwordspacing
+
 \bibitem{torpig}
 B.~Stone-Gross, M.~Cova, L.~Cavallaro, B.~G. t, M.~tin Szydlowski~andRichard
   Kemmerer, and C.~K. andGiovanni Vigna, ``Your botnet is my botnet: Analysis

@@ -8,53 +8,51 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references/bib.bib
-Warning--I didn't find a database entry for "deception"
-Warning--I didn't find a database entry for "social-engineering-fundamentals"
 Warning--I didn't find a database entry for "ranum-myths"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 31 entries,
+You've used 32 entries,
             4087 wiz_defined-function locations,
-            1056 strings with 15186 characters,
-and the built_in function-call counts, 25293 in all, are:
-= -- 2144
-> -- 645
-< -- 222
-+ -- 346
-- -- 112
-* -- 1294
-:= -- 3973
-add.period$ -- 64
-call.type$ -- 31
-change.case$ -- 31
-chr.to.int$ -- 507
-cite$ -- 31
-duplicate$ -- 1737
-empty$ -- 1793
-format.name$ -- 140
-if$ -- 5784
+            1061 strings with 15388 characters,
+and the built_in function-call counts, 26236 in all, are:
+= -- 2231
+> -- 662
+< -- 233
++ -- 356
+- -- 114
+* -- 1343
+:= -- 4122
+add.period$ -- 66
+call.type$ -- 32
+change.case$ -- 32
+chr.to.int$ -- 531
+cite$ -- 32
+duplicate$ -- 1799
+empty$ -- 1855
+format.name$ -- 143
+if$ -- 6001
 int.to.chr$ -- 0
-int.to.str$ -- 31
-missing$ -- 300
-newline$ -- 160
-num.names$ -- 31
-pop$ -- 649
+int.to.str$ -- 32
+missing$ -- 309
+newline$ -- 165
+num.names$ -- 32
+pop$ -- 663
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1926
+skip$ -- 2001
 stack$ -- 0
-substring$ -- 1207
-swap$ -- 1498
-text.length$ -- 53
+substring$ -- 1264
+swap$ -- 1557
+text.length$ -- 56
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 31
+type$ -- 32
 warning$ -- 0
-while$ -- 122
-width$ -- 33
-write$ -- 390
-(There were 3 warnings)
+while$ -- 127
+width$ -- 34
+write$ -- 404
+(There was 1 warning)

@@ -1,64 +1,64 @@
-\contentsline {section}{\hbox to\@tempdima {\hfil }Abstract}{i}
-\contentsline {section}{\hbox to\@tempdima {\hfil }Acknowledgement}{ii}
-\contentsline {section}{\hbox to\@tempdima {\hfil }List of Figures}{v}
-\contentsline {section}{\hbox to\@tempdima {\hfil }List of Tables}{vi}
-\contentsline {section}{\numberline {1}Introduction}{1}
-\contentsline {subsection}{\numberline {1.1}Security Threats}{2}
-\contentsline {subsubsection}{\numberline {1.1.1}Role of Intrusion Detection}{3}
-\contentsline {subsubsection}{\numberline {1.1.2}Intrusion Detection Systems}{5}
-\contentsline {subsubsection}{\numberline {1.1.3}Misuse-based IDS}{6}
-\contentsline {subsubsection}{\numberline {1.1.4}Anomaly-based IDSs}{6}
-\contentsline {subsection}{\numberline {1.2}Goal}{7}
-\contentsline {section}{\numberline {2}Networking}{8}
-\contentsline {subsection}{\numberline {2.1}OSI Layer}{8}
-\contentsline {subsection}{\numberline {2.2}Types of Protocols}{8}
-\contentsline {subsubsection}{\numberline {2.2.1}Transmission Control Protocol(TCP/IP)}{8}
-\contentsline {subsubsection}{\numberline {2.2.2}User Datagram Protocol(UDP)}{10}
-\contentsline {subsubsection}{\numberline {2.2.3}Internet Control Message Protocol(ICMP)}{11}
-\contentsline {section}{\numberline {3}Intrusion Detection}{13}
-\contentsline {subsection}{\numberline {3.1}Types of IDS}{13}
-\contentsline {subsubsection}{\numberline {3.1.1}Network intrusion detection systems}{13}
-\contentsline {subsubsection}{\numberline {3.1.2}Host intrusion detection systems}{14}
-\contentsline {subsection}{\numberline {3.2}Detection Methods}{14}
-\contentsline {subsubsection}{\numberline {3.2.1}Signature-based}{14}
-\contentsline {subsubsection}{\numberline {3.2.2}Anomaly-based}{15}
-\contentsline {subsection}{\numberline {3.3}Common Network Attacks}{15}
-\contentsline {subsubsection}{\numberline {3.3.1}SYN Flodding}{16}
-\contentsline {subsubsection}{\numberline {3.3.2}Smurfing}{16}
-\contentsline {subsubsection}{\numberline {3.3.3}Denial-of-service attack}{17}
-\contentsline {subsubsection}{\numberline {3.3.4}Neptune Attacks}{17}
-\contentsline {subsubsection}{\numberline {3.3.5}IPSweep and Portsweep}{17}
-\contentsline {subsubsection}{\numberline {3.3.6}Rootkit}{17}
-\contentsline {subsubsection}{\numberline {3.3.7}Satan}{18}
-\contentsline {subsection}{\numberline {3.4}Development}{18}
-\contentsline {subsection}{\numberline {3.5}Detecting Malicious Activities}{18}
-\contentsline {subsubsection}{\numberline {3.5.1}Network-Based Techniques}{19}
-\contentsline {subsubsection}{\numberline {3.5.2}Host-Based Techniques}{19}
-\contentsline {subsubsection}{\numberline {3.5.3}Web-Based Techniques}{21}
-\contentsline {section}{\numberline {4}Neural Network Based IDS}{23}
-\contentsline {subsection}{\numberline {4.1}Overview}{23}
-\contentsline {subsection}{\numberline {4.2}Datasets}{24}
-\contentsline {subsection}{\numberline {4.3}Raw Data Extraction (Packet Sniffing)}{24}
-\contentsline {subsection}{\numberline {4.4}Feature Extraction}{25}
-\contentsline {subsubsection}{\numberline {4.4.1}Removal of Features with small variations}{25}
-\contentsline {subsubsection}{\numberline {4.4.2}Removal of Highly Correlated Features}{25}
-\contentsline {subsection}{\numberline {4.5}Implementations}{26}
-\contentsline {subsubsection}{\numberline {4.5.1}Softmax Regression Model- 1}{27}
-\contentsline {subsubsection}{\numberline {4.5.2}Softmax Regression Model- 2}{28}
-\contentsline {subsubsection}{\numberline {4.5.3}Multilayer Perceptron Model}{29}
-\contentsline {section}{\numberline {5}Experimental Methdology}{30}
-\contentsline {subsection}{\numberline {5.1}Dataset}{30}
-\contentsline {subsection}{\numberline {5.2}Host Configuration}{31}
-\contentsline {subsection}{\numberline {5.3}Gathering Raw Data}{31}
-\contentsline {subsubsection}{\numberline {5.3.1}From Packet Sniffing}{31}
-\contentsline {subsubsection}{\numberline {5.3.2}PCAP Files from the Internet}{31}
-\contentsline {subsection}{\numberline {5.4}Model Parameters}{32}
-\contentsline {subsubsection}{\numberline {5.4.1}Softmax Model 1}{32}
-\contentsline {subsubsection}{\numberline {5.4.2}Softmax Model 2}{33}
-\contentsline {subsubsection}{\numberline {5.4.3}Multi-layer Perceptron Model}{34}
-\contentsline {section}{\numberline {6}Results and Discussion}{37}
-\contentsline {subsection}{\numberline {6.1}Model Accuracy}{37}
-\contentsline {subsection}{\numberline {6.2}Probability of Correct Classification Results}{38}
-\contentsline {subsection}{\numberline {6.3}ROC Curve}{38}
-\contentsline {section}{\numberline {7}Conclusion and Future Scope}{41}
-\contentsline {section}{\hbox to\@tempdima {\hfil }References}{42}
+\contentsline {section}{\hbox to\@tempdima {\hfil }Abstract}{i}{section*.3}
+\contentsline {section}{\hbox to\@tempdima {\hfil }Acknowledgement}{ii}{section*.4}
+\contentsline {section}{\hbox to\@tempdima {\hfil }List of Figures}{v}{section*.6}
+\contentsline {section}{\hbox to\@tempdima {\hfil }List of Tables}{vi}{section*.7}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Security Threats}{2}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Role of Intrusion Detection}{3}{subsubsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.2}Intrusion Detection Systems}{5}{subsubsection.1.1.2}
+\contentsline {subsubsection}{\numberline {1.1.3}Misuse-based IDS}{6}{subsubsection.1.1.3}
+\contentsline {subsubsection}{\numberline {1.1.4}Anomaly-based IDSs}{6}{subsubsection.1.1.4}
+\contentsline {subsection}{\numberline {1.2}Goal}{7}{subsection.1.2}
+\contentsline {section}{\numberline {2}Networking}{8}{section.2}
+\contentsline {subsection}{\numberline {2.1}OSI Layer}{8}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Types of Protocols}{8}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Transmission Control Protocol(TCP/IP)}{8}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}User Datagram Protocol(UDP)}{10}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Internet Control Message Protocol(ICMP)}{11}{subsubsection.2.2.3}
+\contentsline {section}{\numberline {3}Intrusion Detection}{13}{section.3}
+\contentsline {subsection}{\numberline {3.1}Types of IDS}{13}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Network intrusion detection systems}{13}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Host intrusion detection systems}{14}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Detection Methods}{14}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Signature-based}{14}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Anomaly-based}{15}{subsubsection.3.2.2}
+\contentsline {subsection}{\numberline {3.3}Common Network Attacks}{15}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}SYN Flodding}{16}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Smurfing}{16}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}Denial-of-service attack}{17}{subsubsection.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.4}Neptune Attacks}{17}{subsubsection.3.3.4}
+\contentsline {subsubsection}{\numberline {3.3.5}IPSweep and Portsweep}{17}{subsubsection.3.3.5}
+\contentsline {subsubsection}{\numberline {3.3.6}Rootkit}{17}{subsubsection.3.3.6}
+\contentsline {subsubsection}{\numberline {3.3.7}Satan}{18}{subsubsection.3.3.7}
+\contentsline {subsection}{\numberline {3.4}Development}{18}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Detecting Malicious Activities}{18}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Network-Based Techniques}{19}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Host-Based Techniques}{19}{subsubsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.3}Web-Based Techniques}{21}{subsubsection.3.5.3}
+\contentsline {section}{\numberline {4}Neural Network Based IDS}{23}{section.4}
+\contentsline {subsection}{\numberline {4.1}Overview}{23}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Datasets}{24}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Raw Data Extraction (Packet Sniffing)}{24}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Feature Extraction}{25}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Removal of Features with small variations}{25}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}Removal of Highly Correlated Features}{25}{subsubsection.4.4.2}
+\contentsline {subsection}{\numberline {4.5}Implementations}{26}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Softmax Regression Model- 1}{27}{subsubsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.2}Softmax Regression Model- 2}{28}{subsubsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.3}Multilayer Perceptron Model}{29}{subsubsection.4.5.3}
+\contentsline {section}{\numberline {5}Experimental Methdology}{30}{section.5}
+\contentsline {subsection}{\numberline {5.1}Dataset}{30}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Host Configuration}{31}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Gathering Raw Data}{31}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}From Packet Sniffing}{31}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}PCAP Files from the Internet}{31}{subsubsection.5.3.2}
+\contentsline {subsection}{\numberline {5.4}Model Parameters}{32}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}Softmax Model 1}{32}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.2}Softmax Model 2}{33}{subsubsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.3}Multi-layer Perceptron Model}{34}{subsubsection.5.4.3}
+\contentsline {section}{\numberline {6}Results and Discussion}{37}{section.6}
+\contentsline {subsection}{\numberline {6.1}Model Accuracy}{37}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Probability of Correct Classification Results}{38}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}ROC Curve}{38}{subsection.6.3}
+\contentsline {section}{\numberline {7}Conclusion and Future Scope}{41}{section.7}
+\contentsline {section}{\hbox to\@tempdima {\hfil }References}{42}{section.7}

@@ -5,6 +5,9 @@
 \usepackage{fancyhdr}
 \usepackage{lipsum}
 \usepackage{multirow}
+
+
+\usepackage[hidelinks]{hyperref}
 % For theorems
 \usepackage{amsthm}
 
@@ -42,6 +45,7 @@
 
 %Header / Footer
 
+\usepackage[margin=1in,left=1.5in,includefoot]{geometry}
 \pagestyle{fancy}
 \fancyhead{} % Clear the header
 \fancyfoot{} % Clear the footer
@@ -50,7 +54,6 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-\usepackage[margin=1in,left=1.5in,includefoot]{geometry}
 \theoremstyle{definition}
 \newtheorem{example}{Example}[section]
 
@@ -229,7 +232,7 @@
 		
 		Network connected devices such as personal computers, smart phones, or gaming consoles are nowadays enjoying immense popularity. In parallel, the Web and the humongous amount of services it offers have certainly became the most ubiquitous tools of all the times. Facebook counts more than 1.28 billion daily active users as of 31st March 2017. Approximately 70\% of the traffic generated on Facebook is through mobile devices. Every second 44,000 GBs worth of data is flowing through the internet. Google has estimated that the number of \textit{Unique Uniform Resource Locators}(URLs) is 50 trillion. Not only the Web 2.0 has became predominant; in fact, thinking that on December 1990 the Internet was made of \textit{one} site and today it counts more than 100 billion websites is just astonishing.
 		
-		The Internet and the Web are huge~\cite{torpig}. The relevant fact, however, is that they both became the most advanced workplace. Almost every industry connected its own network to the Internet and relies on these infrastructures for a vast majority of transactions; most of the time monetary transactions. As an example,every year \textsf{Google} looses approximately 110 millions of USDollars in ignored ads because of the \emph{``I'm feeling lucky''} button. The scary part is that, during their daily work activities, people typically pay poor or no attention at all to the risks that derive from exchanging any kind of information over such a complex, interconnected infrastructure. This is demonstrated by the effectiveness of social engineering~\cite{deception} scams carried over the Internet or the phone~\cite{social-engineering-fundamentals}. Recall that 76\% of the phishing is related to finance. Now, compare this landscape to what the most famous security quote states.
+		The Internet and the Web are huge~\cite{torpig}. The relevant fact, however, is that they both became the most advanced workplace. Almost every industry connected its own network to the Internet and relies on these infrastructures for a vast majority of transactions; most of the time monetary transactions. As an example,every year \textsf{Google} looses approximately 110 millions of USDollars in ignored ads because of the \emph{``I'm feeling lucky''} button. The scary part is that, during their daily work activities, people typically pay poor or no attention at all to the risks that derive from exchanging any kind of information over such a complex, interconnected infrastructure. This is demonstrated by the effectiveness of social engineering scams carried over the Internet or the phone. Recall that 76\% of the phishing is related to finance. Now, compare this landscape to what the most famous security quote states.
 		 
 		 \begin{quotation}
 		 	``The only truly secure computer is one buried in concrete, with the power turned off and the network cable cut''.
@@ -308,7 +311,7 @@
 		
 		\begin{description}
 			\item[network activity] --- clearly, the whole interaction relies on a
-			network connection over the Internet: the \ac{HTTP} connections
+			network connection over the Internet: the HTTP connections
 			used, for instance, to download the malicious code as well as to
 			launch the injection attack used to compromise the web server.
 			\item[host activity] --- similarly to every other type of attack
@@ -390,7 +393,7 @@ src="evil.com/code.js">
 				legitimate 30 or so apps that I've installed on my machine, and
 				you can see it's rather dumb to try to track 75,000 pieces of
 				Badness when even a simpleton could track 30 pieces of
-				Goodness~\citep{ranum-myths}.
+				Goodness.
 			\end{quotation}
 			
 			\item they lack of cooperation, which is crucial to detect global and
@@ -500,7 +503,7 @@ src="evil.com/code.js">
 			\begin{figure}[!h]
 				\centering
 				\includegraphics[width=400pt]{pictures/tcp_header.png}
-				\caption{TCP Header}
+				\caption{TCP Header\cite{AlEroud2017}}
 				\label{fig:tcp-header}
 			\end{figure}
 			
@@ -568,7 +571,7 @@ src="evil.com/code.js">
 			\begin{figure}[!h]
 				\centering
 				\includegraphics[width=250pt]{pictures/udp_header.png}
-				\caption{UDP Header}
+				\caption{UDP Header\cite{AlEroud2017}}
 				\label{fig:udp-header}
 			\end{figure}
 		
@@ -592,7 +595,7 @@ src="evil.com/code.js">
 			\begin{figure}[!h]
 				\centering
 				\includegraphics[width=250pt]{pictures/icmp_header.png}
-				\caption{ICMP Header}
+				\caption{ICMP Header\cite{AlEroud2017}}
 				\label{fig:icmp-header}
 			\end{figure}
 			The ICMP header starts after the IPv4 header and is identified by IP protocol number '1'. All ICMP packets have an 8-byte header and variable-sized data section. The first 4 bytes of the header have fixed format, while the last 4 bytes depend on the type/code of that ICMP packet.
@@ -620,7 +623,7 @@ src="evil.com/code.js">
 			\begin{figure}[!h]
 				\centering
 				\includegraphics[height=200pt]{pictures/network-based-ids.png}
-				\caption{Network Based Intrusion Detection System}
+				\caption{Network Based Intrusion Detection System\cite{AlEroud2017}}
 				\label{fig:network-ids}
 			\end{figure}
 			Network intrusion detection systems (NIDS) are placed at a strategic point or points within the network to monitor traffic to and from all devices on the network \cite{Bosman2017}. It performs an analysis of passing traffic on the entire subnet, and matches the traffic that is passed on the subnets to the library of known attacks. Once an attack is identified, or abnormal behavior is sensed, the alert can be sent to the administrator. An example of an NIDS would be installing it on the subnet where firewalls are located in order to see if someone is trying to break into the firewall. Ideally one would scan all inbound and outbound traffic, however doing so might create a bottleneck that would impair the overall speed of the network \cite{Lin2017}. OPNET and NetSim are commonly used tools for simulation network intrusion detection systems. NID Systems are also capable of comparing signatures for similar packets to link and drop harmful detected packets which have a signature matching the records in the NIDS. When we classify the design of the NIDS according to the system interactivity property, there are two types: on-line and off-line NIDS, often referred to as inline and tap mode, respectively. On-line NIDS deals with the network in real time \cite{Zarpelao2017}. It analyses the Ethernet packets and applies some rules, to decide if it is an attack or not. Off-line NIDS deals with stored data and passes it through some processes to decide if it is an attack or not \cite{Lin2017}.
@@ -629,15 +632,15 @@ src="evil.com/code.js">
 			\begin{figure}[!h]
 				\centering
 				\includegraphics[height=200pt]{pictures/host-ids.png}
-				\caption{Host Based Intrusion Detection System}
+				\caption{Host Based Intrusion Detection System\cite{AlEroud2017}}
 				\label{fig:host-ids}
 			\end{figure}
 			Host intrusion detection systems (HIDS) run on individual hosts or devices on the network. A HIDS monitors the inbound and outbound packets from the device only and will alert the user or administrator if suspicious activity is detected \cite{SumaiyaThaseen2016}. It takes a snapshot of existing system files and matches it to the previous snapshot. If the critical system files were modified or deleted, an alert is sent to the administrator to investigate \cite{Vijai2016}. An example of HIDS usage can be seen on mission critical machines, which are not expected to change their configurations.
 			\begin{figure}
 				\centering
 				\includegraphics[width=400pt]{pictures/applications-of-ids.png}
-				\caption{Placement of various kinds of IDS in the Network}
-				\label{fig:mlp-net}
+				\caption{Placement of various kinds of IDS in the Network \cite{AlEroud2017}}
+				\label{fig:apps-of-ids}
 			\end{figure}
 			Intrusion detection systems can also be system-specific using custom tools and honeypots.	
 			
@@ -1120,7 +1123,7 @@ src="evil.com/code.js">
 					Learning Rate & 0.0001 \\
 					Number of Training Epochs & 250 \\
 					Number of Classes & 19 \\ 
-					Accuracy & 94.57 \\
+					Accuracy & 96.79 \\
 					\hline	
 				\end{tabular}
 				
@@ -1172,7 +1175,7 @@ src="evil.com/code.js">
 				Learning Rate & 0.00001 \\
 				Number of Training Epochs & 250 \\
 				Number of Classes & 19 \\ 
-				Accuracy & 95.52 \\
+				Accuracy & 97.09 \\
 				\hline	
 			\end{tabular}
 			
@@ -1295,16 +1298,16 @@ src="evil.com/code.js">
 	Each Neural Network was tested individually with the test dataset. The single Neural Network output was compared with the desired outcome to give accuracy percentage for the individual models.
 		
 		\subsection{Model Accuracy}
-		All models reported accuracies above 90\% when tested against the training dataset. Model accuracies for all the models are listed in the Table \ref{result:model-accu}.
+		All models reported accuracies above 90\% when tested against the training dataset. Model accuracies for all the models are listed in the Table \ref{tab:model-accu}.
 		\begin{table}[!h]
 			\centering
 			\caption{Accuracies for different Models}
-			\label{result:model-accu}
+			\label{tab:model-accu}
 			\begin{tabular}{|c|c|c|}
 				\hline
 				\textbf{Neural Network Type}      & \textbf{Model Accuracies} & \textbf{Trained for (epochs)} \\ \hline
-				SF- 1                 & 94.57                     & 250                  \\ \hline
-				SF-2                  & 95.52                     & 250                  \\ \hline
+				SF- 1                 & 96.79                     & 250                  \\ \hline
+				SF-2                  & 97.09                     & 250                  \\ \hline
 				Multilayer Perceptron & 98.76                     & 250                  \\ \hline
 			\end{tabular}
 		\end{table}
@@ -1347,7 +1350,7 @@ src="evil.com/code.js">
 			\centering
 			\includegraphics[width=400pt]{pictures/allroc.png}
 			\caption{ROC curves for three Models}
-			\label{fig:sf12-accu}
+			\label{fig:all-roc}
 		\end{figure}
 		On the other hand when an intrusion is not in progress and IDS detects it as harmless it is called True Negetive(TN). And the opposite: when there is no intrusion, while there is actually in intrusion in progress, it is called as False Negetive(FN). All this is illustrated in Table \ref{table:ids-tt}.
 		
@@ -1384,6 +1387,9 @@ src="evil.com/code.js">
 			FPR = P(A | \neg I) = \frac{TP}{TP + FN}
 		\end{equation}
 		
+		The ROC curve is generated for binary classification models, however Intrusion detection at its core is just a binary classifier which classifies the model into an attack or a normal packet. Thus, we can generate the ROC curve for these models.
+		
+		As clear from the ROC curves for various models in Figure \ref{fig:all-roc}, all models are very accurate in classifying the packets. However, the MLP model due to its additional hidden inputs, better understands the problem of classification.
 		
 	% Results and Discussion Ends
 

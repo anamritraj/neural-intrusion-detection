@@ -1,10 +1,10 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces TCP Header\relax }}{9}
-\contentsline {figure}{\numberline {2}{\ignorespaces UDP Header\relax }}{11}
-\contentsline {figure}{\numberline {3}{\ignorespaces ICMP Header\relax }}{12}
-\contentsline {figure}{\numberline {4}{\ignorespaces Network Based Intrusion Detection System\relax }}{14}
-\contentsline {figure}{\numberline {5}{\ignorespaces Host Based Intrusion Detection System\relax }}{15}
-\contentsline {figure}{\numberline {6}{\ignorespaces Placement of various kinds of IDS in the Network\relax }}{16}
-\contentsline {figure}{\numberline {7}{\ignorespaces Process of Classification of the Packets using the Neural Network\relax }}{30}
-\contentsline {figure}{\numberline {8}{\ignorespaces Structure of the Multilayer Perceptron Network\relax }}{35}
-\contentsline {figure}{\numberline {9}{\ignorespaces Accuracy vs Number of Epochs for all three models\relax }}{37}
-\contentsline {figure}{\numberline {10}{\ignorespaces ROC curves for three Models\relax }}{39}
+\contentsline {figure}{\numberline {1}{\ignorespaces TCP Header\cite {AlEroud2017}\relax }}{9}{figure.caption.8}
+\contentsline {figure}{\numberline {2}{\ignorespaces UDP Header\cite {AlEroud2017}\relax }}{11}{figure.caption.9}
+\contentsline {figure}{\numberline {3}{\ignorespaces ICMP Header\cite {AlEroud2017}\relax }}{12}{figure.caption.10}
+\contentsline {figure}{\numberline {4}{\ignorespaces Network Based Intrusion Detection System\cite {AlEroud2017}\relax }}{14}{figure.caption.11}
+\contentsline {figure}{\numberline {5}{\ignorespaces Host Based Intrusion Detection System\cite {AlEroud2017}\relax }}{15}{figure.caption.12}
+\contentsline {figure}{\numberline {6}{\ignorespaces Placement of various kinds of IDS in the Network \cite {AlEroud2017}\relax }}{16}{figure.caption.13}
+\contentsline {figure}{\numberline {7}{\ignorespaces Process of Classification of the Packets using the Neural Network\relax }}{30}{figure.caption.14}
+\contentsline {figure}{\numberline {8}{\ignorespaces Structure of the Multilayer Perceptron Network\relax }}{35}{figure.caption.19}
+\contentsline {figure}{\numberline {9}{\ignorespaces Accuracy vs Number of Epochs for all three models\relax }}{37}{figure.caption.23}
+\contentsline {figure}{\numberline {10}{\ignorespaces ROC curves for three Models\relax }}{39}{figure.caption.25}
